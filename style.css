@@ -1,4 +1,4 @@
-/*
+/**
 
 Theme Name: Carrington Blueprint
 Theme URI: http://crowdfavorite.com/
@@ -24,8 +24,45 @@ License URI: http://www.opensource.org/licenses/gpl-2.0.php
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
 // **********************************************************************
 
-NOTE: This file is not used in this theme but is included for WordPress theme expected format compatibility - it's standard to use the css/ dir for actual theme CSS in a Carrington-based theme.
-
-*/
+ * NOTE: This file is not used in this theme but is included for WordPress theme expected format compatibility - it's standard to use the css/ dir for actual theme CSS in a Carrington-based theme.
+ **/
 
 /* including for compatibility */
+.alignleft {
+	float:left;
+	margin-right:1em;
+	margin-bottom:1em;
+}
+.alignright {
+	float:right;
+	margin-left:1em;
+	margin-bottom:1em;
+}
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.wp-caption {
+	border: 1px solid #ddd;
+	text-align: center;
+	background-color: #f3f3f3;
+	padding-top: 4px;
+	margin: 10px;
+	/* optional rounded corners for browsers that support it */
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.wp-caption img {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+.wp-caption p.wp-caption-text {
+	font-size: 11px;
+	line-height: 17px;
+	padding: 0 4px 5px;
+	margin: 0;
+}

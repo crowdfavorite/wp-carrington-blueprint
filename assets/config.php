@@ -21,22 +21,19 @@ $bundler = Bundler::create($abspath);
 
 $bundle_css = new Bundle('css/build.css');
 $bundle_css
-	->set_bundle_key('bundle-business')
+	->set_bundle_key('bundle-blueprint')
 	->set_language('css')
-	->set_meta('dependencies', array())
-	->add('base', 'css/base.css')
-	->add('utility', 'css/utility.css')
-	->add('box', 'css/box.css')
-	->add('content', 'css/content.css')
-	->add('grid', 'css/grid.css')
-	->add('structure', 'css/structure.css');
+	->set_meta('dependencies', array());
+	// Add the following line for every file you want bundled.
+	// ->add('base', 'css/base.css');
 $bundler->push($bundle_css);
 
 $bundle_js = new Bundle('js/build.js');
 $bundle_js
-	->set_bundle_key('bundle-business')
+	->set_bundle_key('bundle-blueprint')
 	->set_language('javascript')
-	->set_meta('dependencies', array('jquery'))
-	->add('master', 'js/master.js');
+	->set_meta('dependencies', array('jquery'));
+	// Add the following line for every file you want bundled.
+	// ->add('master', 'js/master.js');
 $bundler->push($bundle_js);
 
