@@ -1,0 +1,3 @@
+# Carrington Blueprint Changelog
+
+## 1.0 INITIAL RELEASE
