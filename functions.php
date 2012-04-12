@@ -16,7 +16,12 @@
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
-load_theme_textdomain('fave-text');
+/**
+ * Here for internationalization purposes.
+ * If you rename the textdomain, be sure to also do it in the rest of your theme files.
+ * See the Wordpress Codex for more information.
+ */
+load_theme_textdomain('carrington-blueprint');
 
 
 /**
@@ -31,13 +36,12 @@ define('CFCT_PATH', trailingslashit(TEMPLATEPATH));
  * Added to query var at the end of assets to force browser cache to reload after upgrade.
  */
 if (!(defined('CFCT_URL_VERSION'))) {
-	define('CFCT_URL_VERSION', '1.5');
+	define('CFCT_URL_VERSION', '1.0');
 }
 
 /**
- * Includes
+ * Include: Carrington Core and the creation of widget areas
  */
-include_once(CFCT_PATH.'functions/admin.php');
 include_once(CFCT_PATH.'functions/sidebars.php');
 include_once(CFCT_PATH.'carrington-core/carrington.php');
 
@@ -59,20 +63,6 @@ $cfct_options = array(
 	'cfct_text_custom_header_image',
 );
 
-$cfct_color_options = array(
-	'cfct_header_background_color' => '51555c',
-	'cfct_header_text_color' => 'cecfd1',
-	'cfct_header_link_color' => 'ffffff',
-	'cfct_header_nav_background_color' => 'e9eaea',
-	'cfct_header_nav_link_color' => 'a00004',
-	'cfct_header_nav_text_color' => '51555c',
-	'cfct_page_title_color' => '51555c',
-	'cfct_page_subtitle_color' => '51555c',
-	'cfct_link_color' => 'a00004',
-	'cfct_footer_background_color' => '51555c',
-	'cfct_footer_text_color' => '999999',
-	'cfct_footer_link_color' => 'CECFD1',
-);
 
 foreach ($cfct_color_options as $k => $default) {
 	$cfct_options[] = $k;
@@ -82,6 +72,7 @@ foreach ($cfct_color_options as $k => $default) {
 add_theme_support( 'automatic-feed-links' );
 
 // If the content width is not defined elsewhere, it will be set to 550px.
+// This is used for things such as embedded YouTube videos, etc.
 if (! isset($content_width)) {
 	$content_width = 550;
 }
