@@ -19,20 +19,30 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 // Calls header.php
 get_header();
+
+$s = get_query_var('s');
+
+if (get_option('permalink_structure') != '') {
+	$search_title = '<a href="'.esc_attr(site_url('search/'.urlencode($s))).'">'.esc_html($s).'</a>';
+}
+else {
+	$search_title = '<a href="'.esc_attr(site_url('?s='.urlencode($s))).'">'.esc_html($s).'</a>';
+}
+
 ?>
 
 <div id="content">
+	<h1><?php printf(__('Search Results for: %s', 'fave-text'), $search_title); ?></h1>
 	<?php
 	// For the loop used, look in /loops
 	cfct_loop();
-	comments_template();
 	?>
 </div>
-<?php 
+
+<?php
 // Calls sidebar.php
 get_sidebar();
 
 // Calls footer.php
 get_footer();
-
 ?>

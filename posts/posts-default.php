@@ -21,18 +21,18 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 get_header();
 ?>
 
-<div id="content">
+<div class="content">
 	<?php
+	
 	// For the loop used, look in /loops
 	cfct_loop();
-	comments_template();
+
 	?>
 </div>
-<?php 
+<?php
 // Calls sidebar.php
 get_sidebar();
 
 // Calls footer.php
 get_footer();
-
 ?>

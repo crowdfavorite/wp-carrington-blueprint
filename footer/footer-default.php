@@ -17,22 +17,13 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-// Calls header.php
-get_header();
 ?>
+		</section><!-- #section -->
+		<!-- Clears all layout elements -->
+		<div class="clear"></div>
+		<div id="footer">
 
-<div id="content">
-	<?php
-	// For the loop used, look in /loops
-	cfct_loop();
-	comments_template();
-	?>
-</div>
-<?php 
-// Calls sidebar.php
-get_sidebar();
-
-// Calls footer.php
-get_footer();
-
-?>
+		</div><!-- #footer -->
+	<?php wp_footer() ?>
+</body>
+</html>

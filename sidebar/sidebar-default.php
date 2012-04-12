@@ -17,22 +17,13 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-// Calls header.php
-get_header();
 ?>
-
-<div id="content">
-	<?php
-	// For the loop used, look in /loops
-	cfct_loop();
-	comments_template();
-	?>
-</div>
-<?php 
-// Calls sidebar.php
-get_sidebar();
-
-// Calls footer.php
-get_footer();
-
-?>
+<div id="sidebar">
+	<?php if (!dynamic_sidebar('sidebar-default')) { ?>
+	<aside class="widget">
+		<!-- Will appear of no widgets are activated -->
+		<h1 class="widget-title"><?php _e('No Widgets Yet!', 'favemagazine'); ?></h1>
+		<p><?php printf(__('It looks like you haven&rsquo;t added any widgets to this sidebar yet. To customize this sidebar (Blog Sidebar), go <a href="%s">add some</a>!', 'favemagazine'), admin_url('widgets.php')); ?></p>
+	</aside>
+	<?php } ?>
+</div><!--#sidebar-->
