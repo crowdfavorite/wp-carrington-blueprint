@@ -32,6 +32,12 @@ define('CFCT_DEBUG', false);
 define('CFCT_PATH', trailingslashit(TEMPLATEPATH));
 
 /**
+ * Set this to "false" to disable CSS bundling.
+ **/
+define('CFCT_PRODUCTION', true);
+
+
+/**
  * Theme URL version.
  * Added to query var at the end of assets to force browser cache to reload after upgrade.
  */
@@ -62,11 +68,6 @@ $cfct_options = array(
 	'cfct_text_custom_colors',
 	'cfct_text_custom_header_image',
 );
-
-
-foreach ($cfct_color_options as $k => $default) {
-	$cfct_options[] = $k;
-}
 
 // Adds default posts and comments RSS feed links to head
 add_theme_support( 'automatic-feed-links' );
