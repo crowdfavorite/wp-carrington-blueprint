@@ -32,7 +32,7 @@ else {
 ?>
 
 <div id="content">
-	<h1><?php printf(__('Search Results for: %s', 'fave-text'), $search_title); ?></h1>
+	<h1><?php printf(__('Search Results for: %s', 'carrington-blueprint'), $search_title); ?></h1>
 	<?php
 	// For the loop used, look in /loops
 	cfct_loop();
