@@ -18,56 +18,33 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 ?>
 <!DOCTYPE html>
-
-<!-- Internet Explorer Conditional Statements -->
-<!--[if IE]><![endif]-->
-<!--[if lt IE 7]> <html class="ie6" <?php language_attributes() ?>> <![endif]-->
-<!--[if IE 7]> <html class="ie7" <?php language_attributes() ?>> <![endif]-->
-<!--[if IE 8]> <html class="ie8" <?php language_attributes() ?>> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="modern" <?php language_attributes() ?>> <!--<![endif]-->
-<!--[if lt IE 9]>
-	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<!--[if lte IE 7]>
-	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/assets/css/lte-ie7.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
-<![endif]-->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" <?php language_attributes() ?>> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" <?php language_attributes() ?>> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" <?php language_attributes() ?>> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes() ?>> <!--<![endif]-->
 <head>
-	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title><?php wp_title( '-', true, 'right' ); esc_attr_e(get_bloginfo('name')); ?></title>
-	<link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
-	<?php wp_get_archives(array('type' => 'monthly', 'format' => 'link')); ?>
-	<?php include(CFCT_PATH.'assets/load.php'); ?>
-	<?php
-	// Include javascript for threaded comments if needed
-	if ( is_singular() && get_option('thread_comments') && comments_open() ) { 
-		wp_enqueue_script( 'comment-reply' ); 
-	}
-	// Necessary for many Wordpress Functions
-	wp_head();
-	?>
-	<!-- Add misc. Scripts and Includes here, such as Google Fonts. -->
-
+	<meta charset="<?php bloginfo('charset') ?>" />
+	<title><?php wp_title( '-', true, 'right' ); echo esc_html( get_bloginfo('name'), 1 ).$title_description; ?></title>
+	<?php /*
+	Empty conditional comment prevents blocking downloads in IE8. Good ol' IE.
+	See http://www.phpied.com/conditional-comments-block-downloads/ for more info. */ ?>
+	<!--[if IE]><![endif]-->
+	<?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
-	<header id="header" class="clearfix">
-		<!-- Blog title and link to home page -->
-		<h1><a href="<?php echo home_url('/') ?>" title="Home" rel="home"><?php bloginfo('name') ?></a></h1>
 
-		<!-- Blog Description -->
-		<p><?php bloginfo('description'); ?></p>
-
-		<!-- Primary Navigation Menu -->
-		<div class="nav-wrap">
-			<?php
-			wp_nav_menu(array( 
-				'theme_location' => 'main',
-				'container' => 'nav',
-				'container_class' => 'nav-main nav',
-				'depth' => 2,
-			));
-			?>
-	</div>
+<div class="container grid">
+	<header id="header">
+			<h1 id="site-name"><a href="<?php echo home_url('/'); ?>" title="<?php _e('Home', 'carrington-blueprint'); ?>"><?php bloginfo('name'); ?></a></h1>
+			<nav id="nav-main">
+				<?php wp_nav_menu( array(
+					'container' => '',
+					'theme_location' => 'main',
+					'depth' => 1
+				)); ?>
+			</nav>
 	</header><!-- #header -->
-	<section id="main">
+
+	<hr>
+
+	<div id="content" class="clearfix">

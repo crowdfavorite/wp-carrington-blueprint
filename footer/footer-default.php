@@ -18,12 +18,25 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 ?>
-		</section><!-- #section -->
-		<!-- Clears all layout elements -->
-		<div class="clear"></div>
-		<div id="footer">
+if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
+if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-		</div><!-- #footer -->
-	<?php wp_footer() ?>
+?>
+	</div><!-- #content -->
+	<hr>
+	<footer id="footer">
+<?php
+if (cfct_get_option('cfct_credit') == 'yes') {
+?>
+		<p id="developer-link"><?php printf(__('Development by <a href="http://crowdfavorite.com" title="Custom WordPress development, design and consulting services." rel="developer designer">%s</a>', 'carrington-blueprint'), 'Crowd Favorite'); ?></p>
+<?php
+}
+?>
+		<p>&copy; <?php echo date("Y").' '; bloginfo('name') ?>. All Rights Reserved.</p>
+	</footer><!--#footer -->
+
+</div><!-- .container -->
+
+<?php wp_footer() ?>
 </body>
 </html>
