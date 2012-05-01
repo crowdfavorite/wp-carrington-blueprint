@@ -17,7 +17,6 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-// Calls header.php
 get_header();
 
 $s = get_query_var('s');
@@ -28,21 +27,17 @@ if (get_option('permalink_structure') != '') {
 else {
 	$search_title = '<a href="'.esc_attr(site_url('?s='.urlencode($s))).'">'.esc_html($s).'</a>';
 }
-
 ?>
 
-<div id="content">
+<div id="primary" class="c6-1234">
 	<h1><?php printf(__('Search Results for: %s', 'carrington-blueprint'), $search_title); ?></h1>
 	<?php
 	// For the loop used, look in /loops
 	cfct_loop();
 	?>
-</div>
+</div><!-- #primary -->
 
 <?php
-// Calls sidebar.php
 get_sidebar();
-
-// Calls footer.php
 get_footer();
 ?>

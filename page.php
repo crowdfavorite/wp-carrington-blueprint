@@ -17,22 +17,18 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-// Calls header.php
 get_header();
 ?>
 
-<div id="content">
+<div id="primary" class="c6-1234">
 	<?php
 	// For the loop used, look in /loops
 	cfct_loop();
 	comments_template();
 	?>
-</div>
+</div><!-- #primary -->
+
 <?php 
-// Calls sidebar.php
 get_sidebar();
-
-// Calls footer.php
 get_footer();
-
 ?>
