@@ -37,17 +37,15 @@ $title_description = (is_home() && !empty($blog_desc) ? ' - '.$blog_desc : '');
 <body <?php body_class(); ?>>
 
 <div class="container grid">
-	<header id="header">
+	<header id="header" class="clearfix">
 			<h1 id="site-name"><a href="<?php echo home_url('/'); ?>" title="<?php _e('Home', 'carrington-blueprint'); ?>"><?php bloginfo('name'); ?></a></h1>
 			<nav id="nav-main">
 				<?php wp_nav_menu( array(
 					'container' => '',
 					'theme_location' => 'main',
-					'depth' => 1
+					'depth' => 2
 				)); ?>
 			</nav>
 	</header><!-- #header -->
-
-	<hr>
 
 	<div id="content" class="clearfix">
