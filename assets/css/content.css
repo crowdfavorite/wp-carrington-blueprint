@@ -1,0 +1,71 @@
+/* --------------------------------------------------
+ * Content - Posts, Pages, Comments
+-------------------------------------------------- */
+
+/** Header
+ -------------------------------------------------- */
+#header {
+}
+#header #site-name {
+}
+
+/* Main Nav */
+#nav-main ul {
+}
+
+/** Content - wraps body and sidebar
+ -------------------------------------------------- */
+#content {
+}
+
+/** Posts Default
+ -------------------------------------------------- */
+article {
+}
+
+/* entry-header */
+.entry-header {
+}
+.entry-title {
+}
+.entry-date {
+}
+.entry-media {
+}
+.entry-content {
+}
+
+/* entry meta */
+.entry-meta {
+}
+
+/** Pages
+ -------------------------------------------------- */
+.page-header {
+}
+.page-title {
+}
+
+/** Sidebar
+ -------------------------------------------------- */
+/* widgets */
+.widget {
+}
+.widget-title {
+}
+
+/** Attachment Page
+ -------------------------------------------------- */
+.attachment-header {
+}
+.attachment-content {
+}
+.attachment-prev {
+}
+.attachment-next {
+}
+
+/** Footer
+ -------------------------------------------------- */
+#footer {
+}

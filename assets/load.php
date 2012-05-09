@@ -40,25 +40,12 @@ else {
 	$loader->enqueue_original_files();
 }
 
-if ( ! function_exists( 'cfct_enqueue_pluggable' ) ) {
-	function cfct_enqueue_pluggable() {
-		if (!is_admin()) {
-			wp_enqueue_script('favemagazine', get_bloginfo('template_directory') . '/assets/js/master.js', array('jquery'), CFCT_URL_VERSION);
-		}
-		if (is_child_theme() && !is_admin()) {
-			wp_enqueue_style('favemagazine', get_bloginfo('stylesheet_url'), array(), CFCT_URL_VERSION, 'screen');
-		}
-	}
+// Automatically enqueue child styles
+if (is_child_theme() && !is_admin()) {
+	wp_enqueue_style('cfct-theme-child', get_bloginfo('stylesheet_url'), $personal_bundle, CFCT_URL_VERSION, 'screen');
 }
 
-cfct_enqueue_pluggable();
-
-
-function cfcp_viewport_meta() {
-// Mobile viewport optimized: j.mp/bplateviewport
-?>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<?php
+/* Add JavaScript to pages with the comment form to support threaded comments (when in use). */
+if ( is_singular() && get_option( 'thread_comments' ) ) {
+	wp_enqueue_script( 'comment-reply' );
 }
-//add_action('wp_head', 'cfcp_viewport_meta');
-

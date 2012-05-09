@@ -23,17 +23,22 @@ $bundle_css = new Bundle('css/build.css');
 $bundle_css
 	->set_bundle_key('bundle-blueprint')
 	->set_language('css')
-	->set_meta('dependencies', array());
+	->add('base', 'css/base.css')
+	->add('grid', 'css/grid.css')
+	->add('utility', 'css/content.css')
+	->add('content', 'css/utility.css');
 	// Add the following line for every file you want bundled.
-	// ->add('base', 'css/base.css');
+	// ->add('name', 'css/file.css');
 $bundler->push($bundle_css);
 
 $bundle_js = new Bundle('js/build.js');
 $bundle_js
 	->set_bundle_key('bundle-blueprint')
 	->set_language('javascript')
-	->set_meta('dependencies', array('jquery'));
+	->set_meta('dependencies', array('jquery'))
+	->add('modernizr', 'js/modernizr-2.5.3.min.js')
+	->add('global', 'js/global.js');
 	// Add the following line for every file you want bundled.
-	// ->add('master', 'js/master.js');
+	// ->add('name', 'js/file.js');
 $bundler->push($bundle_js);
 

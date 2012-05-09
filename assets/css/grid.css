@@ -1,0 +1,167 @@
+/*	CSSGrid
+ *  https://github.com/crowdfavorite/css-grid
+ *	License: http://opensource.org/licenses/mit-license.php  */
+
+/** grid foundation
+ -------------------------------------------------- */
+.grid {
+	margin: 0 auto;
+	/* this makes the page wide but keeps content away from the edge */
+	padding: 30px;
+}
+
+/* fluid media */
+.row img,
+.row object,
+.row embed,
+.row video {
+	max-width: 100%;
+}
+
+/* Default large grid.
+Works fine with older browsers that don't support media queries. */
+.grid {
+	width: 966px;
+}
+.c4-1,.c4-2,.c4-3,.c4-4,.c4-12,.c4-123, .c4-23,.c4-234,.c4-34,
+.c6-1,.c6-2,.c6-3,.c6-4,.c6-5,.c6-6,
+.c6-12,.c6-123,.c6-1234,.c6-12345,
+.c6-23,.c6-234,.c6-2345,.c6-23456,
+.c6-34,.c6-345,.c6-3456,
+.c6-45,.c6-456,.c6-56 {
+	display: inline; /* IE6/IE7 double-margin float bug fix */
+	float: left;
+	margin-left: 30px;
+	/* Prevent collapsing of empty columns. Min-height prevents collapse
+	everywhere but IE6. IE6 doesn't collapse empty collumns anyhow, so no need
+	for a fix there. */
+	min-height: 1px;
+}
+
+/* Sixths */
+.c6-1,.c6-2,.c6-3,.c6-4,.c6-5,.c6-6 { width: 136px; }
+/* Quarters */
+.c4-1,.c4-2,.c4-3,.c4-4 { width: 219px; }
+/* Thirds */
+.c6-12,.c6-23,.c6-34,.c6-45,.c6-56 { width: 302px; }
+/* Halves */
+.c4-12,.c4-23,.c4-34,
+.c6-123,.c6-234,.c6-345,.c6-456 { width: 468px; }
+/* Two-thirds */
+.c6-1234,.c6-2345,.c6-3456 { width: 634px; }
+/* three-quarters */
+.c4-123,.c4-234 { width: 717px; }
+/* Five-sixths */
+.c6-12345,.c6-23456 { width: 800px; }
+
+/* Full-width
+These classes are not included in column float definitions, since they don't
+have either margin or fixed width. Including display:block and width styles
+so these classes can be used on non-block-level elements. */
+.c6-123456,
+.c4-1234 {
+	clear: both;
+	display: block;
+	min-height: 1px;
+	width: auto;
+}
+
+/* Medium-sized grid. */
+@media only screen and (min-width: 760px) and (max-width: 1025px) {
+	.grid {
+		width: 700px;
+	}
+	.c4-1,.c4-2,.c4-3,.c4-4,.c4-12,.c4-123, .c4-23,.c4-234,.c4-34,
+	.c6-1,.c6-2,.c6-3,.c6-4,.c6-5,.c6-6,
+	.c6-12,.c6-123,.c6-1234,.c6-12345,
+	.c6-23,.c6-234,.c6-2345,.c6-23456,
+	.c6-34,.c6-345,.c6-3456,
+	.c6-45,.c6-456,.c6-56 {
+		margin-left: 20px;
+	}
+	/* sixths */
+	.c6-1,.c6-2,.c6-3,.c6-4,.c6-5,.c6-6 { width: 100px; }
+	/* quarters */
+	.c4-1,.c4-2,.c4-3,.c4-4 { width: 160px; }
+	/* thirds */
+	.c6-12,.c6-23,.c6-34,.c6-45,.c6-56 { width: 220px; }
+	/* halves */
+	.c4-12,.c4-23,.c4-34,
+	.c6-123,.c6-234,.c6-345,.c6-456 { width: 340px; }
+	/* two-thirds */
+	.c6-1234,.c6-2345,.c6-3456 { width: 460px; }
+	/* three-quarters */
+	.c4-123,.c4-234 { width: 520px; }
+	/* five-sixths */
+	.c6-12345,.c6-23456 { width: 580px; } 
+}
+
+/* Single-column mobile
+Get rid of widths and floats, go to fluid single column. */
+@media only screen and (max-width: 759px) {
+	.grid,
+	.c4-1,.c4-2,.c4-3,.c4-4,.c4-12,.c4-123, .c4-23,.c4-234,.c4-34,
+	.c6-1,.c6-2,.c6-3,.c6-4,.c6-5,.c6-6,
+	.c6-12,.c6-123,.c6-1234,.c6-12345,
+	.c6-23,.c6-234,.c6-2345,.c6-23456,
+	.c6-34,.c6-345,.c6-3456,
+	.c6-45,.c6-456,.c6-56 {
+		display: block;
+		float: none;
+		margin-left: 0;
+		width: auto;
+	}
+}
+
+/* zeroing out leftmost.unit margins */
+.c6-1,.c6-12,.c6-123,.c6-1234,.c6-12345,
+.c4-1,.c4-12,.c4-123 {
+	margin-left: 0;
+}
+/* zeroing out leftmost nested .unit margins */
+.c6-2 .c6-2,.c6-23 .c6-2,.c6-23 .c6-23,.c6-234 .c6-2,.c6-234 .c6-23,.c6-234 .c6-234,.c6-2345 .c6-2,.c6-2345 .c6-23,.c6-2345 .c6-234,.c6-2345 .c6-2345,.c6-23456 .c6-2,.c6-23456 .c6-23,.c6-23456 .c6-234,.c6-23456 .c6-2345,.c6-23456 .c6-23456,
+.c6-3 .c6-3,.c6-34 .c6-3,.c6-34 .c6-34,.c6-345 .c6-3,.c6-345 .c6-34,.c6-345 .c6-345,.c6-3456 .c6-3,.c6-3456 .c6-34,.c6-3456 .c6-345,.c6-3456 .c6-3456,
+.c6-4 .c6-4,.c6-45 .c6-4,.c6-45 .c6-45,.c6-456 .c6-4,.c6-456 .c6-45,.c6-456 .c6-456,
+.c6-5 .c6-5,.c6-56 .c6-5,.c6-56 .c6-56,
+.c6-6 .c6-6,
+.c4-2 .c4-2,.c4-23 .c4-2,.c4-23 .c4-23,.c4-234 .c4-2,.c4-234 .c4-23,.c4-234 .c4-234,
+.c4-3 .c4-3,.c4-34 .c4-3,.c4-34 .c4-34 {
+	margin-left: 0;
+}
+
+/** grid utilities
+ -------------------------------------------------- */
+/* Row Clearfix
+Uses variation of Nicolas Gallagher's Micro Clearfix.
+http://nicolasgallagher.com/micro-clearfix-hack/ */
+.row:before,
+.row:after {
+	content:"";
+	display:table;
+}
+.row:after {
+	clear:both;
+}
+.row {
+	/* Just in case: make sure that rows clear outside floats. */
+	clear: both;
+	/* For IE 6/7 (trigger hasLayout) */
+	zoom:1;
+}
+
+/** grid helper classes
+ -------------------------------------------------- */
+/* Set overflow:hidden to crop overflow content.
+Good for user-generated content. Use this class if you want to support IE6 -- it has issues with overflow.
+Example usage: .grid.hideoverflow. */
+.hideoverflow .c6-1, .hideoverflow .c6-2, .hideoverflow .c6-3, .hideoverflow .c6-4, .hideoverflow .c6-5, .hideoverflow .c6-6,
+.hideoverflow .c4-1, .hideoverflow .c4-2, .hideoverflow .c4-3, .hideoverflow .c4-4,
+.hideoverflow .c6-12, .hideoverflow .c6-123, .hideoverflow .c6-1234, .hideoverflow .c6-12345, .hideoverflow .c6-123456,
+.hideoverflow .c6-23, .hideoverflow .c6-234, .hideoverflow .c6-2345, .hideoverflow .c6-23456,
+.hideoverflow .c6-34, .hideoverflow .c6-345, .hideoverflow .c6-3456,
+.hideoverflow .c6-45, .hideoverflow .c6-456, .hideoverflow .c6-56,
+.hideoverflow .c4-12, .hideoverflow .c4-123, .hideoverflow .c4-1234,
+.hideoverflow .c4-23, .hideoverflow .c4-234,
+.hideoverflow .c4-34 {
+	overflow: hidden;
+}
