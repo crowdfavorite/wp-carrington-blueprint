@@ -21,7 +21,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 get_header();
 ?>
 
-<div id="content">
+<div id="primary" class="c6-1234">
 <?php
 // For the loop used, look in /loops
 cfct_loop();

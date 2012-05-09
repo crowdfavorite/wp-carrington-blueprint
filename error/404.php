@@ -19,13 +19,10 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
 ?>
-<header id="masthead">
-	<h1 class="page-title-b"><?php _e('<i class="label">Error 404:</i> Page Not Found', 'carrington-blueprint'); ?></h1>
-</header><!-- #masthead -->
-<div class="content">
+<div id="primary" class="c6-123456">
+	<h1><?php _e('<i>Error 404:</i> Page Not Found', 'carrington-blueprint'); ?></h1>
 	<?php
 	_e('<h2>Sorry, we couldn&rsquo;t find the page you&rsquo;re looking for.</h2> <p>We may have moved the page or perhaps you followed an outdated link.<br/> You could try a search, or visit the home page.</p>', 'carrington-blueprint').'</p>'; 
-
 	cfct_form('search');
 	?>
 </div><!-- #content -->
