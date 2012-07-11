@@ -32,10 +32,10 @@ $loader = new Bundler_Loader($assets_url);
 $loader->set_default_ver(CFCT_URL_VERSION);
 
 // If we're in production mode, enqueue the built files
+// Otherwise, if we're in development mode, enqueue the original separate files
 if (CFCT_PRODUCTION) {
 	$loader->enqueue_bundled_files();
 }
-// Otherwise, if we're in development mode, enqueue the original separate files
 else {
 	$loader->enqueue_original_files();
 }
