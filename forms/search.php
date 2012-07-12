@@ -11,7 +11,7 @@
 // **********************************************************************
 // This program is distributed in the hope that it will be useful, but
 // WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 // **********************************************************************
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
@@ -31,6 +31,6 @@ else {
 
 ?>
 <form role="search" class="searchform" method="get" action="<?php echo home_url('/'); ?>" onsubmit="<?php echo $onsubmit; ?>">
-	<input type="text" id="<?php echo $id; ?>" class="s" name="s" value="<?php esc_attr_e($s); ?>" />
+	<input type="text" id="<?php echo $id; ?>" class="s" name="s" value="<?php esc_attr_e($s); ?>" placeholder="Search" />
 	<input type="submit" class="searchsubmit button" value="<?php _e('Search', 'carrington-blueprint'); ?>" />
 </form>

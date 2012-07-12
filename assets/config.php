@@ -11,7 +11,7 @@
 // **********************************************************************
 // This program is distributed in the hope that it will be useful, but
 // WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 // **********************************************************************
 
 $abspath = realpath(dirname(__FILE__)) . '/';
@@ -37,6 +37,7 @@ $bundle_js
 	->set_language('javascript')
 	->set_meta('dependencies', array('jquery'))
 	->add('modernizr', 'js/modernizr-2.5.3.min.js')
+	->add('placeholder', 'js/jquery.placeholder.min.js')
 	->add('global', 'js/global.js');
 	// Add the following line for every file you want bundled.
 	// ->add('name', 'js/file.js');
