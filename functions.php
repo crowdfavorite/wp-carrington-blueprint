@@ -11,7 +11,7 @@
 // **********************************************************************
 // This program is distributed in the hope that it will be useful, but
 // WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 // **********************************************************************
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
@@ -19,21 +19,14 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 define('CFCT_PATH', trailingslashit(TEMPLATEPATH));
 
 /**
- * Here for internationalization purposes.
- * If you rename the textdomain, be sure to also do it in the rest of your theme files.
- * See the Wordpress Codex for more information.
- */
-load_theme_textdomain('carrington-blueprint');
-
-/**
  * Set this to "true" to turn on debugging mode.
- * Debug helps with development by showing you the paths of the files loaded by Carrington.
+ * Helps with development by showing the paths of the files loaded by Carrington.
  */
 define('CFCT_DEBUG', false);
 
 /**
  * In production mode, or doing development?
- * When true, assets/load.php will enqueue the built versions of the files
+ * When true, assets/load.php will enqueue the built versions of the files.
  */
 define('CFCT_PRODUCTION', false);
 
@@ -54,42 +47,86 @@ if (!(defined('CFCT_URL_VERSION'))) {
  * Includes
  */
 include_once(CFCT_PATH.'carrington-core/carrington.php');
-include_once(CFCT_PATH.'functions/sidebars.php');
 
 /**
- * Theme Setup
+ * Set the content width based on the theme's design and stylesheet.
  */
-function cfct_theme_setup() {
-	// Add default posts and comments RSS feed links to head
-	add_theme_support('automatic-feed-links');
-	
-	// This theme uses post thumbnails
-	add_theme_support('post-thumbnails');
+if (! isset($content_width)) {
+	$content_width = 600;
+}
 
-	// New image sizes that are not overwrote in the admin
-	// add_image_size('thumb-img', 160, 120, true);
-	// add_image_size('medium-img', 510, 510, false);
-	// add_image_size('large-img', 710, 700, false);
 
-	// If the content width is not defined elsewhere, it will be set to 550px.
-	// This is used for things such as embedded YouTube videos, etc.
-	if (! isset($content_width)) {
-		$content_width = 550;
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which runs
+ * before the init hook. The init hook is too late for some features, such as
+ * indicating support post thumbnails.
+ */
+if (! function_exists('cfct_theme_setup')) {
+	function cfct_theme_setup() {
+		/**
+		 * Make theme available for translation
+		 * Use find and replace to change 'carrington-blueprint' to the name of your theme.
+		 */
+		load_theme_textdomain('carrington-blueprint');
+
+		/**
+		 * Add default posts and comments RSS feed links to head.
+		 */
+		add_theme_support('automatic-feed-links');
+
+		/**
+		 * Enable post thumbnails support.
+		 */
+		add_theme_support('post-thumbnails');
+
+		/**
+		 * New image sizes that are not overwrote in the admin.
+		 */
+		// add_image_size('thumb-img', 160, 120, true);
+		// add_image_size('medium-img', 510, 510, false);
+		// add_image_size('large-img', 710, 700, false);
+
+		/**
+		 * Add navigation menus
+		 */
+		register_nav_menus(array(
+			'main' => 'Main Navigation',
+			'footer' => 'Footer Navigation'
+		));
+
+		/**
+		 * Add post formats
+		 */
+		// add_theme_support( 'post-formats', array('image', 'link', 'gallery', 'quote', 'status', 'video'));
 	}
-			
-	// Add navigation menus
-	register_nav_menus(array(
-		'main' => 'Main Navigation',
-		'footer' => 'Footer Navigation'
-	));
-
-	// Add post formats
-	// add_theme_support( 'post-formats', array('image', 'link', 'gallery', 'quote', 'status', 'video'));
 }
 add_action('after_setup_theme', 'cfct_theme_setup');
 
+
 /**
- * Load assets at action 'wp', when conditionals like is_single are available.
+ * Register widgetized area and update sidebar with default widgets.
+ */
+function cfct_widgets_init() {
+	// Sidebar Defaults
+	$sidebar_defaults = array(
+		'before_widget' => '<aside id="%1$s" class="widget clearfix %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h1 class="widget-title">',
+		'after_title' => '</h1>'
+	);
+	// Copy the following code and replace values to create more widget areas
+	register_sidebar(array_merge($sidebar_defaults, array(
+		'id' => 'sidebar-default',
+		'name' => __('Default Sidebar', 'carrington-blueprint'),
+	)));
+}
+add_action( 'widgets_init', 'cfct_widgets_init' );
+
+/**
+ * Enqueue's scripts and styles
+ * Loads assets at action 'wp', when conditionals like is_single are available.
  */
 function cfct_load_assets() {
 	include_once(CFCT_PATH.'assets/load.php');
