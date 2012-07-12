@@ -11,16 +11,16 @@
 // **********************************************************************
 // This program is distributed in the hope that it will be useful, but
 // WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 // **********************************************************************
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 ?>
-	</div><!-- #content -->
+	</div><!-- #main -->
 	<hr>
-	<footer id="footer">
+	<footer id="footer" class="site-footer" role="contentinfo">
 <?php
 if (cfct_get_option('cfct_credit') == 'yes') {
 ?>
@@ -34,5 +34,6 @@ if (cfct_get_option('cfct_credit') == 'yes') {
 </div><!-- .container -->
 
 <?php wp_footer() ?>
+
 </body>
 </html>
