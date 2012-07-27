@@ -23,7 +23,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	<footer id="footer" class="site-footer" role="contentinfo">
 <?php
 
-	if (cfct_get_option('cfct_copyright') !== null) {
+	if (cfct_get_option('cfct_copyright') != null) {
 		echo '<p>'.cfct_get_option('cfct_copyright').'</p>';
 	}
 
