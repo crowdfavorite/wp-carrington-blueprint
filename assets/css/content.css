@@ -2,7 +2,7 @@
  * Content - Posts, Pages, Comments
 -------------------------------------------------- */
 
-/** Header
+/** Masthead
  -------------------------------------------------- */
 #masthead {
 	margin-bottom: 30px;
@@ -10,7 +10,7 @@
 #masthead #site-name {
 }
 
-/* Main Nav */
+/* Main Navigation */
 #nav-main {
 	border-bottom: 1px solid #ddd;
 	border-top: 1px solid #ddd;
@@ -63,18 +63,8 @@
 	border: 0;
 }
 
-
-/** Content - wraps body and sidebar
- -------------------------------------------------- */
-#content {
-}
-
 /** Posts Default
  -------------------------------------------------- */
-article {
-}
-
-/* entry-header */
 .entry-header {
 }
 .entry-title {
@@ -85,8 +75,6 @@ article {
 }
 .entry-content {
 }
-
-/* entry meta */
 .entry-meta {
 }
 
@@ -97,9 +85,8 @@ article {
 .page-title {
 }
 
-/** Sidebar
+/** Sidebar / Widgets
  -------------------------------------------------- */
-/* widgets */
 .widget {
 }
 .widget-title {
