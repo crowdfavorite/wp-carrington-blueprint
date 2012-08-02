@@ -11,7 +11,7 @@
 // **********************************************************************
 // This program is distributed in the hope that it will be useful, but
 // WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 // **********************************************************************
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
@@ -28,7 +28,7 @@ if ($comment->comment_approved == '0') {
 <div class="notice">
 	<div class="content"><?php _e('Your comment is awaiting moderation.', 'carrington-blueprint'); ?></div>
 </div>
-<?php 
+<?php
 }
 ?>
 <div id="comment-<?php comment_ID(); ?>" <?php comment_class('reply clearfix'); ?>>
@@ -43,10 +43,10 @@ if ($comment->comment_approved == '0') {
 		<?php
 		printf(__('On %s at %s', 'carrington-blueprint'), get_comment_date(), get_comment_time());
 		if (get_option('thread_comments')) {
-			echo ' <span class="spacer">&bull;</span> ';
+			echo ' &middot; ';
 			comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth'])), $comment, $post);
 		}
-		edit_comment_link(__('Edit', 'carrington-blueprint'), ' <span class="spacer">&bull;</span> ', '');
+		edit_comment_link(__('Edit', 'carrington-blueprint'), ' &middot; ', '');
 		?>
 	</div>
 </div><!-- .reply -->

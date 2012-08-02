@@ -11,7 +11,7 @@
 // **********************************************************************
 // This program is distributed in the hope that it will be useful, but
 // WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 // **********************************************************************
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
@@ -30,10 +30,10 @@ extract($data);
 		<?php
 		printf(__('On %s at %s', 'carrington-blueprint'), get_comment_date(), get_comment_time());
 		if (get_option('thread_comments')) {
-			echo ' &bull; ';
+			echo ' &middot; ';
 			comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth'])), $comment, $post);
 		}
-		edit_comment_link(__('Edit', 'carrington-blueprint'), ' &bull; ', '');
+		edit_comment_link(__('Edit', 'carrington-blueprint'), ' &middot; ', '');
 		?>
 	</div>
 </div><!-- .reply -->
