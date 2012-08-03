@@ -11,7 +11,7 @@
 // **********************************************************************
 // This program is distributed in the hope that it will be useful, but
 // WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 // **********************************************************************
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
@@ -19,11 +19,11 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 ?>
 <article id="post-<?php the_ID() ?>" <?php post_class(); ?>>
 	<div class="page-header">
-		<h1 class="page-title"><?php the_title() ?></h1>
+		<?php the_title('<h1 class="page-title">', '</h1>') ?>
 	</div>
 	<div class="page-content">
 		<?php
-			the_content('<span class="more-link">'.__('Continued&hellip;', 'carrington-blueprint').'</span>'); 
+			the_content('<span class="more-link">'.__('Continued&hellip;', 'carrington-blueprint').'</span>');
 			$args = array(
 				'before' => '<p class="pages-link">'. __('Pages: ', 'carrington-blueprint'),
 				'after' => "</p>\n",

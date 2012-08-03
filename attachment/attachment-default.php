@@ -28,7 +28,7 @@ if (have_posts()) : while (have_posts()) : the_post();
 
 		<div class="attachment-content c6-123456">
 			<p><a href="<?php echo get_permalink($post->post_parent); ?>" rev="attachment">&larr; back to &#8220;<?php echo get_the_title($post->post_parent); ?>&#8221;</a></p>
-			<h1><?php the_title(); ?></h1>
+			<?php the_title('<h1>', '</h1>') ?>
 			<p><a href="<?php echo wp_get_attachment_url($post->ID); ?>"><?php echo wp_get_attachment_image( $post->ID, 'medium' ); ?></a></p>
 
 			<?php
