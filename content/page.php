@@ -18,10 +18,10 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 ?>
 <article id="post-<?php the_ID() ?>" <?php post_class(); ?>>
-	<div class="page-header">
-		<?php the_title('<h1 class="page-title">', '</h1>') ?>
+	<div class="entry-header">
+		<?php the_title('<h1 class="entry-title">', '</h1>') ?>
 	</div>
-	<div class="page-content">
+	<div class="entry-content">
 		<?php
 			the_content('<span class="more-link">'.__('Continued&hellip;', 'carrington-blueprint').'</span>');
 			$args = array(
@@ -31,5 +31,5 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			);
 			wp_link_pages($args);
 		?>
-	</div><!--.page-content-->
+	</div><!--.entry-content-->
 </article>
