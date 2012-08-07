@@ -126,10 +126,9 @@ add_action( 'widgets_init', 'cfct_widgets_init' );
 
 /**
  * Enqueue's scripts and styles
- * Loads assets at action 'wp', when conditionals like is_single are available.
  */
 function cfct_load_assets() {
 	include_once(CFCT_PATH.'assets/load.php');
 }
-add_action('wp', 'cfct_load_assets');
+add_action('wp_enqueue_scripts', 'cfct_load_assets');
 
