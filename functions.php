@@ -25,12 +25,6 @@ define('CFCT_PATH', trailingslashit(TEMPLATEPATH));
 define('CFCT_DEBUG', false);
 
 /**
- * In production mode, or doing development?
- * When true, assets/load.php will enqueue the built versions of the files.
- */
-define('CFCT_PRODUCTION', false);
-
-/**
  * Theme version.
  */
 define('CFCT_THEME_VERSION', '1.0');
@@ -128,7 +122,25 @@ add_action( 'widgets_init', 'cfct_widgets_init' );
  * Enqueue's scripts and styles
  */
 function cfct_load_assets() {
-	include_once(CFCT_PATH.'assets/load.php');
+	//Variable for assets url
+	$cfct_assets_url = get_template_directory_uri() . '/assets/';
+
+	// Styles
+	wp_register_style('base', $cfct_assets_url . 'css/base.css', '', CFCT_URL_VERSION);
+	wp_enqueue_style('base');
+	wp_register_style('grid', $cfct_assets_url . 'css/grid.css', 'base', CFCT_URL_VERSION);
+	wp_enqueue_style('grid');
+	wp_register_style('content', $cfct_assets_url . 'css/content.css', 'grid', CFCT_URL_VERSION);
+	wp_enqueue_style('content');
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+
+	// Scripts
+	wp_enqueue_script('modernizr', $cfct_assets_url . 'js/modernizr-2.5.3.min.js', '', CFCT_URL_VERSION);
+	wp_enqueue_script('jquery');
+	wp_enqueue_script('placeholder', $cfct_assets_url . 'js/jquery.placeholder.min.js', 'jquery', CFCT_URL_VERSION);
+	wp_enqueue_script('script', $cfct_assets_url . 'js/script.js', array('jquery', 'placeholder'), CFCT_URL_VERSION);
 }
 add_action('wp_enqueue_scripts', 'cfct_load_assets');
 
