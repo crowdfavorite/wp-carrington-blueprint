@@ -1,0 +1,82 @@
+// --------------------------------------------------
+// Main file: SASS variables, mixins, fonts, and @imports
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// Colors
+
+// $color-dark: #444;
+// $color: #666;
+// $color-light: #999;
+
+// Typography
+
+//$font-names: Georgia, "Times New Roman", Times, serif;
+
+// --------------------------------------------------
+// Media queries and responsive features
+// --------------------------------------------------
+
+// Break Points
+
+$small-min: 200px;
+$medium-min: 33px;
+$large-min: 22px;
+
+// Media Query Mixin
+
+@mixin breakpoint($bp) {
+	@media (min-width: $bp)  { @content; }
+}
+
+// --------------------------------------------------
+// Generic Mixins
+// --------------------------------------------------
+
+@mixin border-radius($radius: 3px) {
+	-moz-border-radius: $radius; /* FF1+ */
+	-webkit-border-radius: $radius; /* Saf3+, Chrome */
+	border-radius: $radius; /* Standard. IE9 */
+	/**
+	 * @bugfix border-radius background bleed
+	 * @see http://tumble.sneak.co.nz/post/928998513/fixing-the-background-bleed
+	 */
+	-webkit-background-clip: padding-box;
+}
+
+@mixin box-shadow($x: 0, $y: 3px, $spread: 3px, $color: #666) {
+	-moz-box-shadow: $x $y $spread $color; /* FF3.5+ */
+	-webkit-box-shadow: $x $y $spread $color; /* Saf3+, Chrome */
+	box-shadow: $x $y $spread $color; /* Standard. Opera 10.5, IE9 */
+}
+
+// --------------------------------------------------
+// Styles: everything gets included from here.
+// --------------------------------------------------
+
+// RESET — Normalize, Boilerplate, Formalize
+@import "reset";
+
+// Crowd Favorite grid for content and Carrington Build
+@import "grid";
+
+// Helper Classes & Debug Styles
+@import "utility";
+
+// Carrington Build & Module Styling
+@import "build-modules";
+
+// Global Header
+@import "header";
+
+// Global Footer
+@import "footer";
+
+// Global Content
+@import "content";
+
+// Widgets
+@import "widgets";

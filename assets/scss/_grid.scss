@@ -1,3 +1,7 @@
+// --------------------------------------------------
+// Grid
+// --------------------------------------------------
+
 /*	CSSGrid
  *  https://github.com/crowdfavorite/css-grid
  *	License: http://opensource.org/licenses/mit-license.php  */
@@ -23,12 +27,9 @@ Works fine with older browsers that don't support media queries. */
 .grid {
 	width: 966px;
 }
-.c4-1,.c4-2,.c4-3,.c4-4,.c4-12,.c4-123, .c4-23,.c4-234,.c4-34,
-.c6-1,.c6-2,.c6-3,.c6-4,.c6-5,.c6-6,
-.c6-12,.c6-123,.c6-1234,.c6-12345,
-.c6-23,.c6-234,.c6-2345,.c6-23456,
-.c6-34,.c6-345,.c6-3456,
-.c6-45,.c6-456,.c6-56 {
+/* Apply to classes that contain c6- or c4- */
+[class*="c6-"],
+[class*="c4-"] {
 	display: inline; /* IE6/IE7 double-margin float bug fix */
 	float: left;
 	margin-left: 30px;
@@ -60,9 +61,9 @@ have either margin or fixed width. Including display:block and width styles
 so these classes can be used on non-block-level elements. */
 .c6-123456,
 .c4-1234 {
+	float: none;
 	clear: both;
 	display: block;
-	min-height: 1px;
 	width: auto;
 }
 
@@ -71,12 +72,9 @@ so these classes can be used on non-block-level elements. */
 	.grid {
 		width: 700px;
 	}
-	.c4-1,.c4-2,.c4-3,.c4-4,.c4-12,.c4-123, .c4-23,.c4-234,.c4-34,
-	.c6-1,.c6-2,.c6-3,.c6-4,.c6-5,.c6-6,
-	.c6-12,.c6-123,.c6-1234,.c6-12345,
-	.c6-23,.c6-234,.c6-2345,.c6-23456,
-	.c6-34,.c6-345,.c6-3456,
-	.c6-45,.c6-456,.c6-56 {
+	/* Apply to classes that contain c6- or c4- */
+	[class*="c6-"],
+	[class*="c4-"] {
 		margin-left: 20px;
 	}
 	/* sixths */
@@ -93,19 +91,16 @@ so these classes can be used on non-block-level elements. */
 	/* three-quarters */
 	.c4-123,.c4-234 { width: 520px; }
 	/* five-sixths */
-	.c6-12345,.c6-23456 { width: 580px; } 
+	.c6-12345,.c6-23456 { width: 580px; }
 }
 
 /* Single-column mobile
 Get rid of widths and floats, go to fluid single column. */
 @media only screen and (max-width: 759px) {
 	.grid,
-	.c4-1,.c4-2,.c4-3,.c4-4,.c4-12,.c4-123, .c4-23,.c4-234,.c4-34,
-	.c6-1,.c6-2,.c6-3,.c6-4,.c6-5,.c6-6,
-	.c6-12,.c6-123,.c6-1234,.c6-12345,
-	.c6-23,.c6-234,.c6-2345,.c6-23456,
-	.c6-34,.c6-345,.c6-3456,
-	.c6-45,.c6-456,.c6-56 {
+	/* Apply to classes that contain c6- or c4- */
+	[class*="c6-"],
+	[class*="c4-"] {
 		display: block;
 		float: none;
 		margin-left: 0;
@@ -113,19 +108,20 @@ Get rid of widths and floats, go to fluid single column. */
 	}
 }
 
-/* zeroing out leftmost.unit margins */
-.c6-1,.c6-12,.c6-123,.c6-1234,.c6-12345,
-.c4-1,.c4-12,.c4-123 {
+/* zeroing out leftmost .unit margins */
+[class*="c6-1"],
+[class*="c4-1"] {
 	margin-left: 0;
 }
 /* zeroing out leftmost nested .unit margins */
-.c6-2 .c6-2,.c6-23 .c6-2,.c6-23 .c6-23,.c6-234 .c6-2,.c6-234 .c6-23,.c6-234 .c6-234,.c6-2345 .c6-2,.c6-2345 .c6-23,.c6-2345 .c6-234,.c6-2345 .c6-2345,.c6-23456 .c6-2,.c6-23456 .c6-23,.c6-23456 .c6-234,.c6-23456 .c6-2345,.c6-23456 .c6-23456,
-.c6-3 .c6-3,.c6-34 .c6-3,.c6-34 .c6-34,.c6-345 .c6-3,.c6-345 .c6-34,.c6-345 .c6-345,.c6-3456 .c6-3,.c6-3456 .c6-34,.c6-3456 .c6-345,.c6-3456 .c6-3456,
-.c6-4 .c6-4,.c6-45 .c6-4,.c6-45 .c6-45,.c6-456 .c6-4,.c6-456 .c6-45,.c6-456 .c6-456,
-.c6-5 .c6-5,.c6-56 .c6-5,.c6-56 .c6-56,
-.c6-6 .c6-6,
-.c4-2 .c4-2,.c4-23 .c4-2,.c4-23 .c4-23,.c4-234 .c4-2,.c4-234 .c4-23,.c4-234 .c4-234,
-.c4-3 .c4-3,.c4-34 .c4-3,.c4-34 .c4-34 {
+[class*="c6-2"] [class*="c6-2"],
+[class*="c6-3"] [class*="c6-3"],
+[class*="c6-4"] [class*="c6-4"],
+[class*="c6-5"] [class*="c6-5"],
+[class*="c6-6"] [class*="c6-6"],
+[class*="c4-2"] [class*="c4-2"],
+[class*="c4-3"] [class*="c4-3"],
+[class*="c4-4"] [class*="c4-4"] {
 	margin-left: 0;
 }
 
@@ -154,14 +150,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/ */
 /* Set overflow:hidden to crop overflow content.
 Good for user-generated content. Use this class if you want to support IE6 -- it has issues with overflow.
 Example usage: .grid.hideoverflow. */
-.hideoverflow .c6-1, .hideoverflow .c6-2, .hideoverflow .c6-3, .hideoverflow .c6-4, .hideoverflow .c6-5, .hideoverflow .c6-6,
-.hideoverflow .c4-1, .hideoverflow .c4-2, .hideoverflow .c4-3, .hideoverflow .c4-4,
-.hideoverflow .c6-12, .hideoverflow .c6-123, .hideoverflow .c6-1234, .hideoverflow .c6-12345, .hideoverflow .c6-123456,
-.hideoverflow .c6-23, .hideoverflow .c6-234, .hideoverflow .c6-2345, .hideoverflow .c6-23456,
-.hideoverflow .c6-34, .hideoverflow .c6-345, .hideoverflow .c6-3456,
-.hideoverflow .c6-45, .hideoverflow .c6-456, .hideoverflow .c6-56,
-.hideoverflow .c4-12, .hideoverflow .c4-123, .hideoverflow .c4-1234,
-.hideoverflow .c4-23, .hideoverflow .c4-234,
-.hideoverflow .c4-34 {
+.hideoverflow [class*="c6-"],
+.hideoverflow [class*="c4-"] {
 	overflow: hidden;
 }

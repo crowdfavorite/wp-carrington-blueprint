@@ -1,0 +1,703 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ *
+ * Detailed information about this CSS: h5bp.com/css
+ *
+ * ==|== normalize ==========================================================
+ */
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+  display: block; }
+
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
+
+audio:not([controls]) {
+  display: none; }
+
+[hidden] {
+  display: none; }
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 2. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+html, button, input, select, textarea {
+  font-family: sans-serif;
+  color: #222; }
+
+body {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.4; }
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+a {
+  color: #00e; }
+
+a:visited {
+  color: #551a8b; }
+
+a:hover {
+  color: #06e; }
+
+a:focus {
+  outline: thin dotted; }
+
+/* Improve readability when focused and hovered in all browsers: h5bp.com/h */
+a:hover, a:active {
+  outline: 0; }
+
+/* =============================================================================
+   Typography
+   ========================================================================== */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b, strong {
+  font-weight: bold; }
+
+blockquote {
+  margin: 1em 40px; }
+
+dfn {
+  font-style: italic; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+ins {
+  background: #ff9;
+  color: #000;
+  text-decoration: none; }
+
+mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold; }
+
+/* Redeclare monospace font family: h5bp.com/j */
+pre, code, kbd, samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em; }
+
+/* Improve readability of pre-formatted text in all browsers */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
+q {
+  quotes: none; }
+
+q:before, q:after {
+  content: "";
+  content: none; }
+
+small {
+  font-size: 85%; }
+
+/* Position subscript and superscript content without affecting line-height: h5bp.com/k */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* =============================================================================
+   Lists
+   ========================================================================== */
+ul, ol {
+  margin: 1em 0;
+  padding: 0 0 0 40px; }
+
+dd {
+  margin: 0 0 0 40px; }
+
+nav ul, nav ol {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0; }
+
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * 1. Improve image quality when scaled in IE7: h5bp.com/d
+ * 2. Remove the gap between images and borders on image containers: h5bp.com/i/440
+ */
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle; }
+
+/*
+ * Correct overflow not hidden in IE9
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* =============================================================================
+   Figures
+   ========================================================================== */
+figure {
+  margin: 0; }
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+form {
+  margin: 0; }
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+/* Indicate that 'label' will shift focus to the associated form element */
+label {
+  cursor: pointer; }
+
+/*
+ * 1. Correct color not inheriting in IE6/7/8/9
+ * 2. Correct alignment displayed oddly in IE6/7
+ */
+legend {
+  border: 0;
+  *margin-left: -7px;
+  padding: 0;
+  white-space: normal; }
+
+/*
+ * 1. Correct font-size not inheriting in all browsers
+ * 2. Remove margins in FF3/4 S5 Chrome
+ * 3. Define consistent vertical alignment display in all browsers
+ */
+button, input, select, textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle; }
+
+/*
+ * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
+ */
+button, input {
+  line-height: normal; }
+
+/*
+ * 1. Display hand cursor for clickable form elements
+ * 2. Allow styling of clickable form elements in iOS
+ * 3. Correct inner spacing displayed oddly in IE7 (doesn't effect IE6)
+ */
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+  *overflow: visible; }
+
+/*
+ * Re-set default cursor for disabled elements
+ */
+button[disabled], input[disabled] {
+  cursor: default; }
+
+/*
+ * Consistent box sizing and appearance
+ */
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+  *width: 13px;
+  *height: 13px; }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none; }
+
+/*
+ * Remove inner padding and border in FF3/4: h5bp.com/l
+ */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/*
+ * 1. Remove default vertical scrollbar in IE6/7/8/9
+ * 2. Allow only vertical resizing
+ */
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical; }
+
+/* Colors for form validity */
+input:invalid, textarea:invalid {
+  background-color: #f0dddd; }
+
+/* =============================================================================
+   Tables
+   ========================================================================== */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td {
+  vertical-align: top; }
+
+/* =============================================================================
+   Chrome Frame Prompt
+   ========================================================================== */
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: black;
+  padding: 0.2em 0; }
+
+/* ==|== print styles =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important; }
+
+  /* Black prints faster: h5bp.com/s */
+  a, a:visited {
+    text-decoration: underline; }
+
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: ""; }
+
+  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; }
+
+  thead {
+    display: table-header-group; }
+
+  /* h5bp.com/t */
+  tr, img {
+    page-break-inside: avoid; }
+
+  img {
+    max-width: 100% !important; }
+
+  @page {
+    margin: 0.5cm; }
+
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3; }
+
+  h2, h3 {
+    page-break-after: avoid; } }
+/*	CSSGrid
+ *  https://github.com/crowdfavorite/css-grid
+ *	License: http://opensource.org/licenses/mit-license.php  */
+/** grid foundation
+ -------------------------------------------------- */
+.grid {
+  margin: 0 auto;
+  /* this makes the page wide but keeps content away from the edge */
+  padding: 30px; }
+
+/* fluid media */
+.row img,
+.row object,
+.row embed,
+.row video {
+  max-width: 100%; }
+
+/* Default large grid.
+Works fine with older browsers that don't support media queries. */
+.grid {
+  width: 966px; }
+
+/* Apply to classes that contain c6- or c4- */
+[class*="c6-"],
+[class*="c4-"] {
+  display: inline;
+  /* IE6/IE7 double-margin float bug fix */
+  float: left;
+  margin-left: 30px;
+  /* Prevent collapsing of empty columns. Min-height prevents collapse
+  everywhere but IE6. IE6 doesn't collapse empty collumns anyhow, so no need
+  for a fix there. */
+  min-height: 1px; }
+
+/* Sixths */
+.c6-1, .c6-2, .c6-3, .c6-4, .c6-5, .c6-6 {
+  width: 136px; }
+
+/* Quarters */
+.c4-1, .c4-2, .c4-3, .c4-4 {
+  width: 219px; }
+
+/* Thirds */
+.c6-12, .c6-23, .c6-34, .c6-45, .c6-56 {
+  width: 302px; }
+
+/* Halves */
+.c4-12, .c4-23, .c4-34,
+.c6-123, .c6-234, .c6-345, .c6-456 {
+  width: 468px; }
+
+/* Two-thirds */
+.c6-1234, .c6-2345, .c6-3456 {
+  width: 634px; }
+
+/* three-quarters */
+.c4-123, .c4-234 {
+  width: 717px; }
+
+/* Five-sixths */
+.c6-12345, .c6-23456 {
+  width: 800px; }
+
+/* Full-width
+These classes are not included in column float definitions, since they don't
+have either margin or fixed width. Including display:block and width styles
+so these classes can be used on non-block-level elements. */
+.c6-123456,
+.c4-1234 {
+  float: none;
+  clear: both;
+  display: block;
+  width: auto; }
+
+/* Medium-sized grid. */
+@media only screen and (min-width: 760px) and (max-width: 1025px) {
+  .grid {
+    width: 700px; }
+
+  /* Apply to classes that contain c6- or c4- */
+  [class*="c6-"],
+  [class*="c4-"] {
+    margin-left: 20px; }
+
+  /* sixths */
+  .c6-1, .c6-2, .c6-3, .c6-4, .c6-5, .c6-6 {
+    width: 100px; }
+
+  /* quarters */
+  .c4-1, .c4-2, .c4-3, .c4-4 {
+    width: 160px; }
+
+  /* thirds */
+  .c6-12, .c6-23, .c6-34, .c6-45, .c6-56 {
+    width: 220px; }
+
+  /* halves */
+  .c4-12, .c4-23, .c4-34,
+  .c6-123, .c6-234, .c6-345, .c6-456 {
+    width: 340px; }
+
+  /* two-thirds */
+  .c6-1234, .c6-2345, .c6-3456 {
+    width: 460px; }
+
+  /* three-quarters */
+  .c4-123, .c4-234 {
+    width: 520px; }
+
+  /* five-sixths */
+  .c6-12345, .c6-23456 {
+    width: 580px; } }
+/* Single-column mobile
+Get rid of widths and floats, go to fluid single column. */
+@media only screen and (max-width: 759px) {
+  .grid,
+  [class*="c6-"],
+  [class*="c4-"] {
+    display: block;
+    float: none;
+    margin-left: 0;
+    width: auto; } }
+/* zeroing out leftmost .unit margins */
+[class*="c6-1"],
+[class*="c4-1"] {
+  margin-left: 0; }
+
+/* zeroing out leftmost nested .unit margins */
+[class*="c6-2"] [class*="c6-2"],
+[class*="c6-3"] [class*="c6-3"],
+[class*="c6-4"] [class*="c6-4"],
+[class*="c6-5"] [class*="c6-5"],
+[class*="c6-6"] [class*="c6-6"],
+[class*="c4-2"] [class*="c4-2"],
+[class*="c4-3"] [class*="c4-3"],
+[class*="c4-4"] [class*="c4-4"] {
+  margin-left: 0; }
+
+/** grid utilities
+ -------------------------------------------------- */
+/* Row Clearfix
+Uses variation of Nicolas Gallagher's Micro Clearfix.
+http://nicolasgallagher.com/micro-clearfix-hack/ */
+.row:before,
+.row:after {
+  content: "";
+  display: table; }
+
+.row:after {
+  clear: both; }
+
+.row {
+  /* Just in case: make sure that rows clear outside floats. */
+  clear: both;
+  /* For IE 6/7 (trigger hasLayout) */
+  zoom: 1; }
+
+/** grid helper classes
+ -------------------------------------------------- */
+/* Set overflow:hidden to crop overflow content.
+Good for user-generated content. Use this class if you want to support IE6 -- it has issues with overflow.
+Example usage: .grid.hideoverflow. */
+.hideoverflow [class*="c6-"],
+.hideoverflow [class*="c4-"] {
+  overflow: hidden; }
+
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+/* For image replacement */
+.ir {
+  border: 0;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  background-color: transparent; }
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible {
+  visibility: hidden; }
+
+/* Contain floats: h5bp.com/q */
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  *zoom: 1; }
+
+/* 	Other Non-semantic Helpers
+	------------------------------------------------------- */
+.border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/** WordPress compatibility styles
+ -------------------------------------------------- */
+.alignleft,
+.alignright {
+  margin-top: 4px; }
+
+.alignleft {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 15px; }
+
+.alignright {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 15px; }
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+/**
+ * Captioned images
+ * Caption shortcode filtered.
+ */
+.wp-caption {
+  overflow: hidden; }
+
+.wp-caption dt {
+  margin: 0; }
+
+.wp-caption img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0; }
+
+.wp-caption dd {
+  font-size: .9em;
+  padding: 2px 8px 3px 8px;
+  margin: 1px 0 0 0; }
+
+.sticky {
+  /* Add styles here if you wish to callout sticky posts */ }
+
+/* --------------------------------------------------
+ * Standard / Utility Classes
+-------------------------------------------------- */
+/* Pagination */
+.pagination {
+  min-height: 20px;
+  margin: 30px 0; }
+
+.pagination .prev,
+.pagination .next {
+  display: block;
+  line-height: 1.2em;
+  width: 48%; }
+
+.pagination .next {
+  float: right;
+  text-align: right; }
+
+/** Masthead
+ -------------------------------------------------- */
+#masthead {
+  margin-bottom: 30px; }
+
+/* Main Navigation */
+#nav-main {
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  padding: 8px 0;
+  width: 100%; }
+
+#nav-main,
+#nav-main ul,
+#nav-main li,
+#nav-main a {
+  display: block;
+  float: left; }
+
+#nav-main > ul {
+  border-left: 1px solid #ddd; }
+
+#nav-main li a {
+  border-right: 1px solid #ddd;
+  line-height: 2em;
+  padding: 0 10px; }
+
+/* drop down menus */
+#nav-main li {
+  position: relative; }
+
+#nav-main li ul {
+  display: none;
+  position: absolute;
+  top: 2em;
+  width: 150px; }
+
+#nav-main li:hover > ul {
+  display: block; }
+
+#nav-main li:hover,
+#nav-main li ul {
+  background: #f6f6f6; }
+
+#nav-main li ul {
+  padding: .2em 0; }
+
+#nav-main li ul,
+#nav-main li ul li,
+#nav-main li ul li a {
+  float: none; }
+
+#nav-main li li a {
+  border: 0; }
+
+/* 	Content - Posts, Pages, Comments
+	------------------------------------------------------- */
+/** Posts Default
+ -------------------------------------------------- */
+/** Attachment Page
+ -------------------------------------------------- */
+/** WP Gallery
+ -------------------------------------------------- */
