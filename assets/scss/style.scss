@@ -22,9 +22,9 @@
 
 // Break Points
 
-$small-min: 200px;
-$medium-min: 33px;
-$large-min: 22px;
+$small-min: 480px;
+$medium-min: 760px;
+$large-min: 1025px;
 
 // Media Query Mixin
 
@@ -51,6 +51,14 @@ $large-min: 22px;
 	-moz-box-shadow: $x $y $spread $color; /* FF3.5+ */
 	-webkit-box-shadow: $x $y $spread $color; /* Saf3+, Chrome */
 	box-shadow: $x $y $spread $color; /* Standard. Opera 10.5, IE9 */
+}
+
+@mixin transition ($transition: 0.1s ease) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-o-transition: $transition;
+	-ms-transition: $transition;
+	transition: $transition;
 }
 
 // --------------------------------------------------

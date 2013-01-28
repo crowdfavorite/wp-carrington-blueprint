@@ -643,55 +643,48 @@ Example usage: .grid.hideoverflow. */
 #masthead {
   margin-bottom: 30px; }
 
-/* Main Navigation */
+/* 	Main Navigation
+	------------------------------------------------------- */
 #nav-main {
   border-bottom: 1px solid #ddd;
   border-top: 1px solid #ddd;
   padding: 8px 0;
-  width: 100%; }
-
-#nav-main,
-#nav-main ul,
-#nav-main li,
-#nav-main a {
+  width: 100%;
   display: block;
   float: left; }
-
-#nav-main > ul {
-  border-left: 1px solid #ddd; }
-
-#nav-main li a {
-  border-right: 1px solid #ddd;
-  line-height: 2em;
-  padding: 0 10px; }
-
-/* drop down menus */
-#nav-main li {
-  position: relative; }
-
-#nav-main li ul {
-  display: none;
-  position: absolute;
-  top: 2em;
-  width: 150px; }
-
-#nav-main li:hover > ul {
-  display: block; }
-
-#nav-main li:hover,
-#nav-main li ul {
-  background: #f6f6f6; }
-
-#nav-main li ul {
-  padding: .2em 0; }
-
-#nav-main li ul,
-#nav-main li ul li,
-#nav-main li ul li a {
-  float: none; }
-
-#nav-main li li a {
-  border: 0; }
+  #nav-main a {
+    display: block;
+    float: left; }
+  #nav-main ul {
+    display: block;
+    float: left; }
+  #nav-main > ul {
+    border-left: 1px solid #ddd; }
+  #nav-main li {
+    position: relative;
+    display: block;
+    float: left; }
+    #nav-main li:hover {
+      background: #f6f6f6; }
+      #nav-main li:hover > ul {
+        display: block; }
+    #nav-main li a {
+      border-right: 1px solid #ddd;
+      line-height: 2em;
+      padding: 0 10px; }
+    #nav-main li ul {
+      background: #f6f6f6;
+      display: none;
+      padding: .2em 0;
+      top: 2em;
+      width: 150px;
+      float: none;
+      position: absolute; }
+      #nav-main li ul li {
+        float: none; }
+        #nav-main li ul li a {
+          float: none;
+          border: 0; }
 
 /* 	Content - Posts, Pages, Comments
 	------------------------------------------------------- */

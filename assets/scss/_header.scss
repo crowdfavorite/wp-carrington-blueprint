@@ -6,59 +6,72 @@
  -------------------------------------------------- */
 #masthead {
 	margin-bottom: 30px;
-}
-#masthead #site-name {
+
+	#site-name {
+	}
 }
 
-/* Main Navigation */
+/* 	Main Navigation
+	------------------------------------------------------- */
 #nav-main {
 	border-bottom: 1px solid #ddd;
 	border-top: 1px solid #ddd;
 	padding: 8px 0;
 	width: 100%;
-}
-#nav-main,
-#nav-main ul,
-#nav-main li,
-#nav-main a {
 	display: block;
 	float: left;
-}
-#nav-main > ul {
-	border-left: 1px solid #ddd;
-}
-#nav-main li {
-}
-#nav-main li a {
-	border-right: 1px solid #ddd;
-	line-height: 2em;
-	padding: 0 10px;
-}
-/* drop down menus */
-#nav-main li {
-	position: relative;
-}
-#nav-main li ul {
-	display: none;
-  	position: absolute;
-	top: 2em;
-	width: 150px;
-}
-#nav-main li:hover > ul {
-	display: block;
-}
-#nav-main li:hover,
-#nav-main li ul {
-	background: #f6f6f6;
-}
-#nav-main li ul {
-	padding: .2em 0;
-}
-#nav-main li ul,
-#nav-main li ul li,
-#nav-main li ul li a {
-	float: none;
-}
-#nav-main li li a {
-	border: 0;
+
+	a {
+		display: block;
+		float: left;
+	}
+
+	ul {
+		display: block;
+		float: left;
+	}
+
+	&> ul {
+		border-left: 1px solid #ddd;
+	}
+
+	li {
+		position: relative;
+		display: block;
+		float: left;
+
+		&:hover {
+			background: #f6f6f6;
+
+			&> ul {
+				display: block;
+			}
+		}
+
+		a {
+			border-right: 1px solid #ddd;
+			line-height: 2em;
+			padding: 0 10px;
+		}
+
+		ul {
+				background: #f6f6f6;
+				display: none;
+				padding: .2em 0;
+				top: 2em;
+				width: 150px;
+				float: none;
+			  	position: absolute;
+
+			  	li {
+			  		float: none;
+
+			  		a {
+			  			float: none;
+			  			border: 0;
+			  		}
+			  	}
+
+		}
+	}
 }
