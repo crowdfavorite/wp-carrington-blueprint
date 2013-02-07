@@ -1,0 +1,77 @@
+// --------------------------------------------------
+// Header: masthead, navigation, search
+// --------------------------------------------------
+
+/** Masthead
+ -------------------------------------------------- */
+#masthead {
+	margin-bottom: 30px;
+
+	#site-name {
+	}
+}
+
+/* 	Main Navigation
+	------------------------------------------------------- */
+#nav-main {
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	padding: 8px 0;
+	width: 100%;
+	display: block;
+	float: left;
+
+	a {
+		display: block;
+		float: left;
+	}
+
+	ul {
+		display: block;
+		float: left;
+	}
+
+	&> ul {
+		border-left: 1px solid #ddd;
+	}
+
+	li {
+		position: relative;
+		display: block;
+		float: left;
+
+		&:hover {
+			background: #f6f6f6;
+
+			&> ul {
+				display: block;
+			}
+		}
+
+		a {
+			border-right: 1px solid #ddd;
+			line-height: 2em;
+			padding: 0 10px;
+		}
+
+		ul {
+				background: #f6f6f6;
+				display: none;
+				padding: .2em 0;
+				top: 2em;
+				width: 150px;
+				float: none;
+			  	position: absolute;
+
+			  	li {
+			  		float: none;
+
+			  		a {
+			  			float: none;
+			  			border: 0;
+			  		}
+			  	}
+
+		}
+	}
+}
