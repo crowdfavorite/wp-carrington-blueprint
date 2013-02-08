@@ -126,17 +126,17 @@ function cfct_load_assets() {
 	$cfct_assets_url = get_template_directory_uri() . '/assets/';
 
 	// Styles
-	wp_enqueue_style('styles', $cfct_assets_url . 'css/style.css', '', CFCT_URL_VERSION);
+	wp_enqueue_style('styles', $cfct_assets_url . 'css/style.css', array(), CFCT_URL_VERSION);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
 	// Scripts
-	wp_enqueue_script('modernizr', $cfct_assets_url . 'js/modernizr-2.5.3.min.js', '', CFCT_URL_VERSION);
+	wp_enqueue_script('modernizr', $cfct_assets_url . 'js/modernizr-2.5.3.min.js', array(), CFCT_URL_VERSION);
 	wp_enqueue_script('placeholder', $cfct_assets_url . 'js/jquery.placeholder.min.js', array('jquery'), CFCT_URL_VERSION);
 	wp_enqueue_script('script', $cfct_assets_url . 'js/script.js', array('jquery', 'placeholder'), CFCT_URL_VERSION);
-	wp_enqueue_script('iphone-scaling-fix', $cfct_assets_url . 'js/ios-orientationchange-fix.js', '', CFCT_URL_VERSION, true);
+	wp_enqueue_script('iphone-scaling-fix', $cfct_assets_url . 'js/ios-orientationchange-fix.js', array(), CFCT_URL_VERSION, true);
 }
 add_action('wp_enqueue_scripts', 'cfct_load_assets');
 
