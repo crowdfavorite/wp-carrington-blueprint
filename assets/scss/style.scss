@@ -64,46 +64,42 @@ $large-min: 1025px;
 
 
 // --------------------------------------------------
-// Image Versioning Functions
+// Image Versioning Functions: use these for all image references in SCSS.
 // --------------------------------------------------
 
 //  Image Version Number
 $version: "?ver=1.0";
 
 // Image URL
-@function img-url($path) {
-	@return $path + $version;
+@function url_ver($path) {
+	@return url($path + $version);
 }
 
-// Example Use of the Function
-// .box {
-// 		background: url('#{img-url('pth/image.jpg')}') no-repeat 0 0;
-// }
-
-// Outputs:
-// .box {
-// 		background: url("pth/image.jpg?ver=1.0") no-repeat 0 0;
-// }
+//Example Use of the Function
+//.box {
+//		background: url_ver('path/to/image.png') no-repeat 0 0;
+//		background-image: url_ver('path/to/stuff');
+//}
+//
+//.box {
+//  background: url("path/to/image.png?ver=1.0") no-repeat 0 0;
+//  background-image: url("path/to/stuff?ver=1.0"); }
 
 
 // Want to use the asset folder path variable?
 $assetpath: "/wp-content/themes/theme-name/assets/img/";
 
-@function img-url2($path) {
+@function path_url_ver($path) {
 	@return $assetpath + $path + $version;
 }
 
-// Example Use of the Function
-// .box2 {
-// 	background: url('#{img-url2('image.jpg')}') no-repeat 0 0;
-// }
+.box {
+  background: path_url_ver("image.png") no-repeat 0 0;
+  background-image: path_url_ver("image.jpg"); }
 
-// Outputs:
-// .box2 {
-// 	background: url("/wp-content/themes/theme-name/assets/img/image.jpg?ver=1.0") no-repeat 0 0;
-// }
-
-
+// .box {
+//   background: "/wp-content/themes/theme-name/assets/img/image.png?ver=1.0" no-repeat 0 0;
+//  background-image: "/wp-content/themes/theme-name/assets/img/image.jpg?ver=1.0"; }
 
 // --------------------------------------------------
 // Styles: everything gets included from here.
