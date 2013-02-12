@@ -62,6 +62,49 @@ $large-min: 1025px;
 	transition: $transition;
 }
 
+
+// --------------------------------------------------
+// Image Versioning Functions
+// --------------------------------------------------
+
+//  Image Version Number
+$version: "?ver=1.0";
+
+// Image URL
+@function img-url($path) {
+	@return $path + $version;
+}
+
+// Example Use of the Function
+// .box {
+// 		background: url('#{img-url('pth/image.jpg')}') no-repeat 0 0;
+// }
+
+// Outputs:
+// .box {
+// 		background: url("pth/image.jpg?ver=1.0") no-repeat 0 0;
+// }
+
+
+// Want to use the asset folder path variable?
+$assetpath: "/wp-content/themes/theme-name/assets/img/";
+
+@function img-url2($path) {
+	@return $assetpath + $path + $version;
+}
+
+// Example Use of the Function
+// .box2 {
+// 	background: url('#{img-url2('image.jpg')}') no-repeat 0 0;
+// }
+
+// Outputs:
+// .box2 {
+// 	background: url("/wp-content/themes/theme-name/assets/img/image.jpg?ver=1.0") no-repeat 0 0;
+// }
+
+
+
 // --------------------------------------------------
 // Styles: everything gets included from here.
 // --------------------------------------------------
