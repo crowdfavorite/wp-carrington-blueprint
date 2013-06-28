@@ -2,7 +2,7 @@
 
 // This file is part of the Carrington Blueprint Theme for WordPress
 //
-// Copyright (c) 2008-2012 Crowd Favorite, Ltd. All rights reserved.
+// Copyright (c) 2008-2013 Crowd Favorite, Ltd. All rights reserved.
 // http://crowdfavorite.com
 //
 // Released under the GPL license
@@ -26,7 +26,7 @@ if (have_posts()) : while (have_posts()) : the_post();
 
 	<div id="attachment" class="clearfix">
 
-		<div class="attachment-content c6-123456">
+		<div class="attachment-content c1-12">
 			<p><a href="<?php echo get_permalink($post->post_parent); ?>" rev="attachment">&larr; back to &#8220;<?php echo get_the_title($post->post_parent); ?>&#8221;</a></p>
 			<?php the_title('<h1>', '</h1>') ?>
 			<p><a href="<?php echo wp_get_attachment_url($post->ID); ?>"><?php echo wp_get_attachment_image( $post->ID, 'medium' ); ?></a></p>
@@ -39,14 +39,14 @@ if (have_posts()) : while (have_posts()) : the_post();
 			?>
 		</div>
 
-		<div class="attachment-prev c6-123">
+		<div class="attachment-prev c1-6">
 		<?php
 		if (cfct_get_adjacent_image_link(true) != '') {
 			previous_image_link('thumb');
 		}
 		?>
 		</div>
-		<div class="attachment-next c6-456">
+		<div class="attachment-next c7-12">
 		<?php
 		if (cfct_get_adjacent_image_link(false) != '') {
 			next_image_link('thumb');

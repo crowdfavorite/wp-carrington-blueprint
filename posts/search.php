@@ -2,7 +2,7 @@
 
 // This file is part of the Carrington Blueprint Theme for WordPress
 //
-// Copyright (c) 2008-2012 Crowd Favorite, Ltd. All rights reserved.
+// Copyright (c) 2008-2013 Crowd Favorite, Ltd. All rights reserved.
 // http://crowdfavorite.com
 //
 // Released under the GPL license
@@ -29,7 +29,7 @@ else {
 }
 ?>
 
-<div id="primary" class="c6-1234">
+<div id="primary" class="c1-8">
 	<h1><?php printf(__('Search Results for: %s', 'carrington-blueprint'), $search_title); ?></h1>
 	<?php
 	// For the loop used, look in /loops

@@ -2,7 +2,7 @@
 
 // This file is part of the Carrington Blueprint Theme for WordPress
 //
-// Copyright (c) 2008-2012 Crowd Favorite, Ltd. All rights reserved.
+// Copyright (c) 2008-2013 Crowd Favorite, Ltd. All rights reserved.
 // http://crowdfavorite.com
 //
 // Released under the GPL license
@@ -21,9 +21,9 @@ $blog_desc = get_bloginfo('description');
 $title_description = (is_home() && !empty($blog_desc) ? ' - '.$blog_desc : '');
 
 ?><!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" <?php language_attributes() ?>> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" <?php language_attributes() ?>> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" <?php language_attributes() ?>> <![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 oldie" <?php language_attributes() ?>> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 oldie" <?php language_attributes() ?>> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 oldie" <?php language_attributes() ?>> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes() ?>> <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo('charset') ?>" />
@@ -36,7 +36,7 @@ $title_description = (is_home() && !empty($blog_desc) ? ' - '.$blog_desc : '');
 <body <?php body_class(); ?>>
 
 <div class="container grid">
-	<header id="masthead" class="site-header clearfix">
+	<header id="masthead" class="row site-header clearfix">
 			<h1 id="site-name"><a href="<?php echo home_url('/'); ?>" title="<?php _e('Home', 'carrington-blueprint'); ?>"><?php bloginfo('name'); ?></a></h1>
 			<nav id="nav-main" role="navigation">
 				<?php wp_nav_menu( array(
@@ -47,4 +47,4 @@ $title_description = (is_home() && !empty($blog_desc) ? ' - '.$blog_desc : '');
 			</nav>
 	</header><!-- #masthead -->
 
-	<div id="main" class="clearfix">
+	<div id="main" class="row clearfix">

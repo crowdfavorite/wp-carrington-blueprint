@@ -2,7 +2,7 @@
 
 // This file is part of the Carrington Blueprint Theme for WordPress
 //
-// Copyright (c) 2008-2012 Crowd Favorite, Ltd. All rights reserved.
+// Copyright (c) 2008-2013 Crowd Favorite, Ltd. All rights reserved.
 // http://crowdfavorite.com
 //
 // Released under the GPL license
@@ -20,7 +20,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 get_header();
 ?>
 
-<div id="primary" class="c6-1234">
+<div id="primary" class="c1-8">
 	<?php
 	// For the loop used, look in /loops
 	cfct_loop();
