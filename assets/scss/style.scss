@@ -13,6 +13,7 @@
 // $color-light: #999;
 
 // Typography
+// $space: 15;
 
 //$font-serif: Georgia, "Times New Roman", Times, serif;
 //$font-sans: Helvetica, Arial, sans-serif;
@@ -62,6 +63,16 @@ $large-min: 1025px;
 	transition: $transition;
 }
 
+@mixin margin-space ($multiplier: 1, $placement: '') {
+	margin#{$placement}: ($space * $multiplier) + px;
+}
+// Example Uses of the Mixin, assuming $space is 15
+// @include margin-space (2, -top); // margin-top: 30px;
+// @include margin-space (4); // margin: 60px;
+
+@mixin padding-space ($multiplier: 1, $placement: '') {
+	padding#{$placement}: ($space * $multiplier) + px;
+}
 
 // --------------------------------------------------
 // Image Versioning Functions: use these for all image references in SCSS.
