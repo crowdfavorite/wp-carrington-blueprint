@@ -1,3 +1,8 @@
 # Carrington Blueprint Changelog
 
+## 1.1
+- 12-column grid
+- Updated assets libraries
+- Update compatibility with latest HTML5BP
+
 ## 1.0 INITIAL RELEASE
