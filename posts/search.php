@@ -29,7 +29,7 @@ else {
 }
 ?>
 
-<div id="primary" class="c6-1234">
+<div id="primary" class="c1-8">
 	<h1><?php printf(__('Search Results for: %s', 'carrington-blueprint'), $search_title); ?></h1>
 	<?php
 	// For the loop used, look in /loops

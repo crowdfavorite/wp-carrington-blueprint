@@ -20,7 +20,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 get_header();
 ?>
 
-<div id="primary" class="c6-1234">
+<div id="primary" class="c1-8">
 	<h1 class="archive-title"><?php
 		if (is_day()) {
 			printf(__('Daily Archives: %s', 'carrington-blueprint'), '<span>' . get_the_date() . '</span>');
