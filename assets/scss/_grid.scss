@@ -29,9 +29,9 @@ $md-grid-total-width: $md-grid-inner-width + (2 * $md-grid-gutter);
 $sm-grid-total-width: $sm-grid-inner-width + (2 * $sm-grid-gutter);
 
 // media queries
-$desktop-mq: '(min-width: #{$lg-grid-total-width + 10 })'; // 1430
-$tablet-mq: '(min-width: #{$sm-grid-total-width} + 60) and (max-width: #{$md-grid-total-width + 23})'; // 760, 1047
-$phone-mq: '(max-width: #{$sm-grid-total-width + 59})'; // 759
+$desktop-mq: '(min-width: #{$lg-grid-inner-width + 10 })'; // 1430
+$tablet-mq: '(min-width: #{$sm-grid-inner-width + 60}) and (max-width: #{$md-grid-inner-width + 23})'; // 760, 1047
+$phone-mq: '(max-width: #{$sm-grid-inner-width + 59})'; // 759
 
 
 // Variables (don't edit)

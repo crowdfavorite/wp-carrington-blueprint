@@ -21,6 +21,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	</div><!-- #main -->
 	<hr>
 	<footer id="footer" class="row site-footer" role="contentinfo">
+		<div class="c1-12">
 <?php
 
 	if (cfct_get_option('cfct_copyright') != null) {
@@ -33,6 +34,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <?php
 	}
 ?>
+		</div><!-- .c1-12 -->
 	</footer><!--#footer -->
 
 </div><!-- .container -->

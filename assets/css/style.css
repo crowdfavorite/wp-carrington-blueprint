@@ -466,7 +466,7 @@ table {
 
 /* 	Medium Sized Grid
 	Tablet sized columns. */
-@media only screen and (min-width: 748px (+60)) and (max-width: 1067px) {
+@media only screen and (min-width: 760px) and (max-width: 1047px) {
   .grid {
     padding-left: 24px;
     padding-right: 24px;
@@ -597,7 +597,7 @@ table {
 	Very wide columns for large monitors. */
 /* 	Single-column mobile
 	Get rid of widths and floats, go to fluid single column. */
-@media only screen and (max-width: 807px) {
+@media only screen and (max-width: 759px) {
   .grid {
     padding-left: 10px;
     padding-right: 10px; }
