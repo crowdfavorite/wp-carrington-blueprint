@@ -323,6 +323,7 @@ table {
   h2, h3 {
     page-break-after: avoid; } }
 /*	CSSGrid
+ *  Version 2.0
  *  https://github.com/crowdfavorite/css-grid
  *	License: http://opensource.org/licenses/mit-license.php  */
 /** mixins
