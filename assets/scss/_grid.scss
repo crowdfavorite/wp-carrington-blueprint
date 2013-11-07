@@ -1,13 +1,76 @@
 /*	CSSGrid
+ *  Version 2.0
  *  https://github.com/crowdfavorite/css-grid
  *	License: http://opensource.org/licenses/mit-license.php  */
+
+// Variables (editable)
+$use-lg-breakpoint: false;
+
+// Large (large desktop) in px
+$lg-grid-inner-width: 1420px;
+$lg-grid-gutter: 0px;
+$lg-col-margins: 20px;
+
+// Medium (tablet/desktop) in px
+$md-grid-inner-width: 1024px;
+$md-grid-gutter: 10px;
+$md-col-margins: 20px;
+
+// Small (mobile) in px
+$sm-grid-inner-width: 700px;
+$sm-grid-gutter: 24px;
+$sm-col-margins: 20px;
+
+// Smallest (block) in px
+$xs-grid-gutter: 10px;
+
+// grid total widths
+$lg-grid-total-width: $lg-grid-inner-width + (2 * $lg-grid-gutter);
+$md-grid-total-width: $md-grid-inner-width + (2 * $md-grid-gutter);
+$sm-grid-total-width: $sm-grid-inner-width + (2 * $sm-grid-gutter);
+
+// media queries
+$desktop-mq: '(min-width: #{$lg-grid-inner-width + 10 })'; // 1430
+$tablet-mq: '(min-width: #{$sm-grid-inner-width + 60}) and (max-width: #{$md-grid-inner-width + 23})'; // 760, 1047
+$phone-mq: '(max-width: #{$sm-grid-inner-width + 59})'; // 759
+
+
+// Variables (don't edit)
+$column-count: 12;
+
+// column widths
+$lg-column-width: (($lg-grid-inner-width - (($lg-col-margins * ($column-count - 1)))) / $column-count);
+$md-column-width: (($md-grid-inner-width - (($md-col-margins * ($column-count - 1)))) / $column-count);
+$sm-column-width: (($sm-grid-inner-width - (($sm-col-margins * ($column-count - 1)))) / $column-count);
+
+/** mixins
+ -------------------------------------------------- */
+@mixin gutters($gutter) {
+	padding-left: $gutter;
+	padding-right: $gutter;
+}
+
+@mixin width($col-width, $margin-width, $multiplier: 1) {
+	width: (($col-width * $multiplier) + (($multiplier - 1) * $margin-width));
+}
+
+@mixin offset($col-width, $margin-width, $multiplier: 1, $first: false) {
+	@if $first {
+		margin-left: (($col-width * $multiplier) + ($multiplier * $margin-width));
+	}
+	@else {
+		margin-left: (($col-width * $multiplier) + ($multiplier * $margin-width) + $margin-width);
+	}
+}
+
+@mixin row($margin) {
+	margin-left: -$margin;
+}
 
 /** grid foundation
  -------------------------------------------------- */
 .grid {
 	margin: 0 auto;
-	/* this makes the page wide but keeps content away from the edge */
-	padding: 12px;
 }
 
 /* fluid media */
@@ -20,69 +83,93 @@
 
 /* 	Default Desktop/Tablet Grid
 	Works fine with older browsers that don't support media queries. */
-	.grid {
-		width: 1024px;
-	}
-	.c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c10,.c11,.c12,
-	.c1-2,.c2-3,.c3-4,.c4-5,.c5-6,.c6-7,.c7-8,.c8-9,.c9-10,.c10-11,.c11-12,
-	.c1-3,.c2-4,.c3-5,.c4-6,.c5-7,.c6-8,.c7-9,.c8-10,.c9-11,.c10-12,
-	.c1-4,.c2-5,.c3-6,.c4-7,.c5-8,.c6-9,.c7-10,.c8-11,.c9-12,
-	.c1-5,.c2-6,.c3-7,.c4-8,.c5-9,.c6-10,.c7-11,.c8-12,
-	.c1-6,.c2-7,.c3-8,.c4-9,.c5-10,.c6-11,.c7-12,
-	.c1-7,.c2-8,.c3-9,.c4-10,.c5-11,.c6-12,
-	.c1-8,.c2-9,.c3-10,.c4-11,.c5-12,
-	.c1-9,.c2-10,.c3-11,.c4-12,
-	.c1-10,.c2-11,.c3-12,
-	.c1-11,.c2-12,
-	.c1-12	{
-		margin-left: 20px;
-		display: inline;
-		float: left;
-		min-height: 1px;
-	}
+.grid {
+	/* this makes the page wide but keeps content away from the edge */
+	@include gutters($md-grid-gutter);
+	width: $md-grid-inner-width;
+}
+.c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c10,.c11,.c12,
+.c1-2,.c2-3,.c3-4,.c4-5,.c5-6,.c6-7,.c7-8,.c8-9,.c9-10,.c10-11,.c11-12,
+.c1-3,.c2-4,.c3-5,.c4-6,.c5-7,.c6-8,.c7-9,.c8-10,.c9-11,.c10-12,
+.c1-4,.c2-5,.c3-6,.c4-7,.c5-8,.c6-9,.c7-10,.c8-11,.c9-12,
+.c1-5,.c2-6,.c3-7,.c4-8,.c5-9,.c6-10,.c7-11,.c8-12,
+.c1-6,.c2-7,.c3-8,.c4-9,.c5-10,.c6-11,.c7-12,
+.c1-7,.c2-8,.c3-9,.c4-10,.c5-11,.c6-12,
+.c1-8,.c2-9,.c3-10,.c4-11,.c5-12,
+.c1-9,.c2-10,.c3-11,.c4-12,
+.c1-10,.c2-11,.c3-12,
+.c1-11,.c2-12,
+.c1-12	{
+	margin-left: $md-col-margins;
+	display: inline;
+	float: left;
+	min-height: 1px;
+}
 
 /* 	1/12 */
-	.c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c10,.c11,.c12 { width: 67px; }
-	.offset1 { margin-left: 107px; }
+	.c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c10,.c11,.c12 { @include width($md-column-width, $md-col-margins); }
+	.offset1 { @include offset($md-column-width, $md-col-margins); }
+	[class*=c1-],
+	[class*=c2-],
+	[class*=c3-],
+	[class*=c4-],
+	[class*=c5-],
+	[class*=c6-],
+	[class*=c7-],
+	[class*=c8-],
+	[class*=c9-],
+	[class*=c10-],
+	[class*=c11-],
+	[class*=c12-] {
+		.offset1:first-child {
+			@include offset($md-column-width, $md-col-margins, 1, true);
+		}
+	}
 /* 	2/12 */
-	.c1-2,.c2-3,.c3-4,.c4-5,.c5-6,.c6-7,.c7-8,.c8-9,.c9-10,.c10-11,.c11-12 { width: 154px; }
-	.offset2 { margin-left: 194px; }
+	.c1-2,.c2-3,.c3-4,.c4-5,.c5-6,.c6-7,.c7-8,.c8-9,.c9-10,.c10-11,.c11-12 { @include width($md-column-width, $md-col-margins, 2); }
+	.offset2 { @include offset($md-column-width, $md-col-margins, 2); }
 /* 	3/12 */
-	.c1-3,.c2-4,.c3-5,.c4-6,.c5-7,.c6-8,.c7-9,.c8-10,.c9-11,.c10-12 { width: 241px; }
-	.offset3 { margin-left: 281px; }
+	.c1-3,.c2-4,.c3-5,.c4-6,.c5-7,.c6-8,.c7-9,.c8-10,.c9-11,.c10-12 { @include width($md-column-width, $md-col-margins, 3); }
+	.offset3 { @include offset($md-column-width, $md-col-margins, 3); }
 /* 	4/12 */
-	.c1-4,.c2-5,.c3-6,.c4-7,.c5-8,.c6-9,.c7-10,.c8-11,.c9-12 { width: 328px; }
-	.offset4 { margin-left: 368px; }
+	.c1-4,.c2-5,.c3-6,.c4-7,.c5-8,.c6-9,.c7-10,.c8-11,.c9-12 { @include width($md-column-width, $md-col-margins, 4); }
+	.offset4 { @include offset($md-column-width, $md-col-margins, 4); }
 /* 	5/12 */
-	.c1-5,.c2-6,.c3-7,.c4-8,.c5-9,.c6-10,.c7-11,.c8-12 { width: 415px; }
-	.offset5 { margin-left: 455px; }
+	.c1-5,.c2-6,.c3-7,.c4-8,.c5-9,.c6-10,.c7-11,.c8-12 { @include width($md-column-width, $md-col-margins, 5); }
+	.offset5 { @include offset($md-column-width, $md-col-margins, 5); }
 /* 	6/12 */
-	.c1-6,.c2-7,.c3-8,.c4-9,.c5-10,.c6-11,.c7-12 { width: 502px; }
-	.offset6 { margin-left: 542px; }
+	.c1-6,.c2-7,.c3-8,.c4-9,.c5-10,.c6-11,.c7-12 { @include width($md-column-width, $md-col-margins, 6); }
+	.offset6 { @include offset($md-column-width, $md-col-margins, 6); }
 /* 	7/12 */
-	.c1-7,.c2-8,.c3-9,.c4-10,.c5-11,.c6-12 { width: 589px; }
-	.offset7 { margin-left: 629px; }
+	.c1-7,.c2-8,.c3-9,.c4-10,.c5-11,.c6-12 { @include width($md-column-width, $md-col-margins, 7); }
+	.offset7 { @include offset($md-column-width, $md-col-margins, 7); }
 /* 	8/12 */
-	.c1-8,.c2-9,.c3-10,.c4-11,.c5-12 { width: 676px; }
-	.offset8 { margin-left: 716px; }
+	.c1-8,.c2-9,.c3-10,.c4-11,.c5-12 { @include width($md-column-width, $md-col-margins, 8); }
+	.offset8 { @include offset($md-column-width, $md-col-margins, 8); }
 /* 	9/12 */
-	.c1-9,.c2-10,.c3-11,.c4-12 { width: 763px; }
-	.offset9 { margin-left: 803px; }
+	.c1-9,.c2-10,.c3-11,.c4-12 { @include width($md-column-width, $md-col-margins, 9); }
+	.offset9 { @include offset($md-column-width, $md-col-margins, 9); }
 /* 	10/12 */
-	.c1-10,.c2-11,.c3-12 { width: 850px; }
-	.offset10 { margin-left: 890px; }
+	.c1-10,.c2-11,.c3-12 { @include width($md-column-width, $md-col-margins, 10); }
+	.offset10 { @include offset($md-column-width, $md-col-margins, 10); }
 /* 	11/12 */
-	.c1-11,.c2-12 { width: 937px; }
-	.offset11 { margin-left: 977px; }
+	.c1-11,.c2-12 { @include width($md-column-width, $md-col-margins, 11); }
+	.offset11 { @include offset($md-column-width, $md-col-margins, 11); }
 /* 	12/12 */
-	.c1-12 { width: 1024px; }
+	.c1-12 { @include width($md-column-width, $md-col-margins, 12); }
+/* 	Accounts for extra margin on first column
+		This value should change a negative margin of whatever your gutter width is. */
+	.row {
+		@include row($md-col-margins);
+	}
+
 
 /* 	Medium Sized Grid
 	Tablet sized columns. */
-@media only screen and (min-width: 760px) and (max-width: 1047px) {
+@media only screen and #{$tablet-mq} {
 	.grid {
-		width: 700px;
-		padding: 24px;
+		@include gutters($sm-grid-gutter);
+		width: $sm-grid-inner-width;
 	}
 	.c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c10,.c11,.c12,
 	.c1-2,.c2-3,.c3-4,.c4-5,.c5-6,.c6-7,.c7-8,.c8-9,.c9-10,.c10-11,.c11-12,
@@ -98,7 +185,7 @@
 	.c1-12	{
 		display: inline; /* IE6/IE7 double-margin float bug fix */
 		float: left;
-		margin-left: 20px;
+		margin-left: $sm-col-margins;
 		/* Prevent collapsing of empty columns. Min-height prevents collapse
 		everywhere but IE6. IE6 doesn't collapse empty collumns anyhow, so no need
 		for a fix there. */
@@ -106,118 +193,159 @@
 		clear: none;
 	}
 /* 	1/12 */
-	.c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c10,.c11,.c12 { width: 40px; }
-	.offset1 { margin-left: 80px; }
+	.c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c10,.c11,.c12 { @include width($sm-column-width, $sm-col-margins); }
+	.offset1 { @include offset($sm-column-width, $sm-col-margins); }
+	[class*=c1-],
+	[class*=c2-],
+	[class*=c3-],
+	[class*=c4-],
+	[class*=c5-],
+	[class*=c6-],
+	[class*=c7-],
+	[class*=c8-],
+	[class*=c9-],
+	[class*=c10-],
+	[class*=c11-],
+	[class*=c12-] {
+		.offset1:first-child {
+			@include offset($sm-column-width, $sm-col-margins, 1, true);
+		}
+	}
 /* 	2/12 */
-	.c1-2,.c2-3,.c3-4,.c4-5,.c5-6,.c6-7,.c7-8,.c8-9,.c9-10,.c10-11,.c11-12 { width: 100px; }
-	.offset2 { margin-left: 140px; }
+	.c1-2,.c2-3,.c3-4,.c4-5,.c5-6,.c6-7,.c7-8,.c8-9,.c9-10,.c10-11,.c11-12 { @include width($sm-column-width, $sm-col-margins, 2); }
+	.offset2 { @include offset($sm-column-width, $sm-col-margins, 2); }
 /* 	3/12 */
-	.c1-3,.c2-4,.c3-5,.c4-6,.c5-7,.c6-8,.c7-9,.c8-10,.c9-11,.c10-12 { width: 160px; }
-	.offset3 { margin-left: 200px; }
+	.c1-3,.c2-4,.c3-5,.c4-6,.c5-7,.c6-8,.c7-9,.c8-10,.c9-11,.c10-12 { @include width($sm-column-width, $sm-col-margins, 3); }
+	.offset3 { @include offset($sm-column-width, $sm-col-margins, 3); }
 /* 	4/12 */
-	.c1-4,.c2-5,.c3-6,.c4-7,.c5-8,.c6-9,.c7-10,.c8-11,.c9-12 { width: 220px; }
-	.offset4 { margin-left: 260px; }
+	.c1-4,.c2-5,.c3-6,.c4-7,.c5-8,.c6-9,.c7-10,.c8-11,.c9-12 { @include width($sm-column-width, $sm-col-margins, 4); }
+	.offset4 { @include offset($sm-column-width, $sm-col-margins, 4); }
 /* 	5/12 */
-	.c1-5,.c2-6,.c3-7,.c4-8,.c5-9,.c6-10,.c7-11,.c8-12 { width: 280px; }
-	.offset5 { margin-left: 320px; }
+	.c1-5,.c2-6,.c3-7,.c4-8,.c5-9,.c6-10,.c7-11,.c8-12 { @include width($sm-column-width, $sm-col-margins, 5); }
+	.offset5 { @include offset($sm-column-width, $sm-col-margins, 5); }
 /* 	6/12 */
-	.c1-6,.c2-7,.c3-8,.c4-9,.c5-10,.c6-11,.c7-12 { width: 340px; }
-	.offset6 { margin-left: 380px; }
+	.c1-6,.c2-7,.c3-8,.c4-9,.c5-10,.c6-11,.c7-12 { @include width($sm-column-width, $sm-col-margins, 6); }
+	.offset6 { @include offset($sm-column-width, $sm-col-margins, 6); }
 /* 	7/12 */
-	.c1-7,.c2-8,.c3-9,.c4-10,.c5-11,.c6-12 { width: 400px; }
-	.offset7 { margin-left: 440px; }
+	.c1-7,.c2-8,.c3-9,.c4-10,.c5-11,.c6-12 { @include width($sm-column-width, $sm-col-margins, 7); }
+	.offset7 { @include offset($sm-column-width, $sm-col-margins, 7); }
 /* 	8/12 */
-	.c1-8,.c2-9,.c3-10,.c4-11,.c5-12 { width: 460px; }
-	.offset8 { margin-left: 500px; }
+	.c1-8,.c2-9,.c3-10,.c4-11,.c5-12 { @include width($sm-column-width, $sm-col-margins, 8); }
+	.offset8 { @include offset($sm-column-width, $sm-col-margins, 8); }
 /* 	9/12 */
-	.c1-9,.c2-10,.c3-11,.c4-12 { width: 520px; }
-	.offset9 { margin-left: 560px; }
+	.c1-9,.c2-10,.c3-11,.c4-12 { @include width($sm-column-width, $sm-col-margins, 9); }
+	.offset9 { @include offset($sm-column-width, $sm-col-margins, 9); }
 /* 	10/12 */
-	.c1-10,.c2-11,.c3-12 { width: 580px; }
-	.offset10 { margin-left: 620px; }
+	.c1-10,.c2-11,.c3-12 { @include width($sm-column-width, $sm-col-margins, 10); }
+	.offset10 { @include offset($sm-column-width, $sm-col-margins, 10); }
 /* 	11/12 */
-	.c1-11,.c2-12 { width: 640px; }
-	.offset11 { margin-left: 680px; }
+	.c1-11,.c2-12 { @include width($sm-column-width, $sm-col-margins, 11); }
+	.offset11 { @include offset($sm-column-width, $sm-col-margins, 11); }
 /* 	12/12 */
-	.c1-12 { width: 700px; }
+	.c1-12 { @include width($sm-column-width, $sm-col-margins, 12); }
+
+/* 	Accounts for extra margin on first column
+	This value should change a negative margin of whatever your gutter width is. */
+	.row {
+		@include row($sm-col-margins);
+	}
 }
 
 
 /* 	Large Desktop Grid
 	Very wide columns for large monitors. */
 
-@media only screen and (min-width: 1430px) {
-	.grid {
-		width: 1420px;
-		padding-left: 0;
-		padding-right: 0;
+@if $use-lg-breakpoint {
+	@media only screen and #{$desktop-mq} {
+		.grid {
+			@include gutters($lg-grid-gutter);
+			width: $lg-grid-inner-width;
+		}
+		.c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c10,.c11,.c12,
+		.c1-2,.c2-3,.c3-4,.c4-5,.c5-6,.c6-7,.c7-8,.c8-9,.c9-10,.c10-11,.c11-12,
+		.c1-3,.c2-4,.c3-5,.c4-6,.c5-7,.c6-8,.c7-9,.c8-10,.c9-11,.c10-12,
+		.c1-4,.c2-5,.c3-6,.c4-7,.c5-8,.c6-9,.c7-10,.c8-11,.c9-12,
+		.c1-5,.c2-6,.c3-7,.c4-8,.c5-9,.c6-10,.c7-11,.c8-12,
+		.c1-6,.c2-7,.c3-8,.c4-9,.c5-10,.c6-11,.c7-12,
+		.c1-7,.c2-8,.c3-9,.c4-10,.c5-11,.c6-12,
+		.c1-8,.c2-9,.c3-10,.c4-11,.c5-12,
+		.c1-9,.c2-10,.c3-11,.c4-12,
+		.c1-10,.c2-11,.c3-12,
+		.c1-11,.c2-12,
+		.c1-12	{
+			margin-left: $lg-col-margins;
+			display: inline;
+			float: left;
+			min-height: 1px;
+		}
+
+	/* 	1/12 */
+		.c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c10,.c11,.c12 { @include width($lg-column-width, $lg-col-margins); }
+		.offset1 { @include offset($lg-column-width, $lg-col-margins); }
+		[class*=c1-],
+		[class*=c2-],
+		[class*=c3-],
+		[class*=c4-],
+		[class*=c5-],
+		[class*=c6-],
+		[class*=c7-],
+		[class*=c8-],
+		[class*=c9-],
+		[class*=c10-],
+		[class*=c11-],
+		[class*=c12-] {
+			.offset1:first-child {
+				@include offset($lg-column-width, $lg-col-margins, 1, true);
+			}
+		}
+	/* 	2/12 */
+		.c1-2,.c2-3,.c3-4,.c4-5,.c5-6,.c6-7,.c7-8,.c8-9,.c9-10,.c10-11,.c11-12 { @include width($lg-column-width, $lg-col-margins, 2); }
+		.offset2 { @include offset($lg-column-width, $lg-col-margins, 2); }
+	/* 	3/12 */
+		.c1-3,.c2-4,.c3-5,.c4-6,.c5-7,.c6-8,.c7-9,.c8-10,.c9-11,.c10-12 { @include width($lg-column-width, $lg-col-margins, 3); }
+		.offset3 { @include offset($lg-column-width, $lg-col-margins, 3); }
+	/* 	4/12 */
+		.c1-4,.c2-5,.c3-6,.c4-7,.c5-8,.c6-9,.c7-10,.c8-11,.c9-12 { @include width($lg-column-width, $lg-col-margins, 4); }
+		.offset4 { @include offset($lg-column-width, $lg-col-margins, 4); }
+	/* 	5/12 */
+		.c1-5,.c2-6,.c3-7,.c4-8,.c5-9,.c6-10,.c7-11,.c8-12 { @include width($lg-column-width, $lg-col-margins, 5); }
+		.offset5 { @include offset($lg-column-width, $lg-col-margins, 5); }
+	/* 	6/12 */
+		.c1-6,.c2-7,.c3-8,.c4-9,.c5-10,.c6-11,.c7-12 { @include width($lg-column-width, $lg-col-margins, 6); }
+		.offset6 { @include offset($lg-column-width, $lg-col-margins, 6); }
+	/* 	7/12 */
+		.c1-7,.c2-8,.c3-9,.c4-10,.c5-11,.c6-12 { @include width($lg-column-width, $lg-col-margins, 7); }
+		.offset7 { @include offset($lg-column-width, $lg-col-margins, 7); }
+	/* 	8/12 */
+		.c1-8,.c2-9,.c3-10,.c4-11,.c5-12 { @include width($lg-column-width, $lg-col-margins, 8); }
+		.offset8 { @include offset($lg-column-width, $lg-col-margins, 8); }
+	/* 	9/12 */
+		.c1-9,.c2-10,.c3-11,.c4-12 { @include width($lg-column-width, $lg-col-margins, 9); }
+		.offset9 { @include offset($lg-column-width, $lg-col-margins, 9); }
+	/* 	10/12 */
+		.c1-10,.c2-11,.c3-12 { @include width($lg-column-width, $lg-col-margins, 10); }
+		.offset10 { @include offset($lg-column-width, $lg-col-margins, 10); }
+	/* 	11/12 */
+		.c1-11,.c2-12 { @include width($lg-column-width, $lg-col-margins, 11); }
+		.offset11 { @include offset($lg-column-width, $lg-col-margins, 11); }
+	/* 	12/12 */
+		.c1-12 { @include width($lg-column-width, $lg-col-margins, 12); }
+
+		/* 	Accounts for extra margin on first column
+			This value should change a negative margin of whatever your gutter width is. */
+		.row {
+			@include row($lg-col-margins);
+		}
 	}
-	.c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c10,.c11,.c12,
-	.c1-2,.c2-3,.c3-4,.c4-5,.c5-6,.c6-7,.c7-8,.c8-9,.c9-10,.c10-11,.c11-12,
-	.c1-3,.c2-4,.c3-5,.c4-6,.c5-7,.c6-8,.c7-9,.c8-10,.c9-11,.c10-12,
-	.c1-4,.c2-5,.c3-6,.c4-7,.c5-8,.c6-9,.c7-10,.c8-11,.c9-12,
-	.c1-5,.c2-6,.c3-7,.c4-8,.c5-9,.c6-10,.c7-11,.c8-12,
-	.c1-6,.c2-7,.c3-8,.c4-9,.c5-10,.c6-11,.c7-12,
-	.c1-7,.c2-8,.c3-9,.c4-10,.c5-11,.c6-12,
-	.c1-8,.c2-9,.c3-10,.c4-11,.c5-12,
-	.c1-9,.c2-10,.c3-11,.c4-12,
-	.c1-10,.c2-11,.c3-12,
-	.c1-11,.c2-12,
-	.c1-12	{
-		margin-left: 20px;
-		display: inline;
-		float: left;
-		min-height: 1px;
-	}
-
-/* 	1/12 */
-	.c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c10,.c11,.c12 { width: 100px; }
-	.offset1 { margin-left: 140px; }
-/* 	2/12 */
-	.c1-2,.c2-3,.c3-4,.c4-5,.c5-6,.c6-7,.c7-8,.c8-9,.c9-10,.c10-11,.c11-12 { width: 220px; }
-	.offset2 { margin-left: 260px; }
-/* 	3/12 */
-	.c1-3,.c2-4,.c3-5,.c4-6,.c5-7,.c6-8,.c7-9,.c8-10,.c9-11,.c10-12 { width: 340px; }
-	.offset3 { margin-left: 380px; }
-/* 	4/12 */
-	.c1-4,.c2-5,.c3-6,.c4-7,.c5-8,.c6-9,.c7-10,.c8-11,.c9-12 { width: 460px; }
-	.offset4 { margin-left: 500px; }
-/* 	5/12 */
-	.c1-5,.c2-6,.c3-7,.c4-8,.c5-9,.c6-10,.c7-11,.c8-12 { width: 580px; }
-	.offset5 { margin-left: 620px; }
-/* 	6/12 */
-	.c1-6,.c2-7,.c3-8,.c4-9,.c5-10,.c6-11,.c7-12 { width: 700px; }
-	.offset6 { margin-left: 740px; }
-/* 	7/12 */
-	.c1-7,.c2-8,.c3-9,.c4-10,.c5-11,.c6-12 { width: 820px; }
-	.offset7 { margin-left: 860px; }
-/* 	8/12 */
-	.c1-8,.c2-9,.c3-10,.c4-11,.c5-12 { width: 940px; }
-	.offset8 { margin-left: 980px; }
-/* 	9/12 */
-	.c1-9,.c2-10,.c3-11,.c4-12 { width: 1060px; }
-	.offset9 { margin-left: 1100px; }
-/* 	10/12 */
-	.c1-10,.c2-11,.c3-12 { width: 1180px; }
-	.offset10 { margin-left: 1220px; }
-/* 	11/12 */
-	.c1-11,.c2-12 { width: 1300px; }
-	.offset11 { margin-left: 1340px; }
-/* 	12/12 */
-	.c1-12 { width: 1420px; }
-
 }
-
-/* 	Accounts for extra margin on first column
-	This value should change a negative margin of whatever your gutter width is. */
-.row {
-	margin-left: -20px;
-}
-
 
 /* 	Single-column mobile
 	Get rid of widths and floats, go to fluid single column. */
-@media only screen and (max-width: 759px) {
+@media only screen and #{$phone-mq} {
+	.grid {
+		@include gutters($xs-grid-gutter);
+	}
+
 	.grid,
 	.c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c10,.c11,.c12,
 	.c1-2,.c2-3,.c3-4,.c4-5,.c5-6,.c6-7,.c7-8,.c8-9,.c9-10,.c10-11,.c11-12,
@@ -253,7 +381,19 @@
 [class*=c9] [class*=c9],
 [class*=c10] [class*=c10],
 [class*=c11] [class*=c11],
-.c12 .c12,
+[class*=c12] [class*=c12],
+[class*=c1-] .offset1:first-child,
+[class*=c2-] .offset1:first-child,
+[class*=c3-] .offset1:first-child,
+[class*=c4-] .offset1:first-child,
+[class*=c5-] .offset1:first-child,
+[class*=c6-] .offset1:first-child,
+[class*=c7-] .offset1:first-child,
+[class*=c8-] .offset1:first-child,
+[class*=c9-] .offset1:first-child,
+[class*=c10-] .offset1:first-child,
+[class*=c11-] .offset1:first-child,
+[class*=c12-] .offset1:first-child,
 .row .row {
 	margin-left: 0;
 }
