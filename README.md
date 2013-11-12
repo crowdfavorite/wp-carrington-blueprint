@@ -2,7 +2,7 @@
 
 This is a WordPress theme boilerplate intended to be your starting point for creating a responsive theme using Carrington Core.
 
-Carrington Blueprint uses several technologies to help you create new themes quickly. It leverages [Crowd Favorite](http://crowdfavorite.com)'s SASSified, 12-column, and responsive [CSSGrid](https://github.com/crowdfavorite/css-grid) and the powerful [Carrington Core](https://github.com/crowdfavorite/wp-carrington-core) CMS theme framework. You can find relevant documentation for Carrington Core in a README located in each directory.
+Carrington Blueprint uses several technologies to help you create new themes quickly. It leverages [Crowd Favorite](http://crowdfavorite.com)'s SASSified, 12-column, and responsive [CSSGrid](https://github.com/crowdfavorite/css-grid) and the powerful [Carrington Core](https://github.com/crowdfavorite/wp-carrington-core) template engine. You can find relevant documentation for Carrington Core in a README located in each directory.
 
 ---
 
