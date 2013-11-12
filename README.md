@@ -8,7 +8,7 @@ Carrington Blueprint uses several technologies to help you create new themes qui
 
 ### Installation
 
-Simply navigate to the `wp-content/themes` directory and clone this project in. Remember to update the submodules before activating the theme.
+Simply navigate to the `wp-content/themes` directory and clone this project into that directory. Remember to update the submodules before activating the theme.
 
 ---
 
