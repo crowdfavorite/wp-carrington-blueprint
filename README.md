@@ -12,7 +12,7 @@ Simply navigate to the `wp-content/themes` directory and clone this project in. 
 
 ---
 
-** Target browser compatibility: **
+*** Target browser compatibility: ***
 - Chrome
 - Safari
 - Firefox
