@@ -1,6 +1,6 @@
 /*	CSSGrid
- *  Version 2.0
- *  https://github.com/crowdfavorite/css-grid
+ * 	https://github.com/crowdfavorite/css-grid
+ * 	Version: 2.0.2
  *	License: http://opensource.org/licenses/mit-license.php  */
 
 // Variables (editable)
@@ -12,13 +12,13 @@ $lg-grid-gutter: 0px;
 $lg-col-margins: 20px;
 
 // Medium (tablet/desktop) in px
-$md-grid-inner-width: 1024px;
-$md-grid-gutter: 10px;
+$md-grid-inner-width: 1048px;
+$md-grid-gutter: 0px;
 $md-col-margins: 20px;
 
 // Small (mobile) in px
-$sm-grid-inner-width: 700px;
-$sm-grid-gutter: 24px;
+$sm-grid-inner-width: 760px;
+$sm-grid-gutter: 20px;
 $sm-col-margins: 20px;
 
 // Smallest (block) in px
@@ -30,9 +30,9 @@ $md-grid-total-width: $md-grid-inner-width + (2 * $md-grid-gutter);
 $sm-grid-total-width: $sm-grid-inner-width + (2 * $sm-grid-gutter);
 
 // media queries
-$desktop-mq: '(min-width: #{$lg-grid-inner-width + 10 })'; // 1430
-$tablet-mq: '(min-width: #{$sm-grid-inner-width + 60}) and (max-width: #{$md-grid-inner-width + 23})'; // 760, 1047
-$phone-mq: '(max-width: #{$sm-grid-inner-width + 59})'; // 759
+$desktop-mq: '(min-width: #{$lg-grid-total-width + 30 })';
+$tablet-mq: '(min-width: #{$sm-grid-total-width}) and (max-width: #{$md-grid-total-width - 1})';
+$phone-mq: '(max-width: #{$sm-grid-total-width - 1})';
 
 
 // Variables (don't edit)

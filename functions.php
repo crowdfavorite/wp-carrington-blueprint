@@ -49,7 +49,6 @@ if (! isset($content_width)) {
 	$content_width = 600;
 }
 
-
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -138,4 +137,3 @@ function cfct_load_assets() {
 	wp_enqueue_script('script', $cfct_assets_url . 'js/script.js', array('jquery', 'placeholder'), CFCT_URL_VERSION);
 }
 add_action('wp_enqueue_scripts', 'cfct_load_assets');
-
