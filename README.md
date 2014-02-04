@@ -14,7 +14,7 @@ Simply navigate to the `wp-content/themes` directory and clone this project into
 
 ### Editing
 
-This theme uses [Sass](http://sass-lang.com) and [Compass](http://compass-style.org) for CSS pre-processing. Once both are installed, run `compass watch` from the `assets` directory to compile any changes you make to the Sass files.
+This theme uses [node.js](http://http://nodejs.org/) for asset pipelining, including [Sass](http://sass-lang.com) for CSS pre-processing. Once node.js is installed, run `npm install` to install the node modules, then `npm run-script watch` from this directory to compile any changes you make to the Sass files.
 
 ---
 

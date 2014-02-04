@@ -1,5 +1,9 @@
 # Carrington Blueprint Changelog
 
+## 1.4
+
+- Node.js / gulp asset pipeline automation
+
 ## 1.1
 - 12-column grid
 - Updated assets libraries
