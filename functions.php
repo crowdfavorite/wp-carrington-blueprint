@@ -2,7 +2,7 @@
 
 // This file is part of the Carrington Blueprint Theme for WordPress
 //
-// Copyright (c) 2008-2013 Crowd Favorite, Ltd. All rights reserved.
+// Copyright (c) 2008-2014 Crowd Favorite, Ltd. All rights reserved.
 // http://crowdfavorite.com
 //
 // Released under the GPL license
@@ -27,7 +27,7 @@ define('CFCT_DEBUG', false);
 /**
  * Theme version.
  */
-define('CFCT_THEME_VERSION', '0.3');
+define('CFCT_THEME_VERSION', '1.3');
 
 /**
  * Theme URL version.
@@ -48,7 +48,6 @@ include_once(CFCT_PATH.'carrington-core/carrington.php');
 if (! isset($content_width)) {
 	$content_width = 600;
 }
-
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -133,9 +132,8 @@ function cfct_load_assets() {
 	}
 
 	// Scripts
-	wp_enqueue_script('modernizr', $cfct_assets_url . 'js/modernizr-2.6.2.min.js', array(), CFCT_URL_VERSION);
+	wp_enqueue_script('modernizr', $cfct_assets_url . 'js/modernizr-2.7.1.min.js', array(), CFCT_URL_VERSION);
 	wp_enqueue_script('placeholder', $cfct_assets_url . 'js/jquery.placeholder.min.js', array('jquery'), CFCT_URL_VERSION);
 	wp_enqueue_script('script', $cfct_assets_url . 'js/script.js', array('jquery', 'placeholder'), CFCT_URL_VERSION);
 }
 add_action('wp_enqueue_scripts', 'cfct_load_assets');
-
