@@ -12,6 +12,12 @@ Simply navigate to the `wp-content/themes` directory and clone this project into
 
 ---
 
+### Editing
+
+This theme uses [Sass](http://sass-lang.com) and [Compass](http://compass-style.org) for CSS pre-processing. Once both are installed, run `compass watch` from the `assets` directory to compile any changes you make to the Sass files.
+
+---
+
 **Target browser compatibility:**
 - Chrome
 - Safari
