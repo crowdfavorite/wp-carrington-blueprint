@@ -23,7 +23,6 @@
 			 */
 			$(window).on('resize', this.debounce(function() {
 				Site.challengeContext();
-				console.log(Site.context);
 			}, 250));
 
 		},
