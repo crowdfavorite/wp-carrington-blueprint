@@ -7,31 +7,43 @@
 // --------------------------------------------------
 
 // Colors
-
-// $color-dark: #444;
-// $color: #666;
-// $color-light: #999;
+$color-dark: #444;
+$color: #666;
+$color-light: #999;
 
 // Typography
 // $space: 15;
 
-//$font-serif: Georgia, "Times New Roman", Times, serif;
-//$font-sans: Helvetica, Arial, sans-serif;
+$font-serif: Georgia, "Times New Roman", Times, serif;
+$font-sans: Helvetica, Arial, sans-serif;
 
 // --------------------------------------------------
 // Media queries and responsive features
 // --------------------------------------------------
 
-// Break Points
-
+// Breakpoints
 $small-min: 480px;
 $medium-min: 760px;
 $large-min: 1025px;
 
 // Media Query Mixin
-
 @mixin breakpoint($bp) {
 	@media (min-width: $bp)  { @content; }
+}
+
+// Breakpoint indicator
+.breakpoint-context {
+	position: absolute;
+    top: -999em;
+    left: -999em;
+	z-index: 1;
+
+	@include breakpoint($medium-min) {
+		z-index: 2;
+	}
+	@include breakpoint($large-min) {
+		z-index: 3;
+	}
 }
 
 // --------------------------------------------------
