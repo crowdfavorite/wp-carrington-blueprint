@@ -37,7 +37,7 @@ $title_description = (is_home() && !empty($blog_desc) ? ' - '.$blog_desc : '');
 	<!--[if lt IE 9]><link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/ie78-style.css" type="text/css" media="all"><![endif]-->
 </head>
 <body <?php body_class(); ?>>
-
+<div class="breakpoint-context"></div>
 <div class="container grid">
 	<header id="masthead" class="row site-header clearfix">
 		<div class="c1-12">

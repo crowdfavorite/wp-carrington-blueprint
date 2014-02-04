@@ -1,3 +1,23 @@
+/* line 39, ../scss/style.scss */
+.breakpoint-context {
+  position: absolute;
+  top: -999em;
+  left: -999em;
+  z-index: 1;
+}
+@media (min-width: 760px) {
+  /* line 39, ../scss/style.scss */
+  .breakpoint-context {
+    z-index: 2;
+  }
+}
+@media (min-width: 1025px) {
+  /* line 39, ../scss/style.scss */
+  .breakpoint-context {
+    z-index: 3;
+  }
+}
+
 /*
  * HTML5 Boilerplate
  *
