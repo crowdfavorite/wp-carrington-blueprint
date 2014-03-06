@@ -4,16 +4,16 @@
 var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	sass = require('gulp-sass'),
-	filesCached = require('gulp-cached'),
+	filesCached = require('gulp-cache'),
     filesChanged = require('gulp-changed'),
     jsHint = require('gulp-jshint'),
     liveReload = require('gulp-livereload'),
     tinylr = require('tiny-lr'),
     stripDebug = require('gulp-strip-debug'),
     jsMinify = require('gulp-uglify'),
-    cssMinify = require('gulp-cssmin'),
-    concat = require('gulp-concat'),
-    // imageoptim = require('gulp-imageoptim'),
+    cssMinify = require('gulp-minify-css'),
+    joinFiles = require('gulp-concat'),
+    compressImgs = require('gulp-imagemin'),
     // csscss = require('gulp-csscss'),
     prefixer = require('gulp-autoprefixer'),
 	watching = false,
@@ -52,7 +52,7 @@ gulp.task('devCss', function() {
 			'output_style': 'nested',
 			'errLogToConsole': watching
 		}).on('error', pluginlog))
-		.pipe(prefixer('last 2 versions', '> 5%', 'ie 8'))
+		.pipe(prefixer('last 2 versions', '> 5%', 'ie 9'))
 		// .pipe(csscss())
 		.pipe(gulp.dest(paths.dev.css))
 		.pipe(liveReload(server));
@@ -63,6 +63,27 @@ gulp.task('devJs', function() {
 	return gulp.src(files.dev.js)
 		.pipe(jsHint())
 		.pipe(jsHint.reporter('default'));
+});
+
+gulp.task('buildCss', function() {
+	gulp.src(files.dev.css)
+		.pipe(joinFiles('all.min.css'))
+		.pipe(cssMinify())
+		.pipe(gulp.dest(paths.build));
+});
+
+gulp.task('buildJs', function() {
+	gulp.src(files.dev.js)
+		.pipe(joinFiles('all.min.js'))
+		// .pipe(stripDebug())
+		.pipe(jsMinify())
+		.pipe(gulp.dest(paths.build));
+});
+
+gulp.task('buildImgs', function() {
+	gulp.src(files.dev.img)
+		.pipe(filesCached(compressImgs({ optimizationLevel: 7, progressive: true, interlaced: true })))
+		.pipe(gulp.dest(paths.dev.img));
 });
 
 gulp.task('watching', function() {
@@ -84,14 +105,7 @@ gulp.task('watch', ['watching'], function() {
 });
 
 // Production task
-gulp.task('build', function() {
-	// return gulp.src(paths.styles)
-	// 	.pipe(sass({
-	// 		'output_style': 'nested',
-	// 		'errLogToConsole': watching
-	// 	}).on('error', pluginlog))
-	// 	.pipe(gulp.dest('./assets/css'));
-});
+gulp.task('build', ['buildCss','buildJs', 'buildImgs']);
 
 // Default task
 gulp.task('default', ['watch']);
