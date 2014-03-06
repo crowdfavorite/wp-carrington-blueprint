@@ -22,7 +22,11 @@ var gulp = require('gulp'),
 		dev: {
 			sass: './assets/scss/*.scss',
 			css: './assets/css/*.css',
-			js: './assets/js/*.js',
+			js: {
+				custom: './assets/js/*.js',
+				lib: './assets/js/lib/*.js',
+				theme: './assets/js/**/*.js'
+			},
 			img: './assets/img/*'
 		},
 		build: {
@@ -60,7 +64,7 @@ gulp.task('devCss', function() {
 
 
 gulp.task('devJs', function() {
-	return gulp.src(files.dev.js)
+	return gulp.src(files.dev.js.custom)
 		.pipe(jsHint())
 		.pipe(jsHint.reporter('default'));
 });
@@ -73,7 +77,7 @@ gulp.task('buildCss', function() {
 });
 
 gulp.task('buildJs', function() {
-	gulp.src(files.dev.js)
+	gulp.src(files.dev.js.theme)
 		.pipe(joinFiles('all.min.js'))
 		// .pipe(stripDebug())
 		.pipe(jsMinify())
@@ -100,7 +104,7 @@ gulp.task('watch', ['watching'], function() {
 
 		// Processing
 		gulp.watch(files.dev.sass, ['devCss']);
-		gulp.watch(files.dev.js, ['devJs']);
+		gulp.watch(files.dev.js.theme, ['devJs']);
 	});
 });
 

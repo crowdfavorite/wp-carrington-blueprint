@@ -129,16 +129,26 @@ function cfct_load_assets() {
 	//Variable for assets url
 	$cfct_assets_url = get_template_directory_uri() . '/assets/';
 
-	// Styles
-	wp_enqueue_style('styles', $cfct_assets_url . 'css/style.css', array(), CFCT_URL_VERSION);
+	// Is this a development environment?
+	if (defined('CFCT_DEV_MODE') && CFCT_DEV_MODE) {
+		// Development Styles
+		wp_enqueue_style('dev-styles', $cfct_assets_url . 'css/style.css', array(), CFCT_URL_VERSION);
+
+		// Development Scripts
+		wp_enqueue_script('modernizr', $cfct_assets_url . 'js/modernizr-2.7.1.min.js', array(), CFCT_URL_VERSION);
+		wp_enqueue_script('placeholder', $cfct_assets_url . 'js/jquery.placeholder.min.js', array('jquery'), CFCT_URL_VERSION);
+		wp_enqueue_script('dev-script', $cfct_assets_url . 'js/script.js', array('jquery', 'placeholder'), CFCT_URL_VERSION);
+	}
+	else {
+		// Build Styles
+		wp_enqueue_style('build-styles', $cfct_assets_url . 'build/all.min.css', array(), CFCT_URL_VERSION);
+
+		// Build Scripts
+		wp_enqueue_script('build-script', $cfct_assets_url . 'build/all.min.js', array('jquery'), CFCT_URL_VERSION);
+	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-
-	// Scripts
-	wp_enqueue_script('modernizr', $cfct_assets_url . 'js/modernizr-2.7.1.min.js', array(), CFCT_URL_VERSION);
-	wp_enqueue_script('placeholder', $cfct_assets_url . 'js/jquery.placeholder.min.js', array('jquery'), CFCT_URL_VERSION);
-	wp_enqueue_script('script', $cfct_assets_url . 'js/script.js', array('jquery', 'placeholder'), CFCT_URL_VERSION);
 }
 add_action('wp_enqueue_scripts', 'cfct_load_assets');
