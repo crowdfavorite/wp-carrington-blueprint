@@ -49,7 +49,7 @@ var gulp = require('gulp'),
 gulp.task('devCss', function() {
 	return gulp.src(files.dev.sass)
 		.pipe(sass({
-			'output_style': 'nested',
+			'style': 'nested',
 			'errLogToConsole': watching
 		}).on('error', pluginlog))
 		.pipe(prefixer('last 2 versions', '> 5%', 'ie 9'))
