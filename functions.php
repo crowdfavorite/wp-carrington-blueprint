@@ -30,6 +30,11 @@ define('CFCT_DEBUG', false);
 define('CFCT_THEME_VERSION', '1.3');
 
 /**
+ * Development environment.
+ */
+define('CFCT_DEV_MODE', true);
+
+/**
  * Theme URL version.
  * Added to query var at the end of assets to force browser cache to reload after upgrade.
  */
