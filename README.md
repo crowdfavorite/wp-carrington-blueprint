@@ -27,8 +27,7 @@ This theme uses [node.js](http://http://nodejs.org/) for asset pipelining, inclu
 
 When the theme is ready to be deployed, run `npm run-script build` to prepare the assets for deployment to a production environment. This will perform the following:
 
-- Image compression via ImageOptim
-- Removal of `console` statements within JavaScript
+- Image compression
 - JavaScript minifying and concatenation
 - CSS minifying and concatenation
 
