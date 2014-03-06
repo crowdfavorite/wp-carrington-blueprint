@@ -24,23 +24,10 @@
 /* =============================================================================
    HTML5 display definitions
    ========================================================================== */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section,
-summary {
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
   display: block; }
 
-audio,
-canvas,
-video {
+audio, canvas, video {
   display: inline-block;
   *display: inline;
   *zoom: 1; }
@@ -63,11 +50,7 @@ html {
   -webkit-text-size-adjust: 100%;
   /* 2 */ }
 
-html,
-button,
-input,
-select,
-textarea {
+html, button, input, select, textarea {
   font-family: sans-serif; }
 
 body {
@@ -110,8 +93,7 @@ a:hover {
 a:focus {
   outline: thin dotted; }
 
-a:active,
-a:hover {
+a:active, a:hover {
   outline: 0; }
 
 /* =============================================================================
@@ -259,6 +241,7 @@ button[disabled], html input[disabled] {
   cursor: default; }
 
 input[type="checkbox"], input[type="radio"] {
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
   *width: 13px;
@@ -267,7 +250,6 @@ input[type="checkbox"], input[type="radio"] {
 input[type="search"] {
   -webkit-appearance: textfield;
   -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   box-sizing: content-box; }
 
 input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button {
@@ -293,47 +275,38 @@ table {
    Inlined to avoid required HTTP connection: h5bp.com/r
    ========================================================================== */
 @media print {
+  /* Black prints faster: h5bp.com/s */
+  @page {
+    margin: 0.5cm; }
+
   * {
     background: transparent !important;
     color: #000 !important;
     box-shadow: none !important;
     text-shadow: none !important; }
-
-  /* Black prints faster: h5bp.com/s */
   a, a:visited {
     text-decoration: underline; }
-
   a[href]:after {
     content: " (" attr(href) ")"; }
-
   abbr[title]:after {
     content: " (" attr(title) ")"; }
-
   .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
     content: ""; }
-
   pre, blockquote {
     border: 1px solid #999;
     page-break-inside: avoid; }
-
   thead {
     display: table-header-group; }
-
   tr, img {
     page-break-inside: avoid; }
-
   img {
     max-width: 100% !important; }
-
-  @page {
-    margin: 0.5cm; }
-
   p, h2, h3 {
     orphans: 3;
     widows: 3; }
-
   h2, h3 {
     page-break-after: avoid; } }
+
 /*	CSSGrid
  * 	https://github.com/crowdfavorite/css-grid
  * 	Version: 2.0.2
@@ -346,10 +319,7 @@ table {
   margin: 0 auto; }
 
 /* fluid media */
-.row img,
-.row object,
-.row embed,
-.row video {
+.row img, .row object, .row embed, .row video {
   max-width: 100%; }
 
 /* 	Default Desktop/Tablet Grid
@@ -360,18 +330,7 @@ table {
   padding-right: 0px;
   width: 1048px; }
 
-.c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12,
-.c1-2, .c2-3, .c3-4, .c4-5, .c5-6, .c6-7, .c7-8, .c8-9, .c9-10, .c10-11, .c11-12,
-.c1-3, .c2-4, .c3-5, .c4-6, .c5-7, .c6-8, .c7-9, .c8-10, .c9-11, .c10-12,
-.c1-4, .c2-5, .c3-6, .c4-7, .c5-8, .c6-9, .c7-10, .c8-11, .c9-12,
-.c1-5, .c2-6, .c3-7, .c4-8, .c5-9, .c6-10, .c7-11, .c8-12,
-.c1-6, .c2-7, .c3-8, .c4-9, .c5-10, .c6-11, .c7-12,
-.c1-7, .c2-8, .c3-9, .c4-10, .c5-11, .c6-12,
-.c1-8, .c2-9, .c3-10, .c4-11, .c5-12,
-.c1-9, .c2-10, .c3-11, .c4-12,
-.c1-10, .c2-11, .c3-12,
-.c1-11, .c2-12,
-.c1-12 {
+.c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12, .c1-2, .c2-3, .c3-4, .c4-5, .c5-6, .c6-7, .c7-8, .c8-9, .c9-10, .c10-11, .c11-12, .c1-3, .c2-4, .c3-5, .c4-6, .c5-7, .c6-8, .c7-9, .c8-10, .c9-11, .c10-12, .c1-4, .c2-5, .c3-6, .c4-7, .c5-8, .c6-9, .c7-10, .c8-11, .c9-12, .c1-5, .c2-6, .c3-7, .c4-8, .c5-9, .c6-10, .c7-11, .c8-12, .c1-6, .c2-7, .c3-8, .c4-9, .c5-10, .c6-11, .c7-12, .c1-7, .c2-8, .c3-9, .c4-10, .c5-11, .c6-12, .c1-8, .c2-9, .c3-10, .c4-11, .c5-12, .c1-9, .c2-10, .c3-11, .c4-12, .c1-10, .c2-11, .c3-12, .c1-11, .c2-12, .c1-12 {
   margin-left: 20px;
   display: inline;
   float: left;
@@ -384,18 +343,7 @@ table {
 .offset1 {
   margin-left: 109px; }
 
-[class*=c1-] .offset1:first-child,
-[class*=c2-] .offset1:first-child,
-[class*=c3-] .offset1:first-child,
-[class*=c4-] .offset1:first-child,
-[class*=c5-] .offset1:first-child,
-[class*=c6-] .offset1:first-child,
-[class*=c7-] .offset1:first-child,
-[class*=c8-] .offset1:first-child,
-[class*=c9-] .offset1:first-child,
-[class*=c10-] .offset1:first-child,
-[class*=c11-] .offset1:first-child,
-[class*=c12-] .offset1:first-child {
+[class*=c1-] .offset1:first-child, [class*=c2-] .offset1:first-child, [class*=c3-] .offset1:first-child, [class*=c4-] .offset1:first-child, [class*=c5-] .offset1:first-child, [class*=c6-] .offset1:first-child, [class*=c7-] .offset1:first-child, [class*=c8-] .offset1:first-child, [class*=c9-] .offset1:first-child, [class*=c10-] .offset1:first-child, [class*=c11-] .offset1:first-child, [class*=c12-] .offset1:first-child {
   margin-left: 89px; }
 
 /* 	2/12 */
@@ -480,132 +428,85 @@ table {
 /* 	Medium Sized Grid
 	Tablet sized columns. */
 @media only screen and (min-width: 800px) and (max-width: 1047px) {
+  /* 	1/12 */
+  /* 	2/12 */
+  /* 	3/12 */
+  /* 	4/12 */
+  /* 	5/12 */
+  /* 	6/12 */
+  /* 	7/12 */
+  /* 	8/12 */
+  /* 	9/12 */
+  /* 	10/12 */
+  /* 	11/12 */
+  /* 	12/12 */
+  /* 	Accounts for extra margin on first column
+	This value should change a negative margin of whatever your gutter width is. */
   .grid {
     padding-left: 20px;
     padding-right: 20px;
     width: 760px; }
-
-  .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12,
-  .c1-2, .c2-3, .c3-4, .c4-5, .c5-6, .c6-7, .c7-8, .c8-9, .c9-10, .c10-11, .c11-12,
-  .c1-3, .c2-4, .c3-5, .c4-6, .c5-7, .c6-8, .c7-9, .c8-10, .c9-11, .c10-12,
-  .c1-4, .c2-5, .c3-6, .c4-7, .c5-8, .c6-9, .c7-10, .c8-11, .c9-12,
-  .c1-5, .c2-6, .c3-7, .c4-8, .c5-9, .c6-10, .c7-11, .c8-12,
-  .c1-6, .c2-7, .c3-8, .c4-9, .c5-10, .c6-11, .c7-12,
-  .c1-7, .c2-8, .c3-9, .c4-10, .c5-11, .c6-12,
-  .c1-8, .c2-9, .c3-10, .c4-11, .c5-12,
-  .c1-9, .c2-10, .c3-11, .c4-12,
-  .c1-10, .c2-11, .c3-12,
-  .c1-11, .c2-12,
-  .c1-12 {
+  .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12, .c1-2, .c2-3, .c3-4, .c4-5, .c5-6, .c6-7, .c7-8, .c8-9, .c9-10, .c10-11, .c11-12, .c1-3, .c2-4, .c3-5, .c4-6, .c5-7, .c6-8, .c7-9, .c8-10, .c9-11, .c10-12, .c1-4, .c2-5, .c3-6, .c4-7, .c5-8, .c6-9, .c7-10, .c8-11, .c9-12, .c1-5, .c2-6, .c3-7, .c4-8, .c5-9, .c6-10, .c7-11, .c8-12, .c1-6, .c2-7, .c3-8, .c4-9, .c5-10, .c6-11, .c7-12, .c1-7, .c2-8, .c3-9, .c4-10, .c5-11, .c6-12, .c1-8, .c2-9, .c3-10, .c4-11, .c5-12, .c1-9, .c2-10, .c3-11, .c4-12, .c1-10, .c2-11, .c3-12, .c1-11, .c2-12, .c1-12 {
     display: inline;
     /* IE6/IE7 double-margin float bug fix */
     float: left;
     margin-left: 20px;
     /* Prevent collapsing of empty columns. Min-height prevents collapse
-    everywhere but IE6. IE6 doesn't collapse empty collumns anyhow, so no need
-    for a fix there. */
+		everywhere but IE6. IE6 doesn't collapse empty collumns anyhow, so no need
+		for a fix there. */
     min-height: 1px;
     clear: none; }
-
-  /* 	1/12 */
   .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12 {
     width: 45px; }
-
   .offset1 {
     margin-left: 85px; }
-
-  [class*=c1-] .offset1:first-child,
-  [class*=c2-] .offset1:first-child,
-  [class*=c3-] .offset1:first-child,
-  [class*=c4-] .offset1:first-child,
-  [class*=c5-] .offset1:first-child,
-  [class*=c6-] .offset1:first-child,
-  [class*=c7-] .offset1:first-child,
-  [class*=c8-] .offset1:first-child,
-  [class*=c9-] .offset1:first-child,
-  [class*=c10-] .offset1:first-child,
-  [class*=c11-] .offset1:first-child,
-  [class*=c12-] .offset1:first-child {
+  [class*=c1-] .offset1:first-child, [class*=c2-] .offset1:first-child, [class*=c3-] .offset1:first-child, [class*=c4-] .offset1:first-child, [class*=c5-] .offset1:first-child, [class*=c6-] .offset1:first-child, [class*=c7-] .offset1:first-child, [class*=c8-] .offset1:first-child, [class*=c9-] .offset1:first-child, [class*=c10-] .offset1:first-child, [class*=c11-] .offset1:first-child, [class*=c12-] .offset1:first-child {
     margin-left: 65px; }
-
-  /* 	2/12 */
   .c1-2, .c2-3, .c3-4, .c4-5, .c5-6, .c6-7, .c7-8, .c8-9, .c9-10, .c10-11, .c11-12 {
     width: 110px; }
-
   .offset2 {
     margin-left: 150px; }
-
-  /* 	3/12 */
   .c1-3, .c2-4, .c3-5, .c4-6, .c5-7, .c6-8, .c7-9, .c8-10, .c9-11, .c10-12 {
     width: 175px; }
-
   .offset3 {
     margin-left: 215px; }
-
-  /* 	4/12 */
   .c1-4, .c2-5, .c3-6, .c4-7, .c5-8, .c6-9, .c7-10, .c8-11, .c9-12 {
     width: 240px; }
-
   .offset4 {
     margin-left: 280px; }
-
-  /* 	5/12 */
   .c1-5, .c2-6, .c3-7, .c4-8, .c5-9, .c6-10, .c7-11, .c8-12 {
     width: 305px; }
-
   .offset5 {
     margin-left: 345px; }
-
-  /* 	6/12 */
   .c1-6, .c2-7, .c3-8, .c4-9, .c5-10, .c6-11, .c7-12 {
     width: 370px; }
-
   .offset6 {
     margin-left: 410px; }
-
-  /* 	7/12 */
   .c1-7, .c2-8, .c3-9, .c4-10, .c5-11, .c6-12 {
     width: 435px; }
-
   .offset7 {
     margin-left: 475px; }
-
-  /* 	8/12 */
   .c1-8, .c2-9, .c3-10, .c4-11, .c5-12 {
     width: 500px; }
-
   .offset8 {
     margin-left: 540px; }
-
-  /* 	9/12 */
   .c1-9, .c2-10, .c3-11, .c4-12 {
     width: 565px; }
-
   .offset9 {
     margin-left: 605px; }
-
-  /* 	10/12 */
   .c1-10, .c2-11, .c3-12 {
     width: 630px; }
-
   .offset10 {
     margin-left: 670px; }
-
-  /* 	11/12 */
   .c1-11, .c2-12 {
     width: 695px; }
-
   .offset11 {
     margin-left: 735px; }
-
-  /* 	12/12 */
   .c1-12 {
     width: 760px; }
-
-  /* 	Accounts for extra margin on first column
-  	This value should change a negative margin of whatever your gutter width is. */
   .row {
     margin-left: -20px; } }
+
 /* 	Large Desktop Grid
 	Very wide columns for large monitors. */
 /* 	Single-column mobile
@@ -614,53 +515,16 @@ table {
   .grid {
     padding-left: 10px;
     padding-right: 10px; }
-
-  .grid,
-  .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12,
-  .c1-2, .c2-3, .c3-4, .c4-5, .c5-6, .c6-7, .c7-8, .c8-9, .c9-10, .c10-11, .c11-12,
-  .c1-3, .c2-4, .c3-5, .c4-6, .c5-7, .c6-8, .c7-9, .c8-10, .c9-11, .c10-12,
-  .c1-4, .c2-5, .c3-6, .c4-7, .c5-8, .c6-9, .c7-10, .c8-11, .c9-12,
-  .c1-5, .c2-6, .c3-7, .c4-8, .c5-9, .c6-10, .c7-11, .c8-12,
-  .c1-6, .c2-7, .c3-8, .c4-9, .c5-10, .c6-11, .c7-12,
-  .c1-7, .c2-8, .c3-9, .c4-10, .c5-11, .c6-12,
-  .c1-8, .c2-9, .c3-10, .c4-11, .c5-12,
-  .c1-9, .c2-10, .c3-11, .c4-12,
-  .c1-10, .c2-11, .c3-12,
-  .c1-11, .c2-12,
-  .c1-12 {
+  .grid, .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12, .c1-2, .c2-3, .c3-4, .c4-5, .c5-6, .c6-7, .c7-8, .c8-9, .c9-10, .c10-11, .c11-12, .c1-3, .c2-4, .c3-5, .c4-6, .c5-7, .c6-8, .c7-9, .c8-10, .c9-11, .c10-12, .c1-4, .c2-5, .c3-6, .c4-7, .c5-8, .c6-9, .c7-10, .c8-11, .c9-12, .c1-5, .c2-6, .c3-7, .c4-8, .c5-9, .c6-10, .c7-11, .c8-12, .c1-6, .c2-7, .c3-8, .c4-9, .c5-10, .c6-11, .c7-12, .c1-7, .c2-8, .c3-9, .c4-10, .c5-11, .c6-12, .c1-8, .c2-9, .c3-10, .c4-11, .c5-12, .c1-9, .c2-10, .c3-11, .c4-12, .c1-10, .c2-11, .c3-12, .c1-11, .c2-12, .c1-12 {
     display: block;
     float: none;
     margin-left: 0;
     width: auto; }
-
   .row {
     margin-left: 0; } }
+
 /* Zeroing out leftmost nested .unit margins */
-[class*=c1] [class*=c1],
-[class*=c2] [class*=c2],
-[class*=c3] [class*=c3],
-[class*=c4] [class*=c4],
-[class*=c5] [class*=c5],
-[class*=c6] [class*=c6],
-[class*=c7] [class*=c7],
-[class*=c8] [class*=c8],
-[class*=c9] [class*=c9],
-[class*=c10] [class*=c10],
-[class*=c11] [class*=c11],
-[class*=c12] [class*=c12],
-[class*=c1-] .offset1:first-child,
-[class*=c2-] .offset1:first-child,
-[class*=c3-] .offset1:first-child,
-[class*=c4-] .offset1:first-child,
-[class*=c5-] .offset1:first-child,
-[class*=c6-] .offset1:first-child,
-[class*=c7-] .offset1:first-child,
-[class*=c8-] .offset1:first-child,
-[class*=c9-] .offset1:first-child,
-[class*=c10-] .offset1:first-child,
-[class*=c11-] .offset1:first-child,
-[class*=c12-] .offset1:first-child,
-.row .row {
+[class*=c1] [class*=c1], [class*=c2] [class*=c2], [class*=c3] [class*=c3], [class*=c4] [class*=c4], [class*=c5] [class*=c5], [class*=c6] [class*=c6], [class*=c7] [class*=c7], [class*=c8] [class*=c8], [class*=c9] [class*=c9], [class*=c10] [class*=c10], [class*=c11] [class*=c11], [class*=c12] [class*=c12], [class*=c1-] .offset1:first-child, [class*=c2-] .offset1:first-child, [class*=c3-] .offset1:first-child, [class*=c4-] .offset1:first-child, [class*=c5-] .offset1:first-child, [class*=c6-] .offset1:first-child, [class*=c7-] .offset1:first-child, [class*=c8-] .offset1:first-child, [class*=c9-] .offset1:first-child, [class*=c10-] .offset1:first-child, [class*=c11-] .offset1:first-child, [class*=c12-] .offset1:first-child, .row .row {
   margin-left: 0; }
 
 /* Full-width  */
@@ -674,8 +538,7 @@ table {
 /* Row offsetfix
 Uses variation of Nicolas Gallagher's Micro offsetfix.
 http://nicolasgallagher.com/micro-offsetfix-hack/ */
-.row:before,
-.row:after {
+.row:before, .row:after {
   content: "";
   display: table; }
 
@@ -748,14 +611,12 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
 /* 	Other Non-semantic Helpers
 	------------------------------------------------------- */
 .border-box {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 /** WordPress compatibility styles
  -------------------------------------------------- */
-.alignleft,
-.alignright {
+.alignleft, .alignright {
   margin-top: 4px; }
 
 .alignleft {
@@ -790,12 +651,10 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
   border: 0; }
 
 .wp-caption dd {
-  font-size: .9em;
+  font-size: 0.9em;
   padding: 2px 8px 3px 8px;
   margin: 1px 0 0 0; }
 
-.sticky {
-  /* Add styles here if you wish to callout sticky posts */ }
 
 /* --------------------------------------------------
  * Standard / Utility Classes
@@ -805,8 +664,7 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
   min-height: 20px;
   margin: 30px 0; }
 
-.pagination .prev,
-.pagination .next {
+.pagination .prev, .pagination .next {
   display: block;
   line-height: 1.2em;
   width: 48%; }
@@ -814,6 +672,7 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
 .pagination .next {
   float: right;
   text-align: right; }
+
 
 /** Masthead
  -------------------------------------------------- */
@@ -852,7 +711,7 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
     #nav-main li ul {
       background: #f6f6f6;
       display: none;
-      padding: .2em 0;
+      padding: 0.2em 0;
       top: 2em;
       width: 150px;
       float: none;
@@ -867,7 +726,21 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
 	------------------------------------------------------- */
 /** Posts Default
  -------------------------------------------------- */
+
+
+
+
+
 /** Attachment Page
  -------------------------------------------------- */
+
+
+
+
 /** WP Gallery
  -------------------------------------------------- */
+
+
+
+
+
