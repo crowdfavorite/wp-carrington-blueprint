@@ -14,7 +14,7 @@ Simply navigate to the `wp-content/themes` directory and clone this project into
 
 ### Editing
 
-This theme uses [node.js](http://http://nodejs.org/) for asset pipelining, including [Sass](http://sass-lang.com) for CSS pre-processing. Once node.js is installed, run `npm install` to install the node modules, then `npm run-script watch` from this directory to process the Sass/CSS and JavaScript files. This includes the following:
+This theme uses [node.js](http://http://nodejs.org/) for asset pipelining, including [Sass](http://sass-lang.com) for CSS pre-processing. Once node.js is installed, run `npm install` from the theme root to install the node modules, then `npm run-script watch` to process the Sass/CSS and JavaScript files. This includes the following:
 
 - Any saved changes to a Sass file will be compiled into CSS, which is then checked for unprefixed or unecessarily-prefixed CSS3 selectors
 - JavaScript files are checked for errors whenever saved
