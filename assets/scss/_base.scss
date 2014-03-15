@@ -22,7 +22,7 @@ button,
 input,
 select,
 textarea {
-	color: #222;
+	color: $gray-dark;
 }
 
 html {
@@ -30,8 +30,8 @@ html {
 		// 62.5% takes 16px (browser default size for medium text) down to 10px
 		// ref: http://clagnut.com/blog/348/
 	// font-size: 62.5%;
-	font-size: 1em;
-	line-height: 1.4;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 /*
@@ -41,12 +41,12 @@ html {
  */
 
 ::-moz-selection {
-	background: #b3d4fc;
+	background: $blue-light;
 	text-shadow: none;
 }
 
 ::selection {
-	background: #b3d4fc;
+	background: $blue-light;
 	text-shadow: none;
 }
 
@@ -58,7 +58,7 @@ hr {
 	display: block;
 	height: 1px;
 	border: 0;
-	border-top: 1px solid #ccc;
+	border-top: 1px solid $gray-dark;
 	margin: 1em 0;
 	padding: 0;
 }
@@ -99,7 +99,7 @@ a {
 	&,
 	&:visited,
 	&:hover {
-		color: $link;
+		color: $blue;
 	}
 }
 
