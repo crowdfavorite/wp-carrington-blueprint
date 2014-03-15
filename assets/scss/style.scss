@@ -23,13 +23,15 @@ $font-sans: Helvetica, Arial, sans-serif;
 // --------------------------------------------------
 
 // Breakpoints
-$small-min: 480px;
-$medium-min: 760px;
-$large-min: 1025px;
+$small: 480px;
+$medium: 760px;
+$large: 1025px;
 
 // Media Query Mixin
-@mixin breakpoint($bp) {
-	@media (min-width: $bp)  { @content; }
+@mixin breakpoint($bp, $direction: min) {
+	@media (#{$direction}-width: $bp)  {
+		@content;
+	}
 }
 
 // Breakpoint indicator
