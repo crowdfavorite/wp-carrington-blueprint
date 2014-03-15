@@ -2,14 +2,13 @@
 // Generic Mixins
 // --------------------------------------------------
 
+// CSS3 Helpers
 @mixin border-radius($radius: 3px) {
 	-moz-border-radius: $radius; /* FF1+ */
 	-webkit-border-radius: $radius; /* Saf3+, Chrome */
 	border-radius: $radius; /* Standard. IE9 */
-	/**
-	 * @bugfix border-radius background bleed
-	 * @see http://tumble.sneak.co.nz/post/928998513/fixing-the-background-bleed
-	 */
+	// @bugfix border-radius background bleed
+	// @see http://tumble.sneak.co.nz/post/928998513/fixing-the-background-bleed
 	-webkit-background-clip: padding-box;
 }
 
@@ -33,6 +32,14 @@
 	transition: $transition;
 }
 
+// Media Query Helpers
+@mixin breakpoint($bp, $direction: min) {
+	@media (#{$direction}-width: $bp)  {
+		@content;
+	}
+}
+
+// Rhythm Helpers
 @mixin margin-space ($multiplier: 1, $placement: '') {
 	margin#{$placement}: ($space * $multiplier) + px;
 }
@@ -44,8 +51,10 @@
 	padding#{$placement}: ($space * $multiplier) + px;
 }
 
-/* Contain floats: h5bp.com/q */
+// Standard Helpers
+
 @mixin clearfix {
+	// Contain floats: h5bp.com/q
 	*zoom: 1;
 
 	&:before,

@@ -12,42 +12,16 @@ $color: #666;
 $color-light: #999;
 $link: #0000FF;
 
-// Typography
-// $space: 15;
-
-$font-serif: Georgia, "Times New Roman", Times, serif;
-$font-sans: Helvetica, Arial, sans-serif;
-
-// --------------------------------------------------
-// Media queries and responsive features
-// --------------------------------------------------
-
 // Breakpoints
 $small: 480px;
 $medium: 760px;
 $large: 1025px;
 
-// Media Query Mixin
-@mixin breakpoint($bp, $direction: min) {
-	@media (#{$direction}-width: $bp)  {
-		@content;
-	}
-}
+// Typography
+// $space: 15;
 
-// Breakpoint indicator
-.breakpoint-context {
-	position: absolute;
-    top: -999em;
-    left: -999em;
-	z-index: 1;
-
-	@include breakpoint($medium-min) {
-		z-index: 2;
-	}
-	@include breakpoint($large-min) {
-		z-index: 3;
-	}
-}
+$font-serif: Georgia, "Times New Roman", Times, serif;
+$font-sans: Helvetica, Arial, sans-serif;
 
 // --------------------------------------------------
 // Image Versioning Functions: use these for all image references in SCSS.
