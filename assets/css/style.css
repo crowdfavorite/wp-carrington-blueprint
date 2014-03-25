@@ -328,7 +328,7 @@ table {
   /* this makes the page wide but keeps content away from the edge */
   padding-left: 0px;
   padding-right: 0px;
-  width: 800px; }
+  width: 1048px; }
 
 .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12, .c1-2, .c2-3, .c3-4, .c4-5, .c5-6, .c6-7, .c7-8, .c8-9, .c9-10, .c10-11, .c11-12, .c1-3, .c2-4, .c3-5, .c4-6, .c5-7, .c6-8, .c7-9, .c8-10, .c9-11, .c10-12, .c1-4, .c2-5, .c3-6, .c4-7, .c5-8, .c6-9, .c7-10, .c8-11, .c9-12, .c1-5, .c2-6, .c3-7, .c4-8, .c5-9, .c6-10, .c7-11, .c8-12, .c1-6, .c2-7, .c3-8, .c4-9, .c5-10, .c6-11, .c7-12, .c1-7, .c2-8, .c3-9, .c4-10, .c5-11, .c6-12, .c1-8, .c2-9, .c3-10, .c4-11, .c5-12, .c1-9, .c2-10, .c3-11, .c4-12, .c1-10, .c2-11, .c3-12, .c1-11, .c2-12, .c1-12 {
   margin-left: 20px;
@@ -338,87 +338,87 @@ table {
 
 /* 	1/12 */
 .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12 {
-  width: 48.33333px; }
+  width: 69px; }
 
 .offset1 {
-  margin-left: 88.33333px; }
+  margin-left: 109px; }
 
 [class*=c1-] .offset1:first-child, [class*=c2-] .offset1:first-child, [class*=c3-] .offset1:first-child, [class*=c4-] .offset1:first-child, [class*=c5-] .offset1:first-child, [class*=c6-] .offset1:first-child, [class*=c7-] .offset1:first-child, [class*=c8-] .offset1:first-child, [class*=c9-] .offset1:first-child, [class*=c10-] .offset1:first-child, [class*=c11-] .offset1:first-child, [class*=c12-] .offset1:first-child {
-  margin-left: 68.33333px; }
+  margin-left: 89px; }
 
 /* 	2/12 */
 .c1-2, .c2-3, .c3-4, .c4-5, .c5-6, .c6-7, .c7-8, .c8-9, .c9-10, .c10-11, .c11-12 {
-  width: 116.66667px; }
+  width: 158px; }
 
 .offset2 {
-  margin-left: 156.66667px; }
+  margin-left: 198px; }
 
 /* 	3/12 */
 .c1-3, .c2-4, .c3-5, .c4-6, .c5-7, .c6-8, .c7-9, .c8-10, .c9-11, .c10-12 {
-  width: 185px; }
+  width: 247px; }
 
 .offset3 {
-  margin-left: 225px; }
+  margin-left: 287px; }
 
 /* 	4/12 */
 .c1-4, .c2-5, .c3-6, .c4-7, .c5-8, .c6-9, .c7-10, .c8-11, .c9-12 {
-  width: 253.33333px; }
+  width: 336px; }
 
 .offset4 {
-  margin-left: 293.33333px; }
+  margin-left: 376px; }
 
 /* 	5/12 */
 .c1-5, .c2-6, .c3-7, .c4-8, .c5-9, .c6-10, .c7-11, .c8-12 {
-  width: 321.66667px; }
+  width: 425px; }
 
 .offset5 {
-  margin-left: 361.66667px; }
+  margin-left: 465px; }
 
 /* 	6/12 */
 .c1-6, .c2-7, .c3-8, .c4-9, .c5-10, .c6-11, .c7-12 {
-  width: 390px; }
+  width: 514px; }
 
 .offset6 {
-  margin-left: 430px; }
+  margin-left: 554px; }
 
 /* 	7/12 */
 .c1-7, .c2-8, .c3-9, .c4-10, .c5-11, .c6-12 {
-  width: 458.33333px; }
+  width: 603px; }
 
 .offset7 {
-  margin-left: 498.33333px; }
+  margin-left: 643px; }
 
 /* 	8/12 */
 .c1-8, .c2-9, .c3-10, .c4-11, .c5-12 {
-  width: 526.66667px; }
+  width: 692px; }
 
 .offset8 {
-  margin-left: 566.66667px; }
+  margin-left: 732px; }
 
 /* 	9/12 */
 .c1-9, .c2-10, .c3-11, .c4-12 {
-  width: 595px; }
+  width: 781px; }
 
 .offset9 {
-  margin-left: 635px; }
+  margin-left: 821px; }
 
 /* 	10/12 */
 .c1-10, .c2-11, .c3-12 {
-  width: 663.33333px; }
+  width: 870px; }
 
 .offset10 {
-  margin-left: 703.33333px; }
+  margin-left: 910px; }
 
 /* 	11/12 */
 .c1-11, .c2-12 {
-  width: 731.66667px; }
+  width: 959px; }
 
 .offset11 {
-  margin-left: 771.66667px; }
+  margin-left: 999px; }
 
 /* 	12/12 */
 .c1-12 {
-  width: 800px; }
+  width: 1048px; }
 
 /* 	Accounts for extra margin on first column
 		This value should change a negative margin of whatever your gutter width is. */
@@ -427,7 +427,7 @@ table {
 
 /* 	Medium Sized Grid
 	Tablet sized columns. */
-@media only screen and (min-width: 800px) and (max-width: 799px) {
+@media only screen and (min-width: 800px) and (max-width: 1047px) {
   /* 	1/12 */
   /* 	2/12 */
   /* 	3/12 */
