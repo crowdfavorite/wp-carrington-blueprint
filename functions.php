@@ -32,7 +32,7 @@ define('CFCT_THEME_VERSION', '1.3');
 /**
  * Development environment.
  */
-define('CFCT_DEV_MODE', true);
+define('SCRIPT_DEBUG', true);
 
 /**
  * Theme URL version.
@@ -130,7 +130,8 @@ function cfct_load_assets() {
 	$cfct_assets_url = get_template_directory_uri() . '/assets/';
 
 	// Is this a development environment?
-	if (defined('CFCT_DEV_MODE') && CFCT_DEV_MODE) {
+	// Constant should be defined in wp-config / local-config
+	if (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) {
 		// Development Styles
 		wp_enqueue_style('dev-styles', $cfct_assets_url . 'css/style.css', array(), CFCT_URL_VERSION);
 
