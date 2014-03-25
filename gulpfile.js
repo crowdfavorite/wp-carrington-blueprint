@@ -29,9 +29,9 @@ var gulp = require('gulp'),
 			},
 			img: './assets/img/*'
 		},
-		build: {
-			css: './assets/build/*.css',
-			js: './assets/build/*.js'
+		dist: {
+			css: './assets/dist/*.css',
+			js: './assets/dist/*.js'
 		}
 	},
 	paths = {
@@ -41,7 +41,11 @@ var gulp = require('gulp'),
 			js: './assets/js/',
 			img: './assets/img/'
 		},
-		build: './assets/build/'
+		dist: {
+			css: './assets/dist/css/',
+			js: './assets/dist/js/',
+			img: './assets/dist/img/'
+		}
 	},
 	pluginlog = function(e) {
 		gutil.log('[' + gutil.colors.green(e.plugin) + ']', e.name, e.message);
@@ -69,11 +73,25 @@ gulp.task('devJs', function() {
 		.pipe(jsHint.reporter('default'));
 });
 
+gulp.task('buildImgs', function() {
+	gulp.src(files.dev.img)
+		.pipe(
+			filesCached(
+				compressImgs({
+					optimizationLevel: 7,
+					progressive: true,
+					interlaced: true
+				})
+			)
+		)
+		.pipe(gulp.dest(paths.dist.img));
+});
+
 gulp.task('buildCss', function() {
 	gulp.src(files.dev.css)
 		.pipe(joinFiles('all.min.css'))
 		.pipe(cssMinify())
-		.pipe(gulp.dest(paths.build));
+		.pipe(gulp.dest(paths.dist.css));
 });
 
 gulp.task('buildJs', function() {
@@ -81,13 +99,7 @@ gulp.task('buildJs', function() {
 		.pipe(joinFiles('all.min.js'))
 		// .pipe(stripDebug())
 		.pipe(jsMinify())
-		.pipe(gulp.dest(paths.build));
-});
-
-gulp.task('buildImgs', function() {
-	gulp.src(files.dev.img)
-		.pipe(filesCached(compressImgs({ optimizationLevel: 7, progressive: true, interlaced: true })))
-		.pipe(gulp.dest(paths.dev.img));
+		.pipe(gulp.dest(paths.dist.js));
 });
 
 gulp.task('watching', function() {
@@ -95,7 +107,7 @@ gulp.task('watching', function() {
 });
 
 // Development task
-gulp.task('watch', ['watching'], function() {
+gulp.task('watch', ['watching', 'buildImgs'], function() {
 	// LiveReload server listening
 	server.listen(35729, function(err) {
 		if (err) {
@@ -104,12 +116,12 @@ gulp.task('watch', ['watching'], function() {
 
 		// Processing
 		gulp.watch(files.dev.sass, ['devCss']);
-		gulp.watch(files.dev.js.theme, ['devJs']);
+		gulp.watch(files.dev.js.custom, ['devJs']);
 	});
 });
 
 // Production task
-gulp.task('build', ['buildCss','buildJs', 'buildImgs']);
+gulp.task('build', ['buildCss','buildJs']);
 
 // Default task
 gulp.task('default', ['watch']);

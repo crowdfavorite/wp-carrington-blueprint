@@ -112,7 +112,7 @@ $version: "?ver=1.0";
 
 
 // Want to use the asset folder path variable?
-$assetpath: "/wp-content/themes/theme-name/assets/img/";
+$assetpath: "/wp-content/themes/theme-name/assets/dist/img/";
 
 @function path_url_ver($path) {
 	@return url($assetpath + $path + $version);

@@ -131,6 +131,13 @@ function cfct_load_assets() {
 
 	// Is this a development environment?
 	if (defined('CFCT_DEV_MODE') && CFCT_DEV_MODE) {
+		// Build Styles
+		wp_enqueue_style('build-styles', $cfct_assets_url . 'dist/css/all.min.css', array(), CFCT_URL_VERSION);
+
+		// Build Scripts
+		wp_enqueue_script('build-script', $cfct_assets_url . 'dist/js/all.min.js', array('jquery'), CFCT_URL_VERSION);
+	}
+	else {
 		// Development Styles
 		wp_enqueue_style('dev-styles', $cfct_assets_url . 'css/style.css', array(), CFCT_URL_VERSION);
 
@@ -138,13 +145,6 @@ function cfct_load_assets() {
 		wp_enqueue_script('modernizr', $cfct_assets_url . 'js/modernizr-2.7.1.min.js', array(), CFCT_URL_VERSION);
 		wp_enqueue_script('placeholder', $cfct_assets_url . 'js/jquery.placeholder.min.js', array('jquery'), CFCT_URL_VERSION);
 		wp_enqueue_script('dev-script', $cfct_assets_url . 'js/script.js', array('jquery', 'placeholder'), CFCT_URL_VERSION);
-	}
-	else {
-		// Build Styles
-		wp_enqueue_style('build-styles', $cfct_assets_url . 'build/all.min.css', array(), CFCT_URL_VERSION);
-
-		// Build Scripts
-		wp_enqueue_script('build-script', $cfct_assets_url . 'build/all.min.js', array('jquery'), CFCT_URL_VERSION);
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
