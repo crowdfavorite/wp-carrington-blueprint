@@ -31,8 +31,8 @@ $medium: 760px;
 $large: 1025px;
 
 // Media Query Mixin
-@mixin breakpoint($bp) {
-	@media (min-width: $bp)  { @content; }
+@mixin breakpoint($bp, $range: min) {
+	@media (#{$range}-width: $bp)  { @content; }
 }
 
 // --------------------------------------------------
