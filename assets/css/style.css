@@ -1,15 +1,3 @@
-.breakpoint-context {
-  position: absolute;
-  top: -999em;
-  left: -999em;
-  z-index: 1; }
-  @media (min-width: 760px) {
-    .breakpoint-context {
-      z-index: 2; } }
-  @media (min-width: 1025px) {
-    .breakpoint-context {
-      z-index: 3; } }
-
 /* 	Base styles: opinionated defaults
 	------------------------------------------------------- */
 html,
@@ -54,6 +42,7 @@ hr {
 audio,
 canvas,
 img,
+svg,
 video {
   vertical-align: middle; }
 
