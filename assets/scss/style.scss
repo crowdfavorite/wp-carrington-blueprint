@@ -15,16 +15,40 @@ $gray-dark: #222;
 $blue: #0000FF;
 $blue-light: #b3d4fc;
 
-// Breakpoints
-$small: 480px;
-$medium: 760px;
-$large: 1025px;
-
 // Typography
 // $space: 15;
 
 $font-serif: Georgia, "Times New Roman", Times, serif;
 $font-sans: Helvetica, Arial, sans-serif;
+
+// --------------------------------------------------
+// Media queries and responsive features
+// --------------------------------------------------
+
+// Breakpoints
+$small: 480px;
+$medium: 760px;
+$large: 1025px;
+
+// Media Query Mixin
+@mixin breakpoint($bp) {
+	@media (min-width: $bp)  { @content; }
+}
+
+// Breakpoint indicator
+.breakpoint-context {
+	position: absolute;
+    top: -999em;
+    left: -999em;
+	z-index: 1;
+
+	@include breakpoint($medium) {
+		z-index: 2;
+	}
+	@include breakpoint($large) {
+		z-index: 3;
+	}
+}
 
 // --------------------------------------------------
 // Image Versioning Functions: use these for all image references in SCSS.
@@ -78,7 +102,7 @@ $assetpath: "/wp-content/themes/theme-name/assets/img/";
 // Base Theme Styles
 @import "base";
 
-// Crowd Favorite grid for content and Carrington Build
+// Grid
 @import "grid";
 
 // Helper Mixins

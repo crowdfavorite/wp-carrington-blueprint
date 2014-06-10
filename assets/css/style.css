@@ -10,71 +10,24 @@
     .breakpoint-context {
       z-index: 3; } }
 
-/*
- * HTML5 Boilerplate
- *
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- *
- * Detailed information about this CSS: h5bp.com/css
- *
- * ==|== normalize 1.1.2 ==========================================================
- */
-/* =============================================================================
-   HTML5 display definitions
-   ========================================================================== */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section,
-summary {
-  display: block; }
-
-audio,
-canvas,
-video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1; }
-
-audio:not([controls]) {
-  display: none;
-  height: 0; }
-
-[hidden] {
-  display: none; }
-
-/* =============================================================================
-   Base
-   ========================================================================== */
-html {
-  font-size: 100%;
-  /* 1 */
-  -ms-text-size-adjust: 100%;
-  /* 2 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */ }
-
+/* 	Base styles: opinionated defaults
+	------------------------------------------------------- */
 html,
 button,
 input,
 select,
 textarea {
-  font-family: sans-serif; }
+  color: #222222; }
 
-body {
-  margin: 0;
+html {
   font-size: 14px;
-  line-height: 18px; }
+  line-height: 20px; }
 
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none; }
@@ -83,257 +36,102 @@ body {
   background: #b3d4fc;
   text-shadow: none; }
 
+/*
+ * A better looking default horizontal rule
+ */
 hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  border: 0;
-  border-top: 1px solid #ccc;
+  display: block;
   height: 1px;
+  border: 0;
+  border-top: 1px solid #222222;
   margin: 1em 0;
   padding: 0; }
 
-img {
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+audio,
+canvas,
+img,
+video {
   vertical-align: middle; }
 
-/* =============================================================================
-   Links
-   ========================================================================== */
-a {
-  color: #00e; }
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
 
-a:visited {
-  color: #551a8b; }
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical; }
 
-a:hover {
-  color: #06e; }
+/* 	Links
+	------------------------------------------------------- */
+a, a:visited, a:hover {
+  color: blue; }
 
-a:focus {
-  outline: thin dotted; }
-
-a:active,
-a:hover {
-  outline: 0; }
-
-/* =============================================================================
-   Typography
-   ========================================================================== */
-h1, .h1, .h1 {
+/* 	Typography
+	------------------------------------------------------- */
+h1, .h1,
+.h1 {
   font-size: 2em;
   margin: 0.67em 0; }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: 1.5em;
   margin: 0.83em 0; }
 
-h3, .h3 {
+h3,
+.h3 {
   font-size: 1.17em;
   margin: 1em 0; }
 
-h4, .h4 {
+h4,
+.h4 {
   font-size: 1em;
   margin: 1.33em 0; }
 
-h5, .h5 {
+h5,
+.h5 {
   font-size: 0.83em;
   margin: 1.67em 0; }
 
-h6, .h6 {
+h6,
+.h6 {
   font-size: 0.67em;
   margin: 2.33em 0; }
 
-abbr[title] {
-  border-bottom: 1px dotted; }
-
-b, strong {
-  font-weight: bold; }
-
-blockquote {
-  margin: 1em 40px; }
-
-dfn {
-  font-style: italic; }
-
-mark {
-  background: #ff0;
-  color: #000; }
-
-p, pre {
-  margin: 1em 0; }
-
-pre, code, kbd, samp {
-  font-family: monospace, serif;
-  _font-family: 'courier new', monospace;
-  font-size: 1em; }
-
-pre {
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word; }
-
-q {
-  quotes: none; }
-
-q:before, q:after {
-  content: '';
-  content: none; }
-
-small {
-  font-size: 80%; }
-
-sub, sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline; }
-
-sup {
-  top: -0.5em; }
-
-sub {
-  bottom: -0.25em; }
-
-/* =============================================================================
-   Lists
-   ========================================================================== */
-dl, menu, ol, ul {
-  margin: 1em 0; }
+/* 	Lists
+	------------------------------------------------------- */
+ul,
+ol,
+dl {
+  margin: 20px 0; }
 
 dd {
   margin: 0 0 0 40px; }
 
-menu, ol, ul {
-  padding: 0 0 0 40px; }
+/* 	Breakpoint indicator
+	------------------------------------------------------- */
+.breakpoint-context {
+  position: absolute;
+  top: -999em;
+  left: -999em;
+  z-index: 1; }
+  @media (min-width: 760px) {
+    .breakpoint-context {
+      z-index: 2; } }
+  @media (min-width: 1025px) {
+    .breakpoint-context {
+      z-index: 3; } }
 
-nav ul, nav ol {
-  list-style: none;
-  list-style-image: none; }
-
-/* =============================================================================
-   Embedded content
-   ========================================================================== */
-img {
-  border: 0;
-  -ms-interpolation-mode: bicubic; }
-
-svg:not(:root) {
-  overflow: hidden; }
-
-/* =============================================================================
-   Figures
-   ========================================================================== */
-figure {
-  margin: 0; }
-
-/* =============================================================================
-   Forms
-   ========================================================================== */
-form {
-  margin: 0; }
-
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em; }
-
-legend {
-  border: 0;
-  *margin-left: -7px;
-  padding: 0;
-  white-space: normal; }
-
-button, input, select, textarea {
-  font-size: 100%;
-  margin: 0;
-  vertical-align: baseline;
-  *vertical-align: middle; }
-
-button, input {
-  line-height: normal; }
-
-button, input[type="button"], input[type="reset"], input[type="submit"] {
-  cursor: pointer;
-  -webkit-appearance: button;
-  *overflow: visible; }
-
-button[disabled], html input[disabled] {
-  cursor: default; }
-
-input[type="checkbox"], input[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-  *width: 13px;
-  *height: 13px; }
-
-input[type="search"] {
-  -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box; }
-
-input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none; }
-
-button::-moz-focus-inner, input::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
-
-textarea {
-  overflow: auto;
-  vertical-align: top; }
-
-/* =============================================================================
-   Tables
-   ========================================================================== */
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-/* ==|== print styles =======================================================
-   Print styles.
-   Inlined to avoid required HTTP connection: h5bp.com/r
-   ========================================================================== */
-@media print {
-  * {
-    background: transparent !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important; }
-
-  /* Black prints faster: h5bp.com/s */
-  a, a:visited {
-    text-decoration: underline; }
-
-  a[href]:after {
-    content: " (" attr(href) ")"; }
-
-  abbr[title]:after {
-    content: " (" attr(title) ")"; }
-
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
-    content: ""; }
-
-  pre, blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid; }
-
-  thead {
-    display: table-header-group; }
-
-  tr, img {
-    page-break-inside: avoid; }
-
-  img {
-    max-width: 100% !important; }
-
-  @page {
-    margin: 0.5cm; }
-
-  p, h2, h3 {
-    orphans: 3;
-    widows: 3; }
-
-  h2, h3 {
-    page-break-after: avoid; } }
 /*	CSSGrid
  * 	https://github.com/crowdfavorite/css-grid
  * 	Version: 2.0.2
@@ -688,70 +486,6 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
   /* For IE 6/7 (trigger hasLayout) */
   zoom: 1; }
 
-/* ==|== non-semantic helper classes ========================================
-   Please define your styles before this section.
-   ========================================================================== */
-/* For image replacement */
-.ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  /* IE 6/7 fallback */
-  *text-indent: -9999px; }
-
-.ir:before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 150%; }
-
-/* Hide from both screenreaders and browsers: h5bp.com/u */
-.hidden {
-  display: none !important;
-  visibility: hidden; }
-
-/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px; }
-
-/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto; }
-
-/* Hide visually and from screenreaders, but maintain layout */
-.invisible {
-  visibility: hidden; }
-
-/* Contain floats: h5bp.com/q */
-.clearfix:before, .clearfix:after {
-  content: "";
-  display: table; }
-
-.clearfix:after {
-  clear: both; }
-
-.clearfix {
-  *zoom: 1; }
-
-/* 	Other Non-semantic Helpers
-	------------------------------------------------------- */
-.border-box {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
 /** WordPress compatibility styles
  -------------------------------------------------- */
 .alignleft,
@@ -797,9 +531,16 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
 .sticky {
   /* Add styles here if you wish to callout sticky posts */ }
 
-/* --------------------------------------------------
- * Standard / Utility Classes
--------------------------------------------------- */
+/** Standard / Utility Classes
+ -------------------------------------------------- */
+.clearfix {
+  *zoom: 1; }
+  .clearfix:before, .clearfix:after {
+    content: '';
+    display: table; }
+  .clearfix:after {
+    clear: both; }
+
 /* Pagination */
 .pagination {
   min-height: 20px;
@@ -871,3 +612,60 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
  -------------------------------------------------- */
 /** WP Gallery
  -------------------------------------------------- */
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important; }
+
+  a,
+  a:visited {
+    text-decoration: underline; }
+
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+
+  /*
+   * Don't show links for images, or javascript/internal links
+   */
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: ""; }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; }
+
+  thead {
+    display: table-header-group;
+    /* h5bp.com/t */ }
+
+  tr,
+  img {
+    page-break-inside: avoid; }
+
+  img {
+    max-width: 100% !important; }
+
+  @page {
+    margin: 0.5cm; }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3; }
+
+  h2,
+  h3 {
+    page-break-after: avoid; } }
