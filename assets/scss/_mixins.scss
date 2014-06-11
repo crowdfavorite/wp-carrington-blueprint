@@ -1,0 +1,68 @@
+// --------------------------------------------------
+// Generic Mixins
+// --------------------------------------------------
+
+// CSS3 Helpers
+@mixin border-radius($radius: 3px) {
+	-moz-border-radius: $radius; /* FF1+ */
+	-webkit-border-radius: $radius; /* Saf3+, Chrome */
+	border-radius: $radius; /* Standard. IE9 */
+	// @bugfix border-radius background bleed
+	// @see http://tumble.sneak.co.nz/post/928998513/fixing-the-background-bleed
+	-webkit-background-clip: padding-box;
+}
+
+@mixin box-shadow($x: 0, $y: 3px, $spread: 3px, $color: #666) {
+	-moz-box-shadow: $x $y $spread $color; /* FF3.5+ */
+	-webkit-box-shadow: $x $y $spread $color; /* Saf3+, Chrome */
+	box-shadow: $x $y $spread $color; /* Standard. Opera 10.5, IE9 */
+}
+
+@mixin border-box {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin transition ($transition: 0.1s ease) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-o-transition: $transition;
+	-ms-transition: $transition;
+	transition: $transition;
+}
+
+// Media Query Helpers
+@mixin breakpoint($bp, $direction: min) {
+	@media (#{$direction}-width: $bp)  {
+		@content;
+	}
+}
+
+// Rhythm Helpers
+@mixin margin-space ($multiplier: 1, $placement: '') {
+	margin#{$placement}: ($space * $multiplier) + px;
+}
+// Example Uses of the Mixin, assuming $space is 15
+// @include margin-space (2, -top); // margin-top: 30px;
+// @include margin-space (4); // margin: 60px;
+
+@mixin padding-space ($multiplier: 1, $placement: '') {
+	padding#{$placement}: ($space * $multiplier) + px;
+}
+
+// Standard Helpers
+
+@mixin clearfix {
+	// Contain floats: h5bp.com/q
+	*zoom: 1;
+
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}

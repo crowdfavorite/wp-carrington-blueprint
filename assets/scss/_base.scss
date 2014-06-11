@@ -1,0 +1,172 @@
+// --------------------------------------------------
+// Set Base Theme Styles
+// 
+// Modified from HTMl5 Boilerplate main.css
+// v4.3.0 | MIT License | http://h5bp.com/
+// 
+// Removed items:
+//   	- Browse Happy prompt section
+// 		- Author's custom styles section
+// 		- Helper classes section
+// 		- Media queries section
+// Moved items:
+//		- print section to _print.scss
+// 		- .clearfix to _mixin.scss
+// --------------------------------------------------
+
+/* 	Base styles: opinionated defaults
+	------------------------------------------------------- */
+
+html,
+button,
+input,
+select,
+textarea {
+	color: $gray-dark;
+}
+
+html {
+	// Root for rems
+		// 62.5% takes 16px (browser default size for medium text) down to 10px
+		// ref: http://clagnut.com/blog/348/
+	// font-size: 62.5%;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+	background: $blue-light;
+	text-shadow: none;
+}
+
+::selection {
+	background: $blue-light;
+	text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid $gray-dark;
+	margin: 1em 0;
+	padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+svg,
+video {
+	vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+	resize: vertical;
+}
+
+/* 	Links
+	------------------------------------------------------- */
+a {
+	&,
+	&:visited,
+	&:hover {
+		color: $blue;
+	}
+}
+
+
+/* 	Typography
+	------------------------------------------------------- */
+h1, 
+.h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+h2,
+.h2 {
+	font-size: 1.5em;
+	margin: 0.83em 0;
+}
+
+h3,
+.h3 {
+	font-size: 1.17em;
+	margin: 1em 0;
+}
+
+h4,
+.h4 {
+	font-size: 1em;
+	margin: 1.33em 0;
+}
+
+h5,
+.h5 {
+	font-size: 0.83em;
+	margin: 1.67em 0;
+}
+
+h6,
+.h6 {
+	font-size: 0.67em;
+	margin: 2.33em 0;
+}
+
+/* 	Lists
+	------------------------------------------------------- */
+ul,
+ol,
+dl {
+	margin: 20px 0;
+}
+
+dd {
+	margin: 0 0 0 40px;
+}
+
+/* 	Breakpoint indicator
+	------------------------------------------------------- */
+.breakpoint-context {
+	position: absolute;
+    top: -999em;
+    left: -999em;
+	z-index: 1;
+
+	@include breakpoint($medium) {
+		z-index: 2;
+	}
+	@include breakpoint($large) {
+		z-index: 3;
+	}
+}

@@ -14,64 +14,118 @@
 /* 	Main Navigation
 	------------------------------------------------------- */
 #nav-main {
-	border-bottom: 1px solid #ddd;
-	border-top: 1px solid #ddd;
-	padding: 8px 0;
-	width: 100%;
-	display: block;
-	float: left;
+	display: none;
 
-	a {
+	&.active {
 		display: block;
-		float: left;
 	}
 
 	ul {
-		display: block;
-		float: left;
-	}
+		border-bottom: 1px solid $nav-border;
+		list-style: none;
+		margin: 0;
+		padding: 0;
 
-	&> ul {
-		border-left: 1px solid #ddd;
+		ul {
+			border-bottom: none;
+
+			a {
+			 	padding-left: 20px;
+			 }
+		}
 	}
 
 	li {
-		position: relative;
+		border-top: 1px solid $nav-border;
+	}
+
+	a {
+		padding: 10px;
 		display: block;
-		float: left;
 
 		&:hover {
-			background: #f6f6f6;
-
-			&> ul {
-				display: block;
-			}
+			background: $nav-hover;
 		}
+	}
+
+	@include breakpoint($medium) {
+		border-bottom: 1px solid $nav-border;
+		border-top: 1px solid $nav-border;
+		display: block;
+		float: left;
+		padding: 10px 0;
+		width: 100%;
 
 		a {
-			border-right: 1px solid #ddd;
-			line-height: 2em;
-			padding: 0 10px;
+			display: block;
+			float: left;
 		}
 
 		ul {
-				background: #f6f6f6;
+			border-bottom: none;
+			display: block;
+			float: left;
+		}
+
+		& > ul {
+			border-left: 1px solid $nav-border;
+		}
+
+		li {
+			border-top: none;
+			display: block;
+			float: left;
+			position: relative;
+
+			&:hover {
+				& > ul {
+					display: block;
+					margin: 0;
+				}
+			}
+
+			a {
+				border-right: 1px solid $nav-border;
+				line-height: 2em;
+				padding: 0 10px;
+			}
+
+			ul {
+				background: $nav-hover;
 				display: none;
+				float: none;
 				padding: .2em 0;
+			  	position: absolute;
 				top: 2em;
 				width: 150px;
-				float: none;
-			  	position: absolute;
 
 			  	li {
 			  		float: none;
 
 			  		a {
-			  			float: none;
 			  			border: 0;
+			  			float: none;
 			  		}
 			  	}
-
+			}
 		}
+	}
+}
+
+#toggle-menu {
+	background: transparent;
+	border: 1px solid $gray;
+	box-shadow: none;
+	float: right;
+	outline: none;
+
+	&:hover,
+	&.active {
+		border: 1px solid $blue;
+		color: $blue;
+	}
+
+	@include breakpoint($medium) {
+		display: none;
 	}
 }
