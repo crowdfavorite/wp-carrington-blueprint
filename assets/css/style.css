@@ -909,45 +909,80 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
 /* 	Main Navigation
 	------------------------------------------------------- */
 #nav-main {
-  border-bottom: 1px solid #ddd;
-  border-top: 1px solid #ddd;
-  padding: 8px 0;
-  width: 100%;
-  display: block;
-  float: left; }
-  #nav-main a {
-    display: block;
-    float: left; }
+  display: none; }
+  #nav-main.active {
+    display: block; }
   #nav-main ul {
-    display: block;
-    float: left; }
-  #nav-main > ul {
-    border-left: 1px solid #ddd; }
+    border-bottom: 1px solid #dddddd;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #nav-main ul ul {
+      border-bottom: none; }
+      #nav-main ul ul a {
+        padding-left: 20px; }
   #nav-main li {
-    position: relative;
-    display: block;
-    float: left; }
-    #nav-main li:hover {
+    border-top: 1px solid #dddddd; }
+  #nav-main a {
+    padding: 10px;
+    display: block; }
+    #nav-main a:hover {
       background: #f6f6f6; }
-      #nav-main li:hover > ul {
-        display: block; }
-    #nav-main li a {
-      border-right: 1px solid #ddd;
-      line-height: 2em;
-      padding: 0 10px; }
-    #nav-main li ul {
-      background: #f6f6f6;
-      display: none;
-      padding: .2em 0;
-      top: 2em;
-      width: 150px;
-      float: none;
-      position: absolute; }
-      #nav-main li ul li {
-        float: none; }
-        #nav-main li ul li a {
+  @media (min-width: 760px) {
+    #nav-main {
+      border-bottom: 1px solid #dddddd;
+      border-top: 1px solid #dddddd;
+      display: block;
+      float: left;
+      padding: 10px 0;
+      width: 100%; }
+      #nav-main a {
+        display: block;
+        float: left; }
+      #nav-main ul {
+        border-bottom: none;
+        display: block;
+        float: left; }
+      #nav-main > ul {
+        border-left: 1px solid #dddddd; }
+      #nav-main li {
+        border-top: none;
+        display: block;
+        float: left;
+        position: relative; }
+        #nav-main li:hover > ul {
+          display: block;
+          margin: 0; }
+        #nav-main li a {
+          border-right: 1px solid #dddddd;
+          line-height: 2em;
+          padding: 0 10px; }
+        #nav-main li ul {
+          background: #f6f6f6;
+          display: none;
           float: none;
-          border: 0; }
+          padding: .2em 0;
+          position: absolute;
+          top: 2em;
+          width: 150px; }
+          #nav-main li ul li {
+            float: none; }
+            #nav-main li ul li a {
+              border: 0;
+              float: none; } }
+
+#toggle-menu {
+  background: transparent;
+  border: 1px solid #999999;
+  box-shadow: none;
+  float: right;
+  outline: none; }
+  #toggle-menu:hover, #toggle-menu.active {
+    border: 1px solid blue;
+    color: blue; }
+  @media (min-width: 760px) {
+    #toggle-menu {
+      display: none; } }
 
 /* 	Content - Posts, Pages, Comments
 	------------------------------------------------------- */

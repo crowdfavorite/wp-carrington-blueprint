@@ -3,6 +3,7 @@
 	window.Site = {
 		challengeElement: null,
 		context: null,
+		mainNav: '#nav-main',
 
 		init: function() {
 			/**
@@ -23,8 +24,11 @@
 			 */
 			$(window).on('resize', this.debounce(function() {
 				Site.challengeContext();
-			}, 250));
+			}), 250);
 
+			$('#masthead').on('click', '#toggle-menu', function() {
+				Site.toggleMenu(this);
+			});
 		},
 		/**
 		 * Device targeting should be based on media queries in CSS,
@@ -58,6 +62,12 @@
 					fn.apply(context, args);
 				}, delay);
 			};
+		},
+		/**
+		 * Open/Close Mobile Main Menu
+		 */
+		toggleMenu: function(that) {
+			$(Site.mainNav).add(that).toggleClass('active');
 		}
 	};
 
