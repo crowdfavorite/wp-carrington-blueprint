@@ -1,5 +1,12 @@
 # Carrington Blueprint Changelog
 
+## 1.3.1
+- Updated Normalize to 3.0.1
+- Updated Modernizr to 2.8.0
+- Renamed reset partial to base, moved some sections to different partials, meant to be edited
+- Removed config.rb in preparation for Gulp.js usage
+- Added mobile menu styling, functionality
+
 ## 1.1
 - 12-column grid
 - Updated assets libraries
