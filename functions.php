@@ -27,14 +27,14 @@ define('CFCT_DEBUG', false);
 /**
  * Theme version.
  */
-define('CFCT_THEME_VERSION', '1.3.1');
+define('CFCT_THEME_VERSION', '1.3.2');
 
 /**
  * Theme URL version.
  * Added to query var at the end of assets to force browser cache to reload after upgrade.
  */
 if (!(defined('CFCT_URL_VERSION'))) {
-	define('CFCT_URL_VERSION', '0.4');
+	define('CFCT_URL_VERSION', '0.4.1');
 }
 
 /**
@@ -132,7 +132,7 @@ function cfct_load_assets() {
 	}
 
 	// Scripts
-	wp_enqueue_script('modernizr', $cfct_assets_url . 'js/modernizr-2.8.0.min.js', array(), CFCT_URL_VERSION);
+	wp_enqueue_script('modernizr', $cfct_assets_url . 'js/modernizr-2.8.2.min.js', array(), CFCT_URL_VERSION);
 	wp_enqueue_script('placeholder', $cfct_assets_url . 'js/jquery.placeholder.min.js', array('jquery'), CFCT_URL_VERSION);
 	wp_enqueue_script('script', $cfct_assets_url . 'js/script.js', array('jquery', 'placeholder'), CFCT_URL_VERSION);
 }
