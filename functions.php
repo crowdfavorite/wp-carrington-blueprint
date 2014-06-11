@@ -132,7 +132,7 @@ function cfct_load_assets() {
 	}
 
 	// Scripts
-	wp_enqueue_script('modernizr', $cfct_assets_url . 'js/modernizr-2.7.1.min.js', array(), CFCT_URL_VERSION);
+	wp_enqueue_script('modernizr', $cfct_assets_url . 'js/modernizr-2.8.0.min.js', array(), CFCT_URL_VERSION);
 	wp_enqueue_script('placeholder', $cfct_assets_url . 'js/jquery.placeholder.min.js', array('jquery'), CFCT_URL_VERSION);
 	wp_enqueue_script('script', $cfct_assets_url . 'js/script.js', array('jquery', 'placeholder'), CFCT_URL_VERSION);
 }

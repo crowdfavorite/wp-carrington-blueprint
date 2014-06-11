@@ -7,9 +7,15 @@
 // --------------------------------------------------
 
 // Colors
-$color-dark: #444;
-$color: #666;
-$color-light: #999;
+$white: #fff;
+$black: #000;
+$gray: #999;
+$gray-light: #ededed;
+$gray-dark: #222;
+$blue: #00F;
+$blue-light: #b3d4fc;
+$nav-hover: #f6f6f6;
+$nav-border: #ddd;
 
 // Typography
 // $space: 15;
@@ -22,68 +28,13 @@ $font-sans: Helvetica, Arial, sans-serif;
 // --------------------------------------------------
 
 // Breakpoints
-$small-min: 480px;
-$medium-min: 760px;
-$large-min: 1025px;
+$small: 480px;
+$medium: 760px;
+$large: 1025px;
 
 // Media Query Mixin
-@mixin breakpoint($bp) {
-	@media (min-width: $bp)  { @content; }
-}
-
-// Breakpoint indicator
-.breakpoint-context {
-	position: absolute;
-    top: -999em;
-    left: -999em;
-	z-index: 1;
-
-	@include breakpoint($medium-min) {
-		z-index: 2;
-	}
-	@include breakpoint($large-min) {
-		z-index: 3;
-	}
-}
-
-// --------------------------------------------------
-// Generic Mixins
-// --------------------------------------------------
-
-@mixin border-radius($radius: 3px) {
-	-moz-border-radius: $radius; /* FF1+ */
-	-webkit-border-radius: $radius; /* Saf3+, Chrome */
-	border-radius: $radius; /* Standard. IE9 */
-	/**
-	 * @bugfix border-radius background bleed
-	 * @see http://tumble.sneak.co.nz/post/928998513/fixing-the-background-bleed
-	 */
-	-webkit-background-clip: padding-box;
-}
-
-@mixin box-shadow($x: 0, $y: 3px, $spread: 3px, $color: #666) {
-	-moz-box-shadow: $x $y $spread $color; /* FF3.5+ */
-	-webkit-box-shadow: $x $y $spread $color; /* Saf3+, Chrome */
-	box-shadow: $x $y $spread $color; /* Standard. Opera 10.5, IE9 */
-}
-
-@mixin transition ($transition: 0.1s ease) {
-	-webkit-transition: $transition;
-	-moz-transition: $transition;
-	-o-transition: $transition;
-	-ms-transition: $transition;
-	transition: $transition;
-}
-
-@mixin margin-space ($multiplier: 1, $placement: '') {
-	margin#{$placement}: ($space * $multiplier) + px;
-}
-// Example Uses of the Mixin, assuming $space is 15
-// @include margin-space (2, -top); // margin-top: 30px;
-// @include margin-space (4); // margin: 60px;
-
-@mixin padding-space ($multiplier: 1, $placement: '') {
-	padding#{$placement}: ($space * $multiplier) + px;
+@mixin breakpoint($bp, $range: min) {
+	@media (#{$range}-width: $bp)  { @content; }
 }
 
 // --------------------------------------------------
@@ -135,11 +86,17 @@ $assetpath: "/wp-content/themes/theme-name/assets/img/";
 // Styles: everything gets included from here.
 // --------------------------------------------------
 
-// RESET — Normalize, Boilerplate, Formalize
-@import "reset";
+// Normalize CSS
+@import "normalize";
 
-// Crowd Favorite grid for content and Carrington Build
+// Base Theme Styles
+@import "base";
+
+// Grid
 @import "grid";
+
+// Helper Mixins
+@import "mixins";
 
 // Helper Classes & Debug Styles
 @import "utility";
@@ -158,3 +115,6 @@ $assetpath: "/wp-content/themes/theme-name/assets/img/";
 
 // Widgets
 @import "widgets";
+
+// Print Styles loaded last
+@import "print";

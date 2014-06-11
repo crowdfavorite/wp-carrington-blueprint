@@ -41,6 +41,7 @@ $title_description = (is_home() && !empty($blog_desc) ? ' - '.$blog_desc : '');
 <div class="container grid">
 	<header id="masthead" class="row site-header clearfix">
 		<div class="c1-12">
+			<button id="toggle-menu"><?php _e('Menu', 'carrington-blueprint'); ?></button>
 			<h1 id="site-name"><a href="<?php echo home_url('/'); ?>" title="<?php _e('Home', 'carrington-blueprint'); ?>"><?php bloginfo('name'); ?></a></h1>
 			<nav id="nav-main" role="navigation">
 				<?php wp_nav_menu( array(
