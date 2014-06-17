@@ -1,5 +1,9 @@
 # Carrington Blueprint Changelog
 
+## 1.3.3
+- Added graceful degredation to mobile menu
+- Updated context challenge script to use jQuery for wider support
+
 ## 1.3.2
 - Updated Modernizr to 2.8.2 custom
 
