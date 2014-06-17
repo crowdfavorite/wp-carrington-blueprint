@@ -910,7 +910,7 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
 	------------------------------------------------------- */
 #nav-main {
   display: none; }
-  #nav-main.active {
+  #nav-main.active, .no-js #nav-main {
     display: block; }
   #nav-main ul {
     border-bottom: 1px solid #dddddd;

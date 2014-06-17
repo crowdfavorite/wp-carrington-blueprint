@@ -16,7 +16,8 @@
 #nav-main {
 	display: none;
 
-	&.active {
+	&.active,
+	.no-js & {
 		display: block;
 	}
 
