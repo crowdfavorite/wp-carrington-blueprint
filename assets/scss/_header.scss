@@ -128,4 +128,8 @@
 	@include breakpoint($medium) {
 		display: none;
 	}
+
+	.no-js & {
+		display: none;
+	}
 }

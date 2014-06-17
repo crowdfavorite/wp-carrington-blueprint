@@ -983,6 +983,8 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
   @media (min-width: 760px) {
     #toggle-menu {
       display: none; } }
+  .no-js #toggle-menu {
+    display: none; }
 
 /* 	Content - Posts, Pages, Comments
 	------------------------------------------------------- */

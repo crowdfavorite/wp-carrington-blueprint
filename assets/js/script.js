@@ -15,7 +15,7 @@
 			/**
 			 * Set the initial breakpoint context
 			 */
-			this.challengeElement = document.querySelector('.breakpoint-context');
+			this.challengeElement = '.breakpoint-context';
 			this.challengeContext();
 
 			/**
@@ -34,10 +34,10 @@
 		 * Device targeting should be based on media queries in CSS,
 		 * we do not define this in scripts
 		 * Modified from http://davidwalsh.name/device-state-detection-css-media-queries-javascript
+		 * NOTE: If your site requires IE8 support, this method requires 
 		 */
 		challengeContext: function() {
-			var styles = window.getComputedStyle(this.challengeElement),
-				index = parseInt(styles.getPropertyValue('z-index'), 10),
+			var index = parseInt($(this.challengeElement).attr('zIndex'), 10),
 				states = {
 					1: 'mobile',
 					2: 'tablet'
