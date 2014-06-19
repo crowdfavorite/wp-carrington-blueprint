@@ -34,16 +34,16 @@
 		 * Device targeting should be based on media queries in CSS,
 		 * we do not define this in scripts
 		 * Modified from http://davidwalsh.name/device-state-detection-css-media-queries-javascript
-		 * NOTE: If your site requires IE8 support, this method requires 
 		 */
 		challengeContext: function() {
-			var index = parseInt($(this.challengeElement).attr('zIndex'), 10),
+			var index = parseInt($(Site.challengeElement).css('z-index'), 10),
 				states = {
 					1: 'mobile',
 					2: 'tablet'
 				};
 
 			this.context = states[index] || 'desktop';
+
 		},
 		/**
 		 * Throttle/debounce helper
