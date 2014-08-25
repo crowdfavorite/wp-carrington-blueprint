@@ -16,36 +16,42 @@
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
-define('CFCT_PATH', trailingslashit(TEMPLATEPATH));
+define( 'CFCT_PATH', trailingslashit( TEMPLATEPATH ) );
 
 /**
  * Set this to "true" to turn on debugging mode.
  * Helps with development by showing the paths of the files loaded by Carrington.
  */
-define('CFCT_DEBUG', false);
+define( 'CFCT_DEBUG', false );
 
 /**
  * Theme version.
  */
+<<<<<<< HEAD
 define('CFCT_THEME_VERSION', '1.3.3');
+||||||| merged common ancestors
+define('CFCT_THEME_VERSION', '1.3.2');
+=======
+define( 'CFCT_THEME_VERSION', '1.3.2' );
+>>>>>>> more whitespace love
 
 /**
  * Theme URL version.
  * Added to query var at the end of assets to force browser cache to reload after upgrade.
  */
-if (!(defined('CFCT_URL_VERSION'))) {
-	define('CFCT_URL_VERSION', '0.4.1');
+if ( ! ( defined( 'CFCT_URL_VERSION' ) ) ) {
+	define( 'CFCT_URL_VERSION', '0.4.1' );
 }
 
 /**
  * Includes
  */
-include_once(CFCT_PATH.'carrington-core/carrington.php');
+include_once( CFCT_PATH.'carrington-core/carrington.php' );
 
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
-if (! isset($content_width)) {
+if ( ! isset( $content_width ) ) {
 	$content_width = 600;
 }
 
@@ -56,23 +62,23 @@ if (! isset($content_width)) {
  * before the init hook. The init hook is too late for some features, such as
  * indicating support post thumbnails.
  */
-if (! function_exists('cfct_theme_setup')) {
+if ( ! function_exists( 'cfct_theme_setup' ) ) {
 	function cfct_theme_setup() {
 		/**
 		 * Make theme available for translation
 		 * Use find and replace to change 'carrington-blueprint' to the name of your theme.
 		 */
-		load_theme_textdomain('carrington-blueprint');
+		load_theme_textdomain( 'carrington-blueprint' );
 
 		/**
 		 * Add default posts and comments RSS feed links to head.
 		 */
-		add_theme_support('automatic-feed-links');
+		add_theme_support( 'automatic-feed-links' );
 
 		/**
 		 * Enable post thumbnails support.
 		 */
-		add_theme_support('post-thumbnails');
+		add_theme_support( 'post-thumbnails' );
 
 		/**
 		 * New image sizes that are not overwrote in the admin.
@@ -84,7 +90,7 @@ if (! function_exists('cfct_theme_setup')) {
 		/**
 		 * Add navigation menus
 		 */
-		register_nav_menus(array(
+		register_nav_menus( array(
 			'main' => 'Main Navigation',
 			'footer' => 'Footer Navigation'
 		));
@@ -95,7 +101,7 @@ if (! function_exists('cfct_theme_setup')) {
 		// add_theme_support( 'post-formats', array('image', 'link', 'gallery', 'quote', 'status', 'video'));
 	}
 }
-add_action('after_setup_theme', 'cfct_theme_setup');
+add_action( 'after_setup_theme', 'cfct_theme_setup' );
 
 
 /**
@@ -110,10 +116,10 @@ function cfct_widgets_init() {
 		'after_title' => '</h1>'
 	);
 	// Copy the following code and replace values to create more widget areas
-	register_sidebar(array_merge($sidebar_defaults, array(
+	register_sidebar( array_merge( $sidebar_defaults, array(
 		'id' => 'sidebar-default',
-		'name' => __('Default Sidebar', 'carrington-blueprint'),
-	)));
+		'name' => __( 'Default Sidebar', 'carrington-blueprint' ),
+	) ) );
 }
 add_action( 'widgets_init', 'cfct_widgets_init' );
 
@@ -125,15 +131,15 @@ function cfct_load_assets() {
 	$cfct_assets_url = get_template_directory_uri() . '/assets/';
 
 	// Styles
-	wp_enqueue_style('styles', $cfct_assets_url . 'css/style.css', array(), CFCT_URL_VERSION);
+	wp_enqueue_style( 'styles', $cfct_assets_url . 'css/style.css', array(), CFCT_URL_VERSION );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
 	// Scripts
-	wp_enqueue_script('modernizr', $cfct_assets_url . 'js/modernizr-2.8.2.min.js', array(), CFCT_URL_VERSION);
-	wp_enqueue_script('placeholder', $cfct_assets_url . 'js/jquery.placeholder.min.js', array('jquery'), CFCT_URL_VERSION);
-	wp_enqueue_script('script', $cfct_assets_url . 'js/script.js', array('jquery', 'placeholder'), CFCT_URL_VERSION);
+	wp_enqueue_script( 'modernizr', $cfct_assets_url . 'js/modernizr-2.8.2.min.js', array(), CFCT_URL_VERSION );
+	wp_enqueue_script( 'placeholder', $cfct_assets_url . 'js/jquery.placeholder.min.js', array( 'jquery' ), CFCT_URL_VERSION );
+	wp_enqueue_script( 'script', $cfct_assets_url . 'js/script.js', array( 'jquery', 'placeholder' ), CFCT_URL_VERSION );
 }
-add_action('wp_enqueue_scripts', 'cfct_load_assets');
+add_action( 'wp_enqueue_scripts', 'cfct_load_assets' );
