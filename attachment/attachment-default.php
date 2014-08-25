@@ -27,9 +27,9 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 	<div id="attachment" class="clearfix">
 
 		<div class="attachment-content c1-12">
-			<p><a href="<?php echo get_permalink( $post->post_parent ); ?>" rev="attachment">&larr; back to &#8220;<?php echo get_the_title( $post->post_parent ); ?>&#8221;</a></p>
+			<p><a href="<?php echo esc_url( get_permalink( $post->post_parent ) ); ?>" rev="attachment">&larr; back to &#8220;<?php echo get_the_title( $post->post_parent ); ?>&#8221;</a></p>
 			<?php the_title( '<h1>', '</h1>' ) ?>
-			<p><a href="<?php echo wp_get_attachment_url( $post->ID ); ?>"><?php echo wp_get_attachment_image( $post->ID, 'medium' ); ?></a></p>
+			<p><a href="<?php echo esc_url( wp_get_attachment_url( $post->ID ) ); ?>"><?php echo esc_html( wp_get_attachment_image( $post->ID, 'medium' ) ); ?></a></p>
 
 			<?php
 			if ( ! empty( $post->post_excerpt ) ) :
