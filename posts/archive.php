@@ -24,13 +24,13 @@ get_header();
 	<h1 class="archive-title"><?php
 		if ( is_day() ) :
 			printf( __( 'Daily Archives: %s', 'carrington-blueprint' ), '<span>' . get_the_date() . '</span>' );
-		elseif ( is_month() ) :
+		else if ( is_month() ) :
 			printf( __( 'Monthly Archives: %s', 'carrington-blueprint' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'carrington-blueprint' ) ) . '</span>' );
-		elseif ( is_year() ) :
+		else if ( is_year() ) :
 			printf( __( 'Yearly Archives: %s', 'carrington-blueprint' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'carrington-blueprint' ) ) . '</span>' );
-		elseif ( is_tag() ) :
+		else if ( is_tag() ) :
 			printf( __( 'Tag Archives: %s', 'carrington-blueprint' ), '<span>' . single_tag_title( '', false ) . '</span>' );
-		elseif ( is_category() ) :
+		else if ( is_category() ) :
 			printf( __( 'Category Archives: %s', 'carrington-blueprint' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 		else :
 			_e( 'Blog Archives', 'carrington-blueprint' );
@@ -44,9 +44,9 @@ get_header();
 			if ( $category_description ) :
 				echo '<div class="archive-description">' . $category_description . '</div>';
 			endif;
-		elseif ( is_tag() ) :
+		else if ( is_tag() ) :
 			$tag_description = tag_description();
-			if ($tag_description) :
+			if ( $tag_description ) :
 				echo '<div class="archive-description">' . $tag_description . '</div>';
 			endif;
 		endif;

@@ -46,7 +46,7 @@ if ( ! ( defined( 'CFCT_URL_VERSION' ) ) ) {
 /**
  * Includes
  */
-include_once( CFCT_PATH.'carrington-core/carrington.php' );
+include_once( CFCT_PATH . 'carrington-core/carrington.php' );
 
 /**
  * Set the content width based on the theme's design and stylesheet.

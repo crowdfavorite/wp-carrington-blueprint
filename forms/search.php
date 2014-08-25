@@ -30,7 +30,7 @@ else {
 }
 
 ?>
-<form role="search" class="searchform" method="get" action="<?php echo home_url( '/' ); ?>" onsubmit="<?php echo $onsubmit; ?>">
-	<input type="text" id="<?php echo $id; ?>" class="s" name="s" value="<?php esc_attr_e( $s ); ?>" placeholder="Search" />
+<form role="search" class="searchform" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" onsubmit="<?php echo esc_js( $onsubmit ); ?>">
+	<input type="text" id="<?php esc_attr_e( $id, 'carrington-blueprint' ); ?>" class="s" name="s" value="<?php esc_attr_e( $s , 'carrington-blueprint' ); ?>" placeholder="<?php _e( 'Search', 'carrington-blueprint' ); ?>" />
 	<input type="submit" class="searchsubmit button" value="<?php _e( 'Search', 'carrington-blueprint' ); ?>" />
 </form>
