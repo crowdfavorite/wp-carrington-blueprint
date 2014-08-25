@@ -27,13 +27,7 @@ define( 'CFCT_DEBUG', false );
 /**
  * Theme version.
  */
-<<<<<<< HEAD
 define('CFCT_THEME_VERSION', '1.3.3');
-||||||| merged common ancestors
-define('CFCT_THEME_VERSION', '1.3.2');
-=======
-define( 'CFCT_THEME_VERSION', '1.3.2' );
->>>>>>> more whitespace love
 
 /**
  * Theme URL version.
