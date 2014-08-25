@@ -24,15 +24,15 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 		<div class="c1-12">
 <?php
 
-	if (cfct_get_option('cfct_copyright') != null) {
-		echo '<p>'.cfct_get_option('cfct_copyright').'</p>';
-	}
+	if ( cfct_get_option( 'cfct_copyright' ) != null ) :
+		echo '<p>' . cfct_get_option( 'cfct_copyright' ) . '</p>';
+	endif;
 
-	if (cfct_get_option('cfct_credit') == 'yes') {
+	if ( cfct_get_option( 'cfct_credit' ) == 'yes' ) :
 ?>
-		<p id="developer-link"><?php printf(__('Crafted by <a href="http://crowdfavorite.com" title="Custom WordPress development, design and consulting services." rel="developer designer">%s</a>', 'carrington-blueprint'), 'Crowd Favorite'); ?></p>
+		<p id="developer-link"><?php printf( __( 'Crafted by <a href="http://crowdfavorite.com" title="Custom WordPress development, design and consulting services." rel="developer designer">%s</a>', 'carrington-blueprint' ), 'Crowd Favorite' ); ?></p>
 <?php
-	}
+	endif;
 ?>
 		</div><!-- .c1-12 -->
 	</footer><!--#footer -->

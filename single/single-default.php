@@ -39,5 +39,3 @@ get_sidebar();
 
 // Calls footer.php
 get_footer();
-
-?>

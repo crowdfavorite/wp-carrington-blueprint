@@ -23,5 +23,3 @@ if (have_posts()) {
 		cfct_excerpt();
 	}
 }
-
-?>
