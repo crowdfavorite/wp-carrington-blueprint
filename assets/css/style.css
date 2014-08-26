@@ -901,63 +901,63 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
   float: right;
   text-align: right; }
 
-/** Masthead
+/** Masthead/Site Header
  -------------------------------------------------- */
-#masthead {
+.site-header {
   margin-bottom: 30px; }
 
 /* 	Main Navigation
 	------------------------------------------------------- */
-#nav-main {
+.nav-main {
   display: none; }
-  #nav-main.active, .no-js #nav-main {
+  .nav-main.active, .no-js .nav-main {
     display: block; }
-  #nav-main ul {
+  .nav-main ul {
     border-bottom: 1px solid #dddddd;
     list-style: none;
     margin: 0;
     padding: 0; }
-    #nav-main ul ul {
+    .nav-main ul ul {
       border-bottom: none; }
-      #nav-main ul ul a {
+      .nav-main ul ul a {
         padding-left: 20px; }
-  #nav-main li {
+  .nav-main li {
     border-top: 1px solid #dddddd; }
-  #nav-main a {
+  .nav-main a {
     padding: 10px;
     display: block; }
-    #nav-main a:hover {
+    .nav-main a:hover {
       background: #f6f6f6; }
   @media (min-width: 760px) {
-    #nav-main {
+    .nav-main {
       border-bottom: 1px solid #dddddd;
       border-top: 1px solid #dddddd;
       display: block;
       float: left;
       padding: 10px 0;
       width: 100%; }
-      #nav-main a {
+      .nav-main a {
         display: block;
         float: left; }
-      #nav-main ul {
+      .nav-main ul {
         border-bottom: none;
         display: block;
         float: left; }
-      #nav-main > ul {
+      .nav-main > ul {
         border-left: 1px solid #dddddd; }
-      #nav-main li {
+      .nav-main li {
         border-top: none;
         display: block;
         float: left;
         position: relative; }
-        #nav-main li:hover > ul {
+        .nav-main li:hover > ul {
           display: block;
           margin: 0; }
-        #nav-main li a {
+        .nav-main li a {
           border-right: 1px solid #dddddd;
           line-height: 2em;
           padding: 0 10px; }
-        #nav-main li ul {
+        .nav-main li ul {
           background: #f6f6f6;
           display: none;
           float: none;
@@ -965,25 +965,25 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
           position: absolute;
           top: 2em;
           width: 150px; }
-          #nav-main li ul li {
+          .nav-main li ul li {
             float: none; }
-            #nav-main li ul li a {
+            .nav-main li ul li a {
               border: 0;
               float: none; } }
 
-#toggle-menu {
+.toggle-menu {
   background: transparent;
   border: 1px solid #999999;
   box-shadow: none;
   float: right;
   outline: none; }
-  #toggle-menu:hover, #toggle-menu.active {
+  .toggle-menu:hover, .toggle-menu.active {
     border: 1px solid blue;
     color: blue; }
   @media (min-width: 760px) {
-    #toggle-menu {
+    .toggle-menu {
       display: none; } }
-  .no-js #toggle-menu {
+  .no-js .toggle-menu {
     display: none; }
 
 /* 	Content - Posts, Pages, Comments
@@ -1042,6 +1042,7 @@ http://nicolasgallagher.com/micro-offsetfix-hack/ */
 
   @page {
     margin: 0.5cm; }
+
   p,
   h2,
   h3 {

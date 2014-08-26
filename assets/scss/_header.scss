@@ -2,18 +2,18 @@
 // Header: masthead, navigation, search
 // --------------------------------------------------
 
-/** Masthead
+/** Masthead/Site Header
  -------------------------------------------------- */
-#masthead {
+.site-header {
 	margin-bottom: 30px;
-
-	#site-name {
-	}
 }
+	.site-name {
+
+	}
 
 /* 	Main Navigation
 	------------------------------------------------------- */
-#nav-main {
+.nav-main {
 	display: none;
 
 	&.active,
@@ -100,20 +100,20 @@
 				top: 2em;
 				width: 150px;
 
-			  	li {
-			  		float: none;
+				li {
+					float: none;
 
-			  		a {
-			  			border: 0;
-			  			float: none;
-			  		}
-			  	}
+					a {
+						border: 0;
+						float: none;
+					}
+				}
 			}
 		}
 	}
 }
 
-#toggle-menu {
+.toggle-menu {
 	background: transparent;
 	border: 1px solid $gray;
 	box-shadow: none;

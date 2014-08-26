@@ -17,8 +17,8 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-$blog_desc = get_bloginfo('description');
-$title_description = (is_home() && !empty($blog_desc) ? ' - '.$blog_desc : '');
+$blog_desc = get_bloginfo( 'description' );
+$title_description = ( is_home() && ! empty( $blog_desc ) ? ' - ' . $blog_desc : '');
 
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7 oldie" <?php language_attributes() ?>> <![endif]-->
@@ -27,9 +27,9 @@ $title_description = (is_home() && !empty($blog_desc) ? ' - '.$blog_desc : '');
 <!--[if IE 9]>         <html class="no-js lt-ie10 oldie" <?php language_attributes() ?>> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js" <?php language_attributes() ?>> <!--<![endif]-->
 <head>
-	<meta charset="<?php bloginfo('charset') ?>" />
+	<meta charset="<?php bloginfo( 'charset' ) ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?php wp_title( '-', true, 'right' ); echo esc_html( get_bloginfo('name'), 1 ).$title_description; ?></title>
+	<title><?php wp_title( '-', true, 'right' ); echo esc_html( get_bloginfo( 'name' ), 1 ) . $title_description; ?></title>
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/favicon.ico"  type="image/x-icon" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -39,11 +39,11 @@ $title_description = (is_home() && !empty($blog_desc) ? ' - '.$blog_desc : '');
 <body <?php body_class(); ?>>
 <div class="breakpoint-context"></div>
 <div class="container grid">
-	<header id="masthead" class="row site-header clearfix">
+	<header class="row site-header clearfix" id="js-site-header">
 		<div class="c1-12">
-			<button id="toggle-menu"><?php _e('Menu', 'carrington-blueprint'); ?></button>
-			<h1 id="site-name"><a href="<?php echo home_url('/'); ?>" title="<?php _e('Home', 'carrington-blueprint'); ?>"><?php bloginfo('name'); ?></a></h1>
-			<nav id="nav-main" role="navigation">
+			<button class="toggle-menu" id="js-toggle-menu"><?php _e( 'Menu', 'carrington-blueprint' ); ?></button>
+			<h1 class="site-name"><a href="<?php echo home_url( '/' ); ?>" title="<?php _e( 'Home', 'carrington-blueprint' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+			<nav class="nav-main" id="js-nav-main" role="navigation">
 				<?php wp_nav_menu( array(
 					'container' => '',
 					'theme_location' => 'main',
@@ -51,6 +51,6 @@ $title_description = (is_home() && !empty($blog_desc) ? ' - '.$blog_desc : '');
 				)); ?>
 			</nav>
 		</div><!-- .c1-12 -->
-	</header><!-- #masthead -->
+	</header><!-- .site-header -->
 
-	<div id="main" class="row clearfix">
+	<div class="main row clearfix">

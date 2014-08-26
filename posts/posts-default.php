@@ -24,7 +24,7 @@ get_header();
 
 <?php
 cfct_loop();
-cfct_misc('nav-posts');
+cfct_misc( 'nav-posts' );
 ?>
 
 </div><!-- #primary -->
@@ -32,4 +32,3 @@ cfct_misc('nav-posts');
 <?php
 get_sidebar();
 get_footer();
-?>

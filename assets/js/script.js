@@ -3,7 +3,7 @@
 	window.Site = {
 		challengeElement: null,
 		context: null,
-		mainNav: '#nav-main',
+		mainNav: '#js-nav-main',
 
 		init: function() {
 			/**
@@ -26,7 +26,7 @@
 				Site.challengeContext();
 			}), 250);
 
-			$('#masthead').on('click', '#toggle-menu', function() {
+			$('#js-site-header').on('click', '#js-toggle-menu', function() {
 				Site.toggleMenu(this);
 			});
 		},

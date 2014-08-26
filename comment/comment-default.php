@@ -21,19 +21,19 @@ global $post;
 global $comment;
 
 // Extract data passed in from threaded.php for comment reply link
-extract($data);
+extract( $data );
 
-if ($comment->comment_approved == '0') {
+if ( $comment->comment_approved == '0' ) {
 ?>
 <div class="notice">
-	<div class="content"><?php _e('Your comment is awaiting moderation.', 'carrington-blueprint'); ?></div>
+	<div class="content"><?php _e( 'Your comment is awaiting moderation.', 'carrington-blueprint' ); ?></div>
 </div>
 <?php
 }
 ?>
-<div id="comment-<?php comment_ID(); ?>" <?php comment_class('reply clearfix'); ?>>
+<div id="comment-<?php comment_ID(); ?>" <?php comment_class( 'reply clearfix' ); ?>>
 	<div class="reply-header vcard">
-		<?php echo get_avatar($comment, 34); ?>
+		<?php echo get_avatar( $comment, 34 ); ?>
 		<b class="reply-title fn"><?php comment_author_link(); ?></b>
 	</div>
 	<div class="reply-content">
@@ -41,12 +41,12 @@ if ($comment->comment_approved == '0') {
 	</div>
 	<div class="reply-footer">
 		<?php
-		printf(__('On %s at %s', 'carrington-blueprint'), get_comment_date(), get_comment_time());
-		if (get_option('thread_comments')) {
+		printf( __( 'On %s at %s', 'carrington-blueprint' ), get_comment_date(), get_comment_time() );
+		if ( get_option( 'thread_comments' ) ) :
 			echo ' &middot; ';
-			comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth'])), $comment, $post);
-		}
-		edit_comment_link(__('Edit', 'carrington-blueprint'), ' &middot; ', '');
+			comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ), $comment, $post );
+		endif;
+		edit_comment_link( __( 'Edit', 'carrington-blueprint' ), ' &middot; ', '' );
 		?>
 	</div>
 </div><!-- .reply -->
