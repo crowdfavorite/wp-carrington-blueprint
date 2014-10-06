@@ -72,3 +72,19 @@
 .h1 {
 	@extend h1;
 }
+
+/* 	Breakpoint indicator
+	------------------------------------------------------- */
+.breakpoint-context {
+	position: absolute;
+    top: -999em;
+    left: -999em;
+	z-index: 1;
+
+	@include breakpoint($medium) {
+		z-index: 2;
+	}
+	@include breakpoint($large) {
+		z-index: 3;
+	}
+}

@@ -154,19 +154,3 @@ dl {
 dd {
 	margin: 0 0 0 40px;
 }
-
-/* 	Breakpoint indicator
-	------------------------------------------------------- */
-.breakpoint-context {
-	position: absolute;
-    top: -999em;
-    left: -999em;
-	z-index: 1;
-
-	@include breakpoint($medium) {
-		z-index: 2;
-	}
-	@include breakpoint($large) {
-		z-index: 3;
-	}
-}
