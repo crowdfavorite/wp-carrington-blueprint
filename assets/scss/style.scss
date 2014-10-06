@@ -32,11 +32,6 @@ $small: 480px;
 $medium: 760px;
 $large: 1025px;
 
-// Media Query Mixin
-@mixin breakpoint($bp, $range: min) {
-	@media (#{$range}-width: $bp)  { @content; }
-}
-
 // --------------------------------------------------
 // Image Versioning Functions: use these for all image references in SCSS.
 // --------------------------------------------------
