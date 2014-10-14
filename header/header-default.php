@@ -17,6 +17,7 @@
 if ( __FILE__ == $_SERVER['SCRIPT_FILENAME'] ) { die(); }
 if ( CFCT_DEBUG ) { cfct_banner( __FILE__ ); }
 
+$blog_name = get_bloginfo( 'name' );
 $blog_desc = get_bloginfo( 'description' );
 $title_description = ( is_home() && !empty( $blog_desc ) ? ' - ' . $blog_desc : '' );
 
@@ -29,7 +30,7 @@ $title_description = ( is_home() && !empty( $blog_desc ) ? ' - ' . $blog_desc : 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ) ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?php wp_title( '-', true, 'right' ); echo esc_html( get_bloginfo('name'), 1 ) . $title_description; ?></title>
+	<title><?php wp_title( '-', true, 'right' ); echo esc_html( $blog_name, 1 ) . $title_description; ?></title>
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/favicon.ico"  type="image/x-icon" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -42,7 +43,7 @@ $title_description = ( is_home() && !empty( $blog_desc ) ? ' - ' . $blog_desc : 
 	<header id="masthead" class="row site-header clearfix">
 		<div class="c1-12">
 			<button id="toggle-menu"><?php _e( 'Menu', 'carrington-blueprint' ); ?></button>
-			<h1 id="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Home', 'carrington-blueprint' ); ?>"><?php esc_html_e( get_bloginfo( 'name' ) ); ?></a></h1>
+			<h1 id="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Home', 'carrington-blueprint' ); ?>"><?php esc_html_e( $blog_name ); ?></a></h1>
 			<nav id="nav-main" role="navigation">
 				<?php wp_nav_menu( array(
 					'container' => '',
